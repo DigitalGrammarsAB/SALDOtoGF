@@ -1,0 +1,906 @@
+{"word":"sliter","head":"slita hund","pos":"vbm","param":"pres ind aktiv 1:1-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"hund","head":"slita hund","pos":"vbm","param":"pres ind aktiv 1:2-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"slites","head":"slita hund","pos":"vbm","param":"pres ind s-form 1:1-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"hund","head":"slita hund","pos":"vbm","param":"pres ind s-form 1:2-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"slits","head":"slita hund","pos":"vbm","param":"pres ind s-form 2:1-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"hund","head":"slita hund","pos":"vbm","param":"pres ind s-form 2:2-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"slite","head":"slita hund","pos":"vbm","param":"pres konj aktiv 1:1-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"hund","head":"slita hund","pos":"vbm","param":"pres konj aktiv 1:2-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"slites","head":"slita hund","pos":"vbm","param":"pres konj s-form 1:1-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"hund","head":"slita hund","pos":"vbm","param":"pres konj s-form 1:2-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"slet","head":"slita hund","pos":"vbm","param":"pret ind aktiv 1:1-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"hund","head":"slita hund","pos":"vbm","param":"pret ind aktiv 1:2-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"slets","head":"slita hund","pos":"vbm","param":"pret ind s-form 1:1-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"hund","head":"slita hund","pos":"vbm","param":"pret ind s-form 1:2-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"slite","head":"slita hund","pos":"vbm","param":"pret konj aktiv 1:1-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"hund","head":"slita hund","pos":"vbm","param":"pret konj aktiv 1:2-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"slites","head":"slita hund","pos":"vbm","param":"pret konj s-form 1:1-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"hund","head":"slita hund","pos":"vbm","param":"pret konj s-form 1:2-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"slit","head":"slita hund","pos":"vbm","param":"imper 1:1-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"hund","head":"slita hund","pos":"vbm","param":"imper 1:2-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"slita","head":"slita hund","pos":"vbm","param":"inf aktiv 1:1-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"hund","head":"slita hund","pos":"vbm","param":"inf aktiv 1:2-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"slitas","head":"slita hund","pos":"vbm","param":"inf s-form 1:1-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"hund","head":"slita hund","pos":"vbm","param":"inf s-form 1:2-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"slitit","head":"slita hund","pos":"vbm","param":"sup aktiv 1:1-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"hund","head":"slita hund","pos":"vbm","param":"sup aktiv 1:2-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"slitits","head":"slita hund","pos":"vbm","param":"sup s-form 1:1-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"hund","head":"slita hund","pos":"vbm","param":"sup s-form 1:2-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"slitande","head":"slita hund","pos":"vbm","param":"pres_part nom 1:1-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"hund","head":"slita hund","pos":"vbm","param":"pres_part nom 1:2-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"slitandes","head":"slita hund","pos":"vbm","param":"pres_part gen 1:1-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"hund","head":"slita hund","pos":"vbm","param":"pres_part gen 1:2-2","inhs":[],"id":"slita_hund..vbm.1","p":"vbm_4ml1_vina","attr":"3"}
+{"word":"röda","head":"röda hund","pos":"pmm","param":"nom 1:1-2","inhs":["u","tm"],"id":"röda_hund..pmm.1","p":"pmm_u0tm_parkinsons_sjukdom","attr":"3"}
+{"word":"hund","head":"röda hund","pos":"pmm","param":"nom 1:2-2","inhs":["u","tm"],"id":"röda_hund..pmm.1","p":"pmm_u0tm_parkinsons_sjukdom","attr":"3"}
+{"word":"röda","head":"röda hund","pos":"pmm","param":"gen 1:1-2","inhs":["u","tm"],"id":"röda_hund..pmm.1","p":"pmm_u0tm_parkinsons_sjukdom","attr":"3"}
+{"word":"hunds","head":"röda hund","pos":"pmm","param":"gen 1:2-2","inhs":["u","tm"],"id":"röda_hund..pmm.1","p":"pmm_u0tm_parkinsons_sjukdom","attr":"3"}
+{"word":"vorstehhund","head":"vorstehhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"vorstehhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vorstehhunds","head":"vorstehhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"vorstehhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vorstehhunden","head":"vorstehhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"vorstehhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vorstehhundens","head":"vorstehhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"vorstehhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vorstehhundar","head":"vorstehhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"vorstehhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vorstehhundars","head":"vorstehhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"vorstehhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vorstehhundarna","head":"vorstehhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"vorstehhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vorstehhundarnas","head":"vorstehhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"vorstehhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vorstehhund-","head":"vorstehhund","pos":"nn","param":"ci","inhs":["u"],"id":"vorstehhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"vorstehhunds-","head":"vorstehhund","pos":"nn","param":"ci","inhs":["u"],"id":"vorstehhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"vorstehhund","head":"vorstehhund","pos":"nn","param":"ci","inhs":["u"],"id":"vorstehhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"vorstehhunds","head":"vorstehhund","pos":"nn","param":"ci","inhs":["u"],"id":"vorstehhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"vorstehhund-","head":"vorstehhund","pos":"nn","param":"cm","inhs":["u"],"id":"vorstehhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"vorstehhunds-","head":"vorstehhund","pos":"nn","param":"cm","inhs":["u"],"id":"vorstehhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"vorstehhund","head":"vorstehhund","pos":"nn","param":"cm","inhs":["u"],"id":"vorstehhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"vorstehhunds","head":"vorstehhund","pos":"nn","param":"cm","inhs":["u"],"id":"vorstehhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"vorstehhund-","head":"vorstehhund","pos":"nn","param":"sms","inhs":["u"],"id":"vorstehhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vorstehhunds-","head":"vorstehhund","pos":"nn","param":"sms","inhs":["u"],"id":"vorstehhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vinthund","head":"vinthund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"vinthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vinthunds","head":"vinthund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"vinthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vinthunden","head":"vinthund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"vinthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vinthundens","head":"vinthund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"vinthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vinthundar","head":"vinthund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"vinthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vinthundars","head":"vinthund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"vinthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vinthundarna","head":"vinthund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"vinthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vinthundarnas","head":"vinthund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"vinthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vinthund-","head":"vinthund","pos":"nn","param":"ci","inhs":["u"],"id":"vinthund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"vinthunds-","head":"vinthund","pos":"nn","param":"ci","inhs":["u"],"id":"vinthund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"vinthund","head":"vinthund","pos":"nn","param":"ci","inhs":["u"],"id":"vinthund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"vinthunds","head":"vinthund","pos":"nn","param":"ci","inhs":["u"],"id":"vinthund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"vinthund-","head":"vinthund","pos":"nn","param":"cm","inhs":["u"],"id":"vinthund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"vinthunds-","head":"vinthund","pos":"nn","param":"cm","inhs":["u"],"id":"vinthund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"vinthund","head":"vinthund","pos":"nn","param":"cm","inhs":["u"],"id":"vinthund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"vinthunds","head":"vinthund","pos":"nn","param":"cm","inhs":["u"],"id":"vinthund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"vinthund-","head":"vinthund","pos":"nn","param":"sms","inhs":["u"],"id":"vinthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vinthunds-","head":"vinthund","pos":"nn","param":"sms","inhs":["u"],"id":"vinthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vallhund","head":"vallhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"vallhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vallhunds","head":"vallhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"vallhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vallhunden","head":"vallhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"vallhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vallhundens","head":"vallhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"vallhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vallhundar","head":"vallhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"vallhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vallhundars","head":"vallhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"vallhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vallhundarna","head":"vallhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"vallhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vallhundarnas","head":"vallhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"vallhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vallhund-","head":"vallhund","pos":"nn","param":"ci","inhs":["u"],"id":"vallhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"vallhunds-","head":"vallhund","pos":"nn","param":"ci","inhs":["u"],"id":"vallhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"vallhund","head":"vallhund","pos":"nn","param":"ci","inhs":["u"],"id":"vallhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"vallhunds","head":"vallhund","pos":"nn","param":"ci","inhs":["u"],"id":"vallhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"vallhund-","head":"vallhund","pos":"nn","param":"cm","inhs":["u"],"id":"vallhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"vallhunds-","head":"vallhund","pos":"nn","param":"cm","inhs":["u"],"id":"vallhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"vallhund","head":"vallhund","pos":"nn","param":"cm","inhs":["u"],"id":"vallhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"vallhunds","head":"vallhund","pos":"nn","param":"cm","inhs":["u"],"id":"vallhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"vallhund-","head":"vallhund","pos":"nn","param":"sms","inhs":["u"],"id":"vallhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vallhunds-","head":"vallhund","pos":"nn","param":"sms","inhs":["u"],"id":"vallhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vakthund","head":"vakthund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"vakthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vakthunds","head":"vakthund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"vakthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vakthunden","head":"vakthund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"vakthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vakthundens","head":"vakthund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"vakthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vakthundar","head":"vakthund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"vakthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vakthundars","head":"vakthund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"vakthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vakthundarna","head":"vakthund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"vakthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vakthundarnas","head":"vakthund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"vakthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vakthund-","head":"vakthund","pos":"nn","param":"ci","inhs":["u"],"id":"vakthund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"vakthunds-","head":"vakthund","pos":"nn","param":"ci","inhs":["u"],"id":"vakthund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"vakthund","head":"vakthund","pos":"nn","param":"ci","inhs":["u"],"id":"vakthund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"vakthunds","head":"vakthund","pos":"nn","param":"ci","inhs":["u"],"id":"vakthund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"vakthund-","head":"vakthund","pos":"nn","param":"cm","inhs":["u"],"id":"vakthund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"vakthunds-","head":"vakthund","pos":"nn","param":"cm","inhs":["u"],"id":"vakthund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"vakthund","head":"vakthund","pos":"nn","param":"cm","inhs":["u"],"id":"vakthund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"vakthunds","head":"vakthund","pos":"nn","param":"cm","inhs":["u"],"id":"vakthund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"vakthund-","head":"vakthund","pos":"nn","param":"sms","inhs":["u"],"id":"vakthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"vakthunds-","head":"vakthund","pos":"nn","param":"sms","inhs":["u"],"id":"vakthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"spetshund","head":"spetshund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"spetshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"spetshunds","head":"spetshund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"spetshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"spetshunden","head":"spetshund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"spetshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"spetshundens","head":"spetshund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"spetshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"spetshundar","head":"spetshund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"spetshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"spetshundars","head":"spetshund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"spetshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"spetshundarna","head":"spetshund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"spetshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"spetshundarnas","head":"spetshund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"spetshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"spetshund-","head":"spetshund","pos":"nn","param":"ci","inhs":["u"],"id":"spetshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"spetshunds-","head":"spetshund","pos":"nn","param":"ci","inhs":["u"],"id":"spetshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"spetshund","head":"spetshund","pos":"nn","param":"ci","inhs":["u"],"id":"spetshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"spetshunds","head":"spetshund","pos":"nn","param":"ci","inhs":["u"],"id":"spetshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"spetshund-","head":"spetshund","pos":"nn","param":"cm","inhs":["u"],"id":"spetshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"spetshunds-","head":"spetshund","pos":"nn","param":"cm","inhs":["u"],"id":"spetshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"spetshund","head":"spetshund","pos":"nn","param":"cm","inhs":["u"],"id":"spetshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"spetshunds","head":"spetshund","pos":"nn","param":"cm","inhs":["u"],"id":"spetshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"spetshund-","head":"spetshund","pos":"nn","param":"sms","inhs":["u"],"id":"spetshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"spetshunds-","head":"spetshund","pos":"nn","param":"sms","inhs":["u"],"id":"spetshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"sanktbernhardshund","head":"sanktbernhardshund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"sanktbernhardshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"sanktbernhardshunds","head":"sanktbernhardshund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"sanktbernhardshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"sanktbernhardshunden","head":"sanktbernhardshund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"sanktbernhardshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"sanktbernhardshundens","head":"sanktbernhardshund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"sanktbernhardshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"sanktbernhardshundar","head":"sanktbernhardshund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"sanktbernhardshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"sanktbernhardshundars","head":"sanktbernhardshund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"sanktbernhardshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"sanktbernhardshundarna","head":"sanktbernhardshund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"sanktbernhardshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"sanktbernhardshundarnas","head":"sanktbernhardshund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"sanktbernhardshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"sanktbernhardshund-","head":"sanktbernhardshund","pos":"nn","param":"ci","inhs":["u"],"id":"sanktbernhardshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"sanktbernhardshunds-","head":"sanktbernhardshund","pos":"nn","param":"ci","inhs":["u"],"id":"sanktbernhardshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"sanktbernhardshund","head":"sanktbernhardshund","pos":"nn","param":"ci","inhs":["u"],"id":"sanktbernhardshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"sanktbernhardshunds","head":"sanktbernhardshund","pos":"nn","param":"ci","inhs":["u"],"id":"sanktbernhardshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"sanktbernhardshund-","head":"sanktbernhardshund","pos":"nn","param":"cm","inhs":["u"],"id":"sanktbernhardshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"sanktbernhardshunds-","head":"sanktbernhardshund","pos":"nn","param":"cm","inhs":["u"],"id":"sanktbernhardshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"sanktbernhardshund","head":"sanktbernhardshund","pos":"nn","param":"cm","inhs":["u"],"id":"sanktbernhardshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"sanktbernhardshunds","head":"sanktbernhardshund","pos":"nn","param":"cm","inhs":["u"],"id":"sanktbernhardshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"sanktbernhardshund-","head":"sanktbernhardshund","pos":"nn","param":"sms","inhs":["u"],"id":"sanktbernhardshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"sanktbernhardshunds-","head":"sanktbernhardshund","pos":"nn","param":"sms","inhs":["u"],"id":"sanktbernhardshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"sanitetshund","head":"sanitetshund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"sanitetshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"sanitetshunds","head":"sanitetshund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"sanitetshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"sanitetshunden","head":"sanitetshund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"sanitetshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"sanitetshundens","head":"sanitetshund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"sanitetshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"sanitetshundar","head":"sanitetshund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"sanitetshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"sanitetshundars","head":"sanitetshund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"sanitetshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"sanitetshundarna","head":"sanitetshund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"sanitetshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"sanitetshundarnas","head":"sanitetshund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"sanitetshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"sanitetshund-","head":"sanitetshund","pos":"nn","param":"ci","inhs":["u"],"id":"sanitetshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"sanitetshunds-","head":"sanitetshund","pos":"nn","param":"ci","inhs":["u"],"id":"sanitetshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"sanitetshund","head":"sanitetshund","pos":"nn","param":"ci","inhs":["u"],"id":"sanitetshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"sanitetshunds","head":"sanitetshund","pos":"nn","param":"ci","inhs":["u"],"id":"sanitetshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"sanitetshund-","head":"sanitetshund","pos":"nn","param":"cm","inhs":["u"],"id":"sanitetshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"sanitetshunds-","head":"sanitetshund","pos":"nn","param":"cm","inhs":["u"],"id":"sanitetshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"sanitetshund","head":"sanitetshund","pos":"nn","param":"cm","inhs":["u"],"id":"sanitetshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"sanitetshunds","head":"sanitetshund","pos":"nn","param":"cm","inhs":["u"],"id":"sanitetshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"sanitetshund-","head":"sanitetshund","pos":"nn","param":"sms","inhs":["u"],"id":"sanitetshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"sanitetshunds-","head":"sanitetshund","pos":"nn","param":"sms","inhs":["u"],"id":"sanitetshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"rävhund","head":"rävhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"rävhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"rävhunds","head":"rävhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"rävhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"rävhunden","head":"rävhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"rävhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"rävhundens","head":"rävhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"rävhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"rävhundar","head":"rävhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"rävhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"rävhundars","head":"rävhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"rävhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"rävhundarna","head":"rävhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"rävhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"rävhundarnas","head":"rävhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"rävhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"rävhund-","head":"rävhund","pos":"nn","param":"ci","inhs":["u"],"id":"rävhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"rävhunds-","head":"rävhund","pos":"nn","param":"ci","inhs":["u"],"id":"rävhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"rävhund","head":"rävhund","pos":"nn","param":"ci","inhs":["u"],"id":"rävhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"rävhunds","head":"rävhund","pos":"nn","param":"ci","inhs":["u"],"id":"rävhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"rävhund-","head":"rävhund","pos":"nn","param":"cm","inhs":["u"],"id":"rävhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"rävhunds-","head":"rävhund","pos":"nn","param":"cm","inhs":["u"],"id":"rävhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"rävhund","head":"rävhund","pos":"nn","param":"cm","inhs":["u"],"id":"rävhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"rävhunds","head":"rävhund","pos":"nn","param":"cm","inhs":["u"],"id":"rävhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"rävhund-","head":"rävhund","pos":"nn","param":"sms","inhs":["u"],"id":"rävhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"rävhunds-","head":"rävhund","pos":"nn","param":"sms","inhs":["u"],"id":"rävhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"polishund","head":"polishund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"polishund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"polishunds","head":"polishund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"polishund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"polishunden","head":"polishund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"polishund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"polishundens","head":"polishund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"polishund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"polishundar","head":"polishund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"polishund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"polishundars","head":"polishund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"polishund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"polishundarna","head":"polishund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"polishund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"polishundarnas","head":"polishund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"polishund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"polishund-","head":"polishund","pos":"nn","param":"ci","inhs":["u"],"id":"polishund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"polishunds-","head":"polishund","pos":"nn","param":"ci","inhs":["u"],"id":"polishund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"polishund","head":"polishund","pos":"nn","param":"ci","inhs":["u"],"id":"polishund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"polishunds","head":"polishund","pos":"nn","param":"ci","inhs":["u"],"id":"polishund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"polishund-","head":"polishund","pos":"nn","param":"cm","inhs":["u"],"id":"polishund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"polishunds-","head":"polishund","pos":"nn","param":"cm","inhs":["u"],"id":"polishund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"polishund","head":"polishund","pos":"nn","param":"cm","inhs":["u"],"id":"polishund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"polishunds","head":"polishund","pos":"nn","param":"cm","inhs":["u"],"id":"polishund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"polishund-","head":"polishund","pos":"nn","param":"sms","inhs":["u"],"id":"polishund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"polishunds-","head":"polishund","pos":"nn","param":"sms","inhs":["u"],"id":"polishund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"okynneshund","head":"okynneshund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"okynneshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"okynneshunds","head":"okynneshund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"okynneshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"okynneshunden","head":"okynneshund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"okynneshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"okynneshundens","head":"okynneshund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"okynneshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"okynneshundar","head":"okynneshund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"okynneshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"okynneshundars","head":"okynneshund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"okynneshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"okynneshundarna","head":"okynneshund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"okynneshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"okynneshundarnas","head":"okynneshund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"okynneshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"okynneshund-","head":"okynneshund","pos":"nn","param":"ci","inhs":["u"],"id":"okynneshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"okynneshunds-","head":"okynneshund","pos":"nn","param":"ci","inhs":["u"],"id":"okynneshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"okynneshund","head":"okynneshund","pos":"nn","param":"ci","inhs":["u"],"id":"okynneshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"okynneshunds","head":"okynneshund","pos":"nn","param":"ci","inhs":["u"],"id":"okynneshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"okynneshund-","head":"okynneshund","pos":"nn","param":"cm","inhs":["u"],"id":"okynneshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"okynneshunds-","head":"okynneshund","pos":"nn","param":"cm","inhs":["u"],"id":"okynneshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"okynneshund","head":"okynneshund","pos":"nn","param":"cm","inhs":["u"],"id":"okynneshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"okynneshunds","head":"okynneshund","pos":"nn","param":"cm","inhs":["u"],"id":"okynneshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"okynneshund-","head":"okynneshund","pos":"nn","param":"sms","inhs":["u"],"id":"okynneshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"okynneshunds-","head":"okynneshund","pos":"nn","param":"sms","inhs":["u"],"id":"okynneshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"newfoundlandshund","head":"newfoundlandshund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"newfoundlandshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"newfoundlandshunds","head":"newfoundlandshund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"newfoundlandshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"newfoundlandshunden","head":"newfoundlandshund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"newfoundlandshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"newfoundlandshundens","head":"newfoundlandshund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"newfoundlandshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"newfoundlandshundar","head":"newfoundlandshund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"newfoundlandshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"newfoundlandshundars","head":"newfoundlandshund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"newfoundlandshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"newfoundlandshundarna","head":"newfoundlandshund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"newfoundlandshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"newfoundlandshundarnas","head":"newfoundlandshund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"newfoundlandshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"newfoundlandshund-","head":"newfoundlandshund","pos":"nn","param":"ci","inhs":["u"],"id":"newfoundlandshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"newfoundlandshunds-","head":"newfoundlandshund","pos":"nn","param":"ci","inhs":["u"],"id":"newfoundlandshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"newfoundlandshund","head":"newfoundlandshund","pos":"nn","param":"ci","inhs":["u"],"id":"newfoundlandshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"newfoundlandshunds","head":"newfoundlandshund","pos":"nn","param":"ci","inhs":["u"],"id":"newfoundlandshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"newfoundlandshund-","head":"newfoundlandshund","pos":"nn","param":"cm","inhs":["u"],"id":"newfoundlandshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"newfoundlandshunds-","head":"newfoundlandshund","pos":"nn","param":"cm","inhs":["u"],"id":"newfoundlandshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"newfoundlandshund","head":"newfoundlandshund","pos":"nn","param":"cm","inhs":["u"],"id":"newfoundlandshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"newfoundlandshunds","head":"newfoundlandshund","pos":"nn","param":"cm","inhs":["u"],"id":"newfoundlandshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"newfoundlandshund-","head":"newfoundlandshund","pos":"nn","param":"sms","inhs":["u"],"id":"newfoundlandshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"newfoundlandshunds-","head":"newfoundlandshund","pos":"nn","param":"sms","inhs":["u"],"id":"newfoundlandshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"mördarhund","head":"mördarhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"mördarhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"mördarhunds","head":"mördarhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"mördarhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"mördarhunden","head":"mördarhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"mördarhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"mördarhundens","head":"mördarhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"mördarhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"mördarhundar","head":"mördarhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"mördarhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"mördarhundars","head":"mördarhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"mördarhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"mördarhundarna","head":"mördarhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"mördarhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"mördarhundarnas","head":"mördarhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"mördarhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"mördarhund-","head":"mördarhund","pos":"nn","param":"ci","inhs":["u"],"id":"mördarhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"mördarhunds-","head":"mördarhund","pos":"nn","param":"ci","inhs":["u"],"id":"mördarhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"mördarhund","head":"mördarhund","pos":"nn","param":"ci","inhs":["u"],"id":"mördarhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"mördarhunds","head":"mördarhund","pos":"nn","param":"ci","inhs":["u"],"id":"mördarhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"mördarhund-","head":"mördarhund","pos":"nn","param":"cm","inhs":["u"],"id":"mördarhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"mördarhunds-","head":"mördarhund","pos":"nn","param":"cm","inhs":["u"],"id":"mördarhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"mördarhund","head":"mördarhund","pos":"nn","param":"cm","inhs":["u"],"id":"mördarhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"mördarhunds","head":"mördarhund","pos":"nn","param":"cm","inhs":["u"],"id":"mördarhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"mördarhund-","head":"mördarhund","pos":"nn","param":"sms","inhs":["u"],"id":"mördarhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"mördarhunds-","head":"mördarhund","pos":"nn","param":"sms","inhs":["u"],"id":"mördarhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"malteserhund","head":"malteserhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"malteserhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"malteserhunds","head":"malteserhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"malteserhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"malteserhunden","head":"malteserhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"malteserhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"malteserhundens","head":"malteserhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"malteserhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"malteserhundar","head":"malteserhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"malteserhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"malteserhundars","head":"malteserhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"malteserhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"malteserhundarna","head":"malteserhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"malteserhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"malteserhundarnas","head":"malteserhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"malteserhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"malteserhund-","head":"malteserhund","pos":"nn","param":"ci","inhs":["u"],"id":"malteserhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"malteserhunds-","head":"malteserhund","pos":"nn","param":"ci","inhs":["u"],"id":"malteserhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"malteserhund","head":"malteserhund","pos":"nn","param":"ci","inhs":["u"],"id":"malteserhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"malteserhunds","head":"malteserhund","pos":"nn","param":"ci","inhs":["u"],"id":"malteserhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"malteserhund-","head":"malteserhund","pos":"nn","param":"cm","inhs":["u"],"id":"malteserhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"malteserhunds-","head":"malteserhund","pos":"nn","param":"cm","inhs":["u"],"id":"malteserhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"malteserhund","head":"malteserhund","pos":"nn","param":"cm","inhs":["u"],"id":"malteserhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"malteserhunds","head":"malteserhund","pos":"nn","param":"cm","inhs":["u"],"id":"malteserhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"malteserhund-","head":"malteserhund","pos":"nn","param":"sms","inhs":["u"],"id":"malteserhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"malteserhunds-","head":"malteserhund","pos":"nn","param":"sms","inhs":["u"],"id":"malteserhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"lathund","head":"lathund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"lathund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"lathunds","head":"lathund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"lathund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"lathunden","head":"lathund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"lathund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"lathundens","head":"lathund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"lathund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"lathundar","head":"lathund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"lathund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"lathundars","head":"lathund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"lathund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"lathundarna","head":"lathund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"lathund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"lathundarnas","head":"lathund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"lathund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"lathund-","head":"lathund","pos":"nn","param":"ci","inhs":["u"],"id":"lathund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"lathunds-","head":"lathund","pos":"nn","param":"ci","inhs":["u"],"id":"lathund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"lathund","head":"lathund","pos":"nn","param":"ci","inhs":["u"],"id":"lathund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"lathunds","head":"lathund","pos":"nn","param":"ci","inhs":["u"],"id":"lathund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"lathund-","head":"lathund","pos":"nn","param":"cm","inhs":["u"],"id":"lathund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"lathunds-","head":"lathund","pos":"nn","param":"cm","inhs":["u"],"id":"lathund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"lathund","head":"lathund","pos":"nn","param":"cm","inhs":["u"],"id":"lathund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"lathunds","head":"lathund","pos":"nn","param":"cm","inhs":["u"],"id":"lathund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"lathund-","head":"lathund","pos":"nn","param":"sms","inhs":["u"],"id":"lathund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"lathunds-","head":"lathund","pos":"nn","param":"sms","inhs":["u"],"id":"lathund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"lapphund","head":"lapphund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"lapphund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"lapphunds","head":"lapphund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"lapphund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"lapphunden","head":"lapphund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"lapphund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"lapphundens","head":"lapphund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"lapphund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"lapphundar","head":"lapphund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"lapphund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"lapphundars","head":"lapphund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"lapphund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"lapphundarna","head":"lapphund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"lapphund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"lapphundarnas","head":"lapphund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"lapphund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"lapphund-","head":"lapphund","pos":"nn","param":"ci","inhs":["u"],"id":"lapphund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"lapphunds-","head":"lapphund","pos":"nn","param":"ci","inhs":["u"],"id":"lapphund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"lapphund","head":"lapphund","pos":"nn","param":"ci","inhs":["u"],"id":"lapphund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"lapphunds","head":"lapphund","pos":"nn","param":"ci","inhs":["u"],"id":"lapphund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"lapphund-","head":"lapphund","pos":"nn","param":"cm","inhs":["u"],"id":"lapphund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"lapphunds-","head":"lapphund","pos":"nn","param":"cm","inhs":["u"],"id":"lapphund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"lapphund","head":"lapphund","pos":"nn","param":"cm","inhs":["u"],"id":"lapphund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"lapphunds","head":"lapphund","pos":"nn","param":"cm","inhs":["u"],"id":"lapphund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"lapphund-","head":"lapphund","pos":"nn","param":"sms","inhs":["u"],"id":"lapphund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"lapphunds-","head":"lapphund","pos":"nn","param":"sms","inhs":["u"],"id":"lapphund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"knähund","head":"knähund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"knähund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"knähunds","head":"knähund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"knähund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"knähunden","head":"knähund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"knähund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"knähundens","head":"knähund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"knähund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"knähundar","head":"knähund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"knähund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"knähundars","head":"knähund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"knähund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"knähundarna","head":"knähund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"knähund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"knähundarnas","head":"knähund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"knähund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"knähund-","head":"knähund","pos":"nn","param":"ci","inhs":["u"],"id":"knähund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"knähunds-","head":"knähund","pos":"nn","param":"ci","inhs":["u"],"id":"knähund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"knähund","head":"knähund","pos":"nn","param":"ci","inhs":["u"],"id":"knähund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"knähunds","head":"knähund","pos":"nn","param":"ci","inhs":["u"],"id":"knähund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"knähund-","head":"knähund","pos":"nn","param":"cm","inhs":["u"],"id":"knähund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"knähunds-","head":"knähund","pos":"nn","param":"cm","inhs":["u"],"id":"knähund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"knähund","head":"knähund","pos":"nn","param":"cm","inhs":["u"],"id":"knähund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"knähunds","head":"knähund","pos":"nn","param":"cm","inhs":["u"],"id":"knähund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"knähund-","head":"knähund","pos":"nn","param":"sms","inhs":["u"],"id":"knähund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"knähunds-","head":"knähund","pos":"nn","param":"sms","inhs":["u"],"id":"knähund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"jämthund","head":"jämthund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"jämthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"jämthunds","head":"jämthund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"jämthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"jämthunden","head":"jämthund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"jämthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"jämthundens","head":"jämthund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"jämthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"jämthundar","head":"jämthund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"jämthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"jämthundars","head":"jämthund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"jämthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"jämthundarna","head":"jämthund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"jämthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"jämthundarnas","head":"jämthund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"jämthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"jämthund-","head":"jämthund","pos":"nn","param":"ci","inhs":["u"],"id":"jämthund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"jämthunds-","head":"jämthund","pos":"nn","param":"ci","inhs":["u"],"id":"jämthund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"jämthund","head":"jämthund","pos":"nn","param":"ci","inhs":["u"],"id":"jämthund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"jämthunds","head":"jämthund","pos":"nn","param":"ci","inhs":["u"],"id":"jämthund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"jämthund-","head":"jämthund","pos":"nn","param":"cm","inhs":["u"],"id":"jämthund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"jämthunds-","head":"jämthund","pos":"nn","param":"cm","inhs":["u"],"id":"jämthund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"jämthund","head":"jämthund","pos":"nn","param":"cm","inhs":["u"],"id":"jämthund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"jämthunds","head":"jämthund","pos":"nn","param":"cm","inhs":["u"],"id":"jämthund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"jämthund-","head":"jämthund","pos":"nn","param":"sms","inhs":["u"],"id":"jämthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"jämthunds-","head":"jämthund","pos":"nn","param":"sms","inhs":["u"],"id":"jämthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"jakthund","head":"jakthund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"jakthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"jakthunds","head":"jakthund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"jakthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"jakthunden","head":"jakthund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"jakthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"jakthundens","head":"jakthund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"jakthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"jakthundar","head":"jakthund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"jakthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"jakthundars","head":"jakthund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"jakthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"jakthundarna","head":"jakthund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"jakthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"jakthundarnas","head":"jakthund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"jakthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"jakthund-","head":"jakthund","pos":"nn","param":"ci","inhs":["u"],"id":"jakthund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"jakthunds-","head":"jakthund","pos":"nn","param":"ci","inhs":["u"],"id":"jakthund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"jakthund","head":"jakthund","pos":"nn","param":"ci","inhs":["u"],"id":"jakthund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"jakthunds","head":"jakthund","pos":"nn","param":"ci","inhs":["u"],"id":"jakthund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"jakthund-","head":"jakthund","pos":"nn","param":"cm","inhs":["u"],"id":"jakthund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"jakthunds-","head":"jakthund","pos":"nn","param":"cm","inhs":["u"],"id":"jakthund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"jakthund","head":"jakthund","pos":"nn","param":"cm","inhs":["u"],"id":"jakthund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"jakthunds","head":"jakthund","pos":"nn","param":"cm","inhs":["u"],"id":"jakthund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"jakthund-","head":"jakthund","pos":"nn","param":"sms","inhs":["u"],"id":"jakthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"jakthunds-","head":"jakthund","pos":"nn","param":"sms","inhs":["u"],"id":"jakthund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"hjältehund","head":"hjältehund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"hjältehund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"hjältehunds","head":"hjältehund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"hjältehund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"hjältehunden","head":"hjältehund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"hjältehund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"hjältehundens","head":"hjältehund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"hjältehund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"hjältehundar","head":"hjältehund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"hjältehund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"hjältehundars","head":"hjältehund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"hjältehund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"hjältehundarna","head":"hjältehund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"hjältehund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"hjältehundarnas","head":"hjältehund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"hjältehund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"hjältehund-","head":"hjältehund","pos":"nn","param":"ci","inhs":["u"],"id":"hjältehund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"hjältehunds-","head":"hjältehund","pos":"nn","param":"ci","inhs":["u"],"id":"hjältehund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"hjältehund","head":"hjältehund","pos":"nn","param":"ci","inhs":["u"],"id":"hjältehund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"hjältehunds","head":"hjältehund","pos":"nn","param":"ci","inhs":["u"],"id":"hjältehund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"hjältehund-","head":"hjältehund","pos":"nn","param":"cm","inhs":["u"],"id":"hjältehund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"hjältehunds-","head":"hjältehund","pos":"nn","param":"cm","inhs":["u"],"id":"hjältehund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"hjältehund","head":"hjältehund","pos":"nn","param":"cm","inhs":["u"],"id":"hjältehund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"hjältehunds","head":"hjältehund","pos":"nn","param":"cm","inhs":["u"],"id":"hjältehund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"hjältehund-","head":"hjältehund","pos":"nn","param":"sms","inhs":["u"],"id":"hjältehund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"hjältehunds-","head":"hjältehund","pos":"nn","param":"sms","inhs":["u"],"id":"hjältehund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"grävlingshund","head":"grävlingshund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"grävlingshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"grävlingshunds","head":"grävlingshund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"grävlingshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"grävlingshunden","head":"grävlingshund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"grävlingshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"grävlingshundens","head":"grävlingshund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"grävlingshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"grävlingshundar","head":"grävlingshund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"grävlingshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"grävlingshundars","head":"grävlingshund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"grävlingshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"grävlingshundarna","head":"grävlingshund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"grävlingshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"grävlingshundarnas","head":"grävlingshund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"grävlingshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"grävlingshund-","head":"grävlingshund","pos":"nn","param":"ci","inhs":["u"],"id":"grävlingshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"grävlingshunds-","head":"grävlingshund","pos":"nn","param":"ci","inhs":["u"],"id":"grävlingshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"grävlingshund","head":"grävlingshund","pos":"nn","param":"ci","inhs":["u"],"id":"grävlingshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"grävlingshunds","head":"grävlingshund","pos":"nn","param":"ci","inhs":["u"],"id":"grävlingshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"grävlingshund-","head":"grävlingshund","pos":"nn","param":"cm","inhs":["u"],"id":"grävlingshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"grävlingshunds-","head":"grävlingshund","pos":"nn","param":"cm","inhs":["u"],"id":"grävlingshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"grävlingshund","head":"grävlingshund","pos":"nn","param":"cm","inhs":["u"],"id":"grävlingshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"grävlingshunds","head":"grävlingshund","pos":"nn","param":"cm","inhs":["u"],"id":"grävlingshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"grävlingshund-","head":"grävlingshund","pos":"nn","param":"sms","inhs":["u"],"id":"grävlingshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"grävlingshunds-","head":"grävlingshund","pos":"nn","param":"sms","inhs":["u"],"id":"grävlingshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"gråhund","head":"gråhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"gråhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"gråhunds","head":"gråhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"gråhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"gråhunden","head":"gråhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"gråhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"gråhundens","head":"gråhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"gråhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"gråhundar","head":"gråhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"gråhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"gråhundars","head":"gråhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"gråhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"gråhundarna","head":"gråhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"gråhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"gråhundarnas","head":"gråhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"gråhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"gråhund-","head":"gråhund","pos":"nn","param":"ci","inhs":["u"],"id":"gråhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"gråhunds-","head":"gråhund","pos":"nn","param":"ci","inhs":["u"],"id":"gråhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"gråhund","head":"gråhund","pos":"nn","param":"ci","inhs":["u"],"id":"gråhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"gråhunds","head":"gråhund","pos":"nn","param":"ci","inhs":["u"],"id":"gråhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"gråhund-","head":"gråhund","pos":"nn","param":"cm","inhs":["u"],"id":"gråhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"gråhunds-","head":"gråhund","pos":"nn","param":"cm","inhs":["u"],"id":"gråhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"gråhund","head":"gråhund","pos":"nn","param":"cm","inhs":["u"],"id":"gråhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"gråhunds","head":"gråhund","pos":"nn","param":"cm","inhs":["u"],"id":"gråhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"gråhund-","head":"gråhund","pos":"nn","param":"sms","inhs":["u"],"id":"gråhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"gråhunds-","head":"gråhund","pos":"nn","param":"sms","inhs":["u"],"id":"gråhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"grythund","head":"grythund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"grythund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"grythunds","head":"grythund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"grythund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"grythunden","head":"grythund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"grythund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"grythundens","head":"grythund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"grythund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"grythundar","head":"grythund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"grythund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"grythundars","head":"grythund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"grythund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"grythundarna","head":"grythund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"grythund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"grythundarnas","head":"grythund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"grythund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"grythund-","head":"grythund","pos":"nn","param":"ci","inhs":["u"],"id":"grythund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"grythunds-","head":"grythund","pos":"nn","param":"ci","inhs":["u"],"id":"grythund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"grythund","head":"grythund","pos":"nn","param":"ci","inhs":["u"],"id":"grythund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"grythunds","head":"grythund","pos":"nn","param":"ci","inhs":["u"],"id":"grythund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"grythund-","head":"grythund","pos":"nn","param":"cm","inhs":["u"],"id":"grythund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"grythunds-","head":"grythund","pos":"nn","param":"cm","inhs":["u"],"id":"grythund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"grythund","head":"grythund","pos":"nn","param":"cm","inhs":["u"],"id":"grythund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"grythunds","head":"grythund","pos":"nn","param":"cm","inhs":["u"],"id":"grythund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"grythund-","head":"grythund","pos":"nn","param":"sms","inhs":["u"],"id":"grythund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"grythunds-","head":"grythund","pos":"nn","param":"sms","inhs":["u"],"id":"grythund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"gruvhund","head":"gruvhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"gruvhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"gruvhunds","head":"gruvhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"gruvhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"gruvhunden","head":"gruvhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"gruvhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"gruvhundens","head":"gruvhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"gruvhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"gruvhundar","head":"gruvhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"gruvhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"gruvhundars","head":"gruvhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"gruvhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"gruvhundarna","head":"gruvhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"gruvhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"gruvhundarnas","head":"gruvhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"gruvhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"gruvhund-","head":"gruvhund","pos":"nn","param":"ci","inhs":["u"],"id":"gruvhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"gruvhunds-","head":"gruvhund","pos":"nn","param":"ci","inhs":["u"],"id":"gruvhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"gruvhund","head":"gruvhund","pos":"nn","param":"ci","inhs":["u"],"id":"gruvhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"gruvhunds","head":"gruvhund","pos":"nn","param":"ci","inhs":["u"],"id":"gruvhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"gruvhund-","head":"gruvhund","pos":"nn","param":"cm","inhs":["u"],"id":"gruvhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"gruvhunds-","head":"gruvhund","pos":"nn","param":"cm","inhs":["u"],"id":"gruvhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"gruvhund","head":"gruvhund","pos":"nn","param":"cm","inhs":["u"],"id":"gruvhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"gruvhunds","head":"gruvhund","pos":"nn","param":"cm","inhs":["u"],"id":"gruvhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"gruvhund-","head":"gruvhund","pos":"nn","param":"sms","inhs":["u"],"id":"gruvhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"gruvhunds-","head":"gruvhund","pos":"nn","param":"sms","inhs":["u"],"id":"gruvhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"fårhund","head":"fårhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"fårhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"fårhunds","head":"fårhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"fårhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"fårhunden","head":"fårhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"fårhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"fårhundens","head":"fårhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"fårhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"fårhundar","head":"fårhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"fårhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"fårhundars","head":"fårhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"fårhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"fårhundarna","head":"fårhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"fårhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"fårhundarnas","head":"fårhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"fårhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"fårhund-","head":"fårhund","pos":"nn","param":"ci","inhs":["u"],"id":"fårhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"fårhunds-","head":"fårhund","pos":"nn","param":"ci","inhs":["u"],"id":"fårhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"fårhund","head":"fårhund","pos":"nn","param":"ci","inhs":["u"],"id":"fårhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"fårhunds","head":"fårhund","pos":"nn","param":"ci","inhs":["u"],"id":"fårhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"fårhund-","head":"fårhund","pos":"nn","param":"cm","inhs":["u"],"id":"fårhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"fårhunds-","head":"fårhund","pos":"nn","param":"cm","inhs":["u"],"id":"fårhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"fårhund","head":"fårhund","pos":"nn","param":"cm","inhs":["u"],"id":"fårhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"fårhunds","head":"fårhund","pos":"nn","param":"cm","inhs":["u"],"id":"fårhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"fårhund-","head":"fårhund","pos":"nn","param":"sms","inhs":["u"],"id":"fårhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"fårhunds-","head":"fårhund","pos":"nn","param":"sms","inhs":["u"],"id":"fårhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"fågelhund","head":"fågelhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"fågelhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"fågelhunds","head":"fågelhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"fågelhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"fågelhunden","head":"fågelhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"fågelhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"fågelhundens","head":"fågelhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"fågelhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"fågelhundar","head":"fågelhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"fågelhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"fågelhundars","head":"fågelhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"fågelhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"fågelhundarna","head":"fågelhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"fågelhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"fågelhundarnas","head":"fågelhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"fågelhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"fågelhund-","head":"fågelhund","pos":"nn","param":"ci","inhs":["u"],"id":"fågelhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"fågelhunds-","head":"fågelhund","pos":"nn","param":"ci","inhs":["u"],"id":"fågelhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"fågelhund","head":"fågelhund","pos":"nn","param":"ci","inhs":["u"],"id":"fågelhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"fågelhunds","head":"fågelhund","pos":"nn","param":"ci","inhs":["u"],"id":"fågelhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"fågelhund-","head":"fågelhund","pos":"nn","param":"cm","inhs":["u"],"id":"fågelhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"fågelhunds-","head":"fågelhund","pos":"nn","param":"cm","inhs":["u"],"id":"fågelhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"fågelhund","head":"fågelhund","pos":"nn","param":"cm","inhs":["u"],"id":"fågelhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"fågelhunds","head":"fågelhund","pos":"nn","param":"cm","inhs":["u"],"id":"fågelhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"fågelhund-","head":"fågelhund","pos":"nn","param":"sms","inhs":["u"],"id":"fågelhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"fågelhunds-","head":"fågelhund","pos":"nn","param":"sms","inhs":["u"],"id":"fågelhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"flyghund","head":"flyghund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"flyghund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"flyghunds","head":"flyghund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"flyghund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"flyghunden","head":"flyghund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"flyghund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"flyghundens","head":"flyghund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"flyghund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"flyghundar","head":"flyghund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"flyghund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"flyghundars","head":"flyghund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"flyghund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"flyghundarna","head":"flyghund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"flyghund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"flyghundarnas","head":"flyghund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"flyghund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"flyghund-","head":"flyghund","pos":"nn","param":"ci","inhs":["u"],"id":"flyghund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"flyghunds-","head":"flyghund","pos":"nn","param":"ci","inhs":["u"],"id":"flyghund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"flyghund","head":"flyghund","pos":"nn","param":"ci","inhs":["u"],"id":"flyghund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"flyghunds","head":"flyghund","pos":"nn","param":"ci","inhs":["u"],"id":"flyghund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"flyghund-","head":"flyghund","pos":"nn","param":"cm","inhs":["u"],"id":"flyghund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"flyghunds-","head":"flyghund","pos":"nn","param":"cm","inhs":["u"],"id":"flyghund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"flyghund","head":"flyghund","pos":"nn","param":"cm","inhs":["u"],"id":"flyghund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"flyghunds","head":"flyghund","pos":"nn","param":"cm","inhs":["u"],"id":"flyghund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"flyghund-","head":"flyghund","pos":"nn","param":"sms","inhs":["u"],"id":"flyghund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"flyghunds-","head":"flyghund","pos":"nn","param":"sms","inhs":["u"],"id":"flyghund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"eskimåhund","head":"eskimåhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"eskimåhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"eskimåhunds","head":"eskimåhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"eskimåhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"eskimåhunden","head":"eskimåhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"eskimåhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"eskimåhundens","head":"eskimåhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"eskimåhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"eskimåhundar","head":"eskimåhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"eskimåhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"eskimåhundars","head":"eskimåhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"eskimåhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"eskimåhundarna","head":"eskimåhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"eskimåhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"eskimåhundarnas","head":"eskimåhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"eskimåhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"eskimåhund-","head":"eskimåhund","pos":"nn","param":"ci","inhs":["u"],"id":"eskimåhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"eskimåhunds-","head":"eskimåhund","pos":"nn","param":"ci","inhs":["u"],"id":"eskimåhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"eskimåhund","head":"eskimåhund","pos":"nn","param":"ci","inhs":["u"],"id":"eskimåhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"eskimåhunds","head":"eskimåhund","pos":"nn","param":"ci","inhs":["u"],"id":"eskimåhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"eskimåhund-","head":"eskimåhund","pos":"nn","param":"cm","inhs":["u"],"id":"eskimåhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"eskimåhunds-","head":"eskimåhund","pos":"nn","param":"cm","inhs":["u"],"id":"eskimåhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"eskimåhund","head":"eskimåhund","pos":"nn","param":"cm","inhs":["u"],"id":"eskimåhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"eskimåhunds","head":"eskimåhund","pos":"nn","param":"cm","inhs":["u"],"id":"eskimåhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"eskimåhund-","head":"eskimåhund","pos":"nn","param":"sms","inhs":["u"],"id":"eskimåhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"eskimåhunds-","head":"eskimåhund","pos":"nn","param":"sms","inhs":["u"],"id":"eskimåhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"eldhund","head":"eldhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"eldhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"eldhunds","head":"eldhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"eldhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"eldhunden","head":"eldhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"eldhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"eldhundens","head":"eldhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"eldhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"eldhundar","head":"eldhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"eldhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"eldhundars","head":"eldhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"eldhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"eldhundarna","head":"eldhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"eldhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"eldhundarnas","head":"eldhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"eldhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"eldhund-","head":"eldhund","pos":"nn","param":"ci","inhs":["u"],"id":"eldhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"eldhunds-","head":"eldhund","pos":"nn","param":"ci","inhs":["u"],"id":"eldhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"eldhund","head":"eldhund","pos":"nn","param":"ci","inhs":["u"],"id":"eldhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"eldhunds","head":"eldhund","pos":"nn","param":"ci","inhs":["u"],"id":"eldhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"eldhund-","head":"eldhund","pos":"nn","param":"cm","inhs":["u"],"id":"eldhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"eldhunds-","head":"eldhund","pos":"nn","param":"cm","inhs":["u"],"id":"eldhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"eldhund","head":"eldhund","pos":"nn","param":"cm","inhs":["u"],"id":"eldhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"eldhunds","head":"eldhund","pos":"nn","param":"cm","inhs":["u"],"id":"eldhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"eldhund-","head":"eldhund","pos":"nn","param":"sms","inhs":["u"],"id":"eldhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"eldhunds-","head":"eldhund","pos":"nn","param":"sms","inhs":["u"],"id":"eldhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"dvärghund","head":"dvärghund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"dvärghund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"dvärghunds","head":"dvärghund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"dvärghund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"dvärghunden","head":"dvärghund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"dvärghund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"dvärghundens","head":"dvärghund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"dvärghund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"dvärghundar","head":"dvärghund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"dvärghund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"dvärghundars","head":"dvärghund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"dvärghund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"dvärghundarna","head":"dvärghund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"dvärghund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"dvärghundarnas","head":"dvärghund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"dvärghund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"dvärghund-","head":"dvärghund","pos":"nn","param":"ci","inhs":["u"],"id":"dvärghund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"dvärghunds-","head":"dvärghund","pos":"nn","param":"ci","inhs":["u"],"id":"dvärghund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"dvärghund","head":"dvärghund","pos":"nn","param":"ci","inhs":["u"],"id":"dvärghund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"dvärghunds","head":"dvärghund","pos":"nn","param":"ci","inhs":["u"],"id":"dvärghund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"dvärghund-","head":"dvärghund","pos":"nn","param":"cm","inhs":["u"],"id":"dvärghund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"dvärghunds-","head":"dvärghund","pos":"nn","param":"cm","inhs":["u"],"id":"dvärghund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"dvärghund","head":"dvärghund","pos":"nn","param":"cm","inhs":["u"],"id":"dvärghund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"dvärghunds","head":"dvärghund","pos":"nn","param":"cm","inhs":["u"],"id":"dvärghund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"dvärghund-","head":"dvärghund","pos":"nn","param":"sms","inhs":["u"],"id":"dvärghund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"dvärghunds-","head":"dvärghund","pos":"nn","param":"sms","inhs":["u"],"id":"dvärghund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"drevhund","head":"drevhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"drevhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"drevhunds","head":"drevhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"drevhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"drevhunden","head":"drevhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"drevhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"drevhundens","head":"drevhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"drevhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"drevhundar","head":"drevhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"drevhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"drevhundars","head":"drevhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"drevhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"drevhundarna","head":"drevhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"drevhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"drevhundarnas","head":"drevhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"drevhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"drevhund-","head":"drevhund","pos":"nn","param":"ci","inhs":["u"],"id":"drevhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"drevhunds-","head":"drevhund","pos":"nn","param":"ci","inhs":["u"],"id":"drevhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"drevhund","head":"drevhund","pos":"nn","param":"ci","inhs":["u"],"id":"drevhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"drevhunds","head":"drevhund","pos":"nn","param":"ci","inhs":["u"],"id":"drevhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"drevhund-","head":"drevhund","pos":"nn","param":"cm","inhs":["u"],"id":"drevhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"drevhunds-","head":"drevhund","pos":"nn","param":"cm","inhs":["u"],"id":"drevhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"drevhund","head":"drevhund","pos":"nn","param":"cm","inhs":["u"],"id":"drevhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"drevhunds","head":"drevhund","pos":"nn","param":"cm","inhs":["u"],"id":"drevhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"drevhund-","head":"drevhund","pos":"nn","param":"sms","inhs":["u"],"id":"drevhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"drevhunds-","head":"drevhund","pos":"nn","param":"sms","inhs":["u"],"id":"drevhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"brukshund","head":"brukshund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"brukshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"brukshunds","head":"brukshund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"brukshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"brukshunden","head":"brukshund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"brukshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"brukshundens","head":"brukshund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"brukshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"brukshundar","head":"brukshund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"brukshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"brukshundars","head":"brukshund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"brukshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"brukshundarna","head":"brukshund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"brukshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"brukshundarnas","head":"brukshund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"brukshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"brukshund-","head":"brukshund","pos":"nn","param":"ci","inhs":["u"],"id":"brukshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"brukshunds-","head":"brukshund","pos":"nn","param":"ci","inhs":["u"],"id":"brukshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"brukshund","head":"brukshund","pos":"nn","param":"ci","inhs":["u"],"id":"brukshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"brukshunds","head":"brukshund","pos":"nn","param":"ci","inhs":["u"],"id":"brukshund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"brukshund-","head":"brukshund","pos":"nn","param":"cm","inhs":["u"],"id":"brukshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"brukshunds-","head":"brukshund","pos":"nn","param":"cm","inhs":["u"],"id":"brukshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"brukshund","head":"brukshund","pos":"nn","param":"cm","inhs":["u"],"id":"brukshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"brukshunds","head":"brukshund","pos":"nn","param":"cm","inhs":["u"],"id":"brukshund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"brukshund-","head":"brukshund","pos":"nn","param":"sms","inhs":["u"],"id":"brukshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"brukshunds-","head":"brukshund","pos":"nn","param":"sms","inhs":["u"],"id":"brukshund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blodhund","head":"blodhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"blodhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blodhunds","head":"blodhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"blodhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blodhunden","head":"blodhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"blodhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blodhundens","head":"blodhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"blodhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blodhundar","head":"blodhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"blodhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blodhundars","head":"blodhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"blodhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blodhundarna","head":"blodhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"blodhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blodhundarnas","head":"blodhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"blodhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blodhund-","head":"blodhund","pos":"nn","param":"ci","inhs":["u"],"id":"blodhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"blodhunds-","head":"blodhund","pos":"nn","param":"ci","inhs":["u"],"id":"blodhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"blodhund","head":"blodhund","pos":"nn","param":"ci","inhs":["u"],"id":"blodhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"blodhunds","head":"blodhund","pos":"nn","param":"ci","inhs":["u"],"id":"blodhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"blodhund-","head":"blodhund","pos":"nn","param":"cm","inhs":["u"],"id":"blodhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"blodhunds-","head":"blodhund","pos":"nn","param":"cm","inhs":["u"],"id":"blodhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"blodhund","head":"blodhund","pos":"nn","param":"cm","inhs":["u"],"id":"blodhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"blodhunds","head":"blodhund","pos":"nn","param":"cm","inhs":["u"],"id":"blodhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"blodhund-","head":"blodhund","pos":"nn","param":"sms","inhs":["u"],"id":"blodhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blodhunds-","head":"blodhund","pos":"nn","param":"sms","inhs":["u"],"id":"blodhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blindhund","head":"blindhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"blindhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blindhunds","head":"blindhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"blindhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blindhunden","head":"blindhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"blindhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blindhundens","head":"blindhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"blindhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blindhundar","head":"blindhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"blindhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blindhundars","head":"blindhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"blindhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blindhundarna","head":"blindhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"blindhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blindhundarnas","head":"blindhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"blindhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blindhund-","head":"blindhund","pos":"nn","param":"ci","inhs":["u"],"id":"blindhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"blindhunds-","head":"blindhund","pos":"nn","param":"ci","inhs":["u"],"id":"blindhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"blindhund","head":"blindhund","pos":"nn","param":"ci","inhs":["u"],"id":"blindhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"blindhunds","head":"blindhund","pos":"nn","param":"ci","inhs":["u"],"id":"blindhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"blindhund-","head":"blindhund","pos":"nn","param":"cm","inhs":["u"],"id":"blindhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"blindhunds-","head":"blindhund","pos":"nn","param":"cm","inhs":["u"],"id":"blindhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"blindhund","head":"blindhund","pos":"nn","param":"cm","inhs":["u"],"id":"blindhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"blindhunds","head":"blindhund","pos":"nn","param":"cm","inhs":["u"],"id":"blindhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"blindhund-","head":"blindhund","pos":"nn","param":"sms","inhs":["u"],"id":"blindhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blindhunds-","head":"blindhund","pos":"nn","param":"sms","inhs":["u"],"id":"blindhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blandrashund","head":"blandrashund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"blandrashund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blandrashunds","head":"blandrashund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"blandrashund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blandrashunden","head":"blandrashund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"blandrashund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blandrashundens","head":"blandrashund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"blandrashund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blandrashundar","head":"blandrashund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"blandrashund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blandrashundars","head":"blandrashund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"blandrashund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blandrashundarna","head":"blandrashund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"blandrashund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blandrashundarnas","head":"blandrashund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"blandrashund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blandrashund-","head":"blandrashund","pos":"nn","param":"ci","inhs":["u"],"id":"blandrashund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"blandrashunds-","head":"blandrashund","pos":"nn","param":"ci","inhs":["u"],"id":"blandrashund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"blandrashund","head":"blandrashund","pos":"nn","param":"ci","inhs":["u"],"id":"blandrashund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"blandrashunds","head":"blandrashund","pos":"nn","param":"ci","inhs":["u"],"id":"blandrashund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"blandrashund-","head":"blandrashund","pos":"nn","param":"cm","inhs":["u"],"id":"blandrashund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"blandrashunds-","head":"blandrashund","pos":"nn","param":"cm","inhs":["u"],"id":"blandrashund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"blandrashund","head":"blandrashund","pos":"nn","param":"cm","inhs":["u"],"id":"blandrashund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"blandrashunds","head":"blandrashund","pos":"nn","param":"cm","inhs":["u"],"id":"blandrashund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"blandrashund-","head":"blandrashund","pos":"nn","param":"sms","inhs":["u"],"id":"blandrashund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"blandrashunds-","head":"blandrashund","pos":"nn","param":"sms","inhs":["u"],"id":"blandrashund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"björnhund","head":"björnhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"björnhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"björnhunds","head":"björnhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"björnhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"björnhunden","head":"björnhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"björnhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"björnhundens","head":"björnhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"björnhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"björnhundar","head":"björnhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"björnhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"björnhundars","head":"björnhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"björnhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"björnhundarna","head":"björnhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"björnhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"björnhundarnas","head":"björnhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"björnhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"björnhund-","head":"björnhund","pos":"nn","param":"ci","inhs":["u"],"id":"björnhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"björnhunds-","head":"björnhund","pos":"nn","param":"ci","inhs":["u"],"id":"björnhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"björnhund","head":"björnhund","pos":"nn","param":"ci","inhs":["u"],"id":"björnhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"björnhunds","head":"björnhund","pos":"nn","param":"ci","inhs":["u"],"id":"björnhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"björnhund-","head":"björnhund","pos":"nn","param":"cm","inhs":["u"],"id":"björnhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"björnhunds-","head":"björnhund","pos":"nn","param":"cm","inhs":["u"],"id":"björnhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"björnhund","head":"björnhund","pos":"nn","param":"cm","inhs":["u"],"id":"björnhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"björnhunds","head":"björnhund","pos":"nn","param":"cm","inhs":["u"],"id":"björnhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"björnhund-","head":"björnhund","pos":"nn","param":"sms","inhs":["u"],"id":"björnhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"björnhunds-","head":"björnhund","pos":"nn","param":"sms","inhs":["u"],"id":"björnhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"bandhund","head":"bandhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"bandhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"bandhunds","head":"bandhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"bandhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"bandhunden","head":"bandhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"bandhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"bandhundens","head":"bandhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"bandhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"bandhundar","head":"bandhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"bandhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"bandhundars","head":"bandhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"bandhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"bandhundarna","head":"bandhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"bandhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"bandhundarnas","head":"bandhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"bandhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"bandhund-","head":"bandhund","pos":"nn","param":"ci","inhs":["u"],"id":"bandhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"bandhunds-","head":"bandhund","pos":"nn","param":"ci","inhs":["u"],"id":"bandhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"bandhund","head":"bandhund","pos":"nn","param":"ci","inhs":["u"],"id":"bandhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"bandhunds","head":"bandhund","pos":"nn","param":"ci","inhs":["u"],"id":"bandhund..nn.1","p":"nn_2u_stol","attr":"1"}
+{"word":"bandhund-","head":"bandhund","pos":"nn","param":"cm","inhs":["u"],"id":"bandhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"bandhunds-","head":"bandhund","pos":"nn","param":"cm","inhs":["u"],"id":"bandhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"bandhund","head":"bandhund","pos":"nn","param":"cm","inhs":["u"],"id":"bandhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"bandhunds","head":"bandhund","pos":"nn","param":"cm","inhs":["u"],"id":"bandhund..nn.1","p":"nn_2u_stol","attr":"2"}
+{"word":"bandhund-","head":"bandhund","pos":"nn","param":"sms","inhs":["u"],"id":"bandhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"bandhunds-","head":"bandhund","pos":"nn","param":"sms","inhs":["u"],"id":"bandhund..nn.1","p":"nn_2u_stol","attr":"0"}
+{"word":"hund","head":"hund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"0"}
+{"word":"hunds","head":"hund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"0"}
+{"word":"hunden","head":"hund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"0"}
+{"word":"hundens","head":"hund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"0"}
+{"word":"hundar","head":"hund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"0"}
+{"word":"hundars","head":"hund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"0"}
+{"word":"hundarna","head":"hund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"0"}
+{"word":"hundarnas","head":"hund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"0"}
+{"word":"hund-","head":"hund","pos":"nn","param":"ci","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"1"}
+{"word":"hund","head":"hund","pos":"nn","param":"ci","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"1"}
+{"word":"hund-","head":"hund","pos":"nn","param":"cm","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"2"}
+{"word":"hunds-","head":"hund","pos":"nn","param":"cm","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"2"}
+{"word":"hund","head":"hund","pos":"nn","param":"cm","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"2"}
+{"word":"hunds","head":"hund","pos":"nn","param":"cm","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"2"}
+{"word":"hund-","head":"hund","pos":"nn","param":"sms","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"0"}
+{"word":"tryffelhund","head":"tryffelhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"tryffelhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"tryffelhunds","head":"tryffelhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"tryffelhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"tryffelhunden","head":"tryffelhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"tryffelhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"tryffelhundens","head":"tryffelhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"tryffelhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"tryffelhundar","head":"tryffelhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"tryffelhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"tryffelhundars","head":"tryffelhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"tryffelhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"tryffelhundarna","head":"tryffelhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"tryffelhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"tryffelhundarnas","head":"tryffelhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"tryffelhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"tryffelhunds-","head":"tryffelhund","pos":"nn","param":"ci","inhs":["u"],"id":"tryffelhund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"tryffelhunds","head":"tryffelhund","pos":"nn","param":"ci","inhs":["u"],"id":"tryffelhund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"tryffelhunds-","head":"tryffelhund","pos":"nn","param":"cm","inhs":["u"],"id":"tryffelhund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"tryffelhunds","head":"tryffelhund","pos":"nn","param":"cm","inhs":["u"],"id":"tryffelhund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"tryffelhunds-","head":"tryffelhund","pos":"nn","param":"sms","inhs":["u"],"id":"tryffelhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"spårhund","head":"spårhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"spårhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"spårhunds","head":"spårhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"spårhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"spårhunden","head":"spårhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"spårhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"spårhundens","head":"spårhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"spårhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"spårhundar","head":"spårhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"spårhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"spårhundars","head":"spårhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"spårhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"spårhundarna","head":"spårhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"spårhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"spårhundarnas","head":"spårhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"spårhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"spårhunds-","head":"spårhund","pos":"nn","param":"ci","inhs":["u"],"id":"spårhund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"spårhunds","head":"spårhund","pos":"nn","param":"ci","inhs":["u"],"id":"spårhund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"spårhunds-","head":"spårhund","pos":"nn","param":"cm","inhs":["u"],"id":"spårhund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"spårhunds","head":"spårhund","pos":"nn","param":"cm","inhs":["u"],"id":"spårhund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"spårhunds-","head":"spårhund","pos":"nn","param":"sms","inhs":["u"],"id":"spårhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"slädhund","head":"slädhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"slädhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"slädhunds","head":"slädhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"slädhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"slädhunden","head":"slädhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"slädhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"slädhundens","head":"slädhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"slädhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"slädhundar","head":"slädhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"slädhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"slädhundars","head":"slädhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"slädhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"slädhundarna","head":"slädhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"slädhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"slädhundarnas","head":"slädhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"slädhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"slädhunds-","head":"slädhund","pos":"nn","param":"ci","inhs":["u"],"id":"slädhund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"slädhunds","head":"slädhund","pos":"nn","param":"ci","inhs":["u"],"id":"slädhund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"slädhunds-","head":"slädhund","pos":"nn","param":"cm","inhs":["u"],"id":"slädhund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"slädhunds","head":"slädhund","pos":"nn","param":"cm","inhs":["u"],"id":"slädhund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"slädhunds-","head":"slädhund","pos":"nn","param":"sms","inhs":["u"],"id":"slädhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"schäferhund","head":"schäferhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"schäferhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"schäferhunds","head":"schäferhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"schäferhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"schäferhunden","head":"schäferhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"schäferhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"schäferhundens","head":"schäferhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"schäferhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"schäferhundar","head":"schäferhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"schäferhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"schäferhundars","head":"schäferhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"schäferhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"schäferhundarna","head":"schäferhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"schäferhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"schäferhundarnas","head":"schäferhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"schäferhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"schäferhunds-","head":"schäferhund","pos":"nn","param":"ci","inhs":["u"],"id":"schäferhund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"schäferhunds","head":"schäferhund","pos":"nn","param":"ci","inhs":["u"],"id":"schäferhund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"schäferhunds-","head":"schäferhund","pos":"nn","param":"cm","inhs":["u"],"id":"schäferhund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"schäferhunds","head":"schäferhund","pos":"nn","param":"cm","inhs":["u"],"id":"schäferhund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"schäferhunds-","head":"schäferhund","pos":"nn","param":"sms","inhs":["u"],"id":"schäferhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"rondellhund","head":"rondellhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"rondellhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"rondellhunds","head":"rondellhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"rondellhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"rondellhunden","head":"rondellhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"rondellhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"rondellhundens","head":"rondellhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"rondellhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"rondellhundar","head":"rondellhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"rondellhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"rondellhundars","head":"rondellhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"rondellhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"rondellhundarna","head":"rondellhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"rondellhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"rondellhundarnas","head":"rondellhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"rondellhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"rondellhunds-","head":"rondellhund","pos":"nn","param":"ci","inhs":["u"],"id":"rondellhund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"rondellhunds","head":"rondellhund","pos":"nn","param":"ci","inhs":["u"],"id":"rondellhund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"rondellhunds-","head":"rondellhund","pos":"nn","param":"cm","inhs":["u"],"id":"rondellhund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"rondellhunds","head":"rondellhund","pos":"nn","param":"cm","inhs":["u"],"id":"rondellhund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"rondellhunds-","head":"rondellhund","pos":"nn","param":"sms","inhs":["u"],"id":"rondellhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"präriehund","head":"präriehund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"präriehund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"präriehunds","head":"präriehund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"präriehund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"präriehunden","head":"präriehund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"präriehund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"präriehundens","head":"präriehund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"präriehund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"präriehundar","head":"präriehund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"präriehund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"präriehundars","head":"präriehund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"präriehund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"präriehundarna","head":"präriehund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"präriehund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"präriehundarnas","head":"präriehund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"präriehund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"präriehunds-","head":"präriehund","pos":"nn","param":"ci","inhs":["u"],"id":"präriehund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"präriehunds","head":"präriehund","pos":"nn","param":"ci","inhs":["u"],"id":"präriehund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"präriehunds-","head":"präriehund","pos":"nn","param":"cm","inhs":["u"],"id":"präriehund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"präriehunds","head":"präriehund","pos":"nn","param":"cm","inhs":["u"],"id":"präriehund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"präriehunds-","head":"präriehund","pos":"nn","param":"sms","inhs":["u"],"id":"präriehund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"narkotikahund","head":"narkotikahund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"narkotikahund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"narkotikahunds","head":"narkotikahund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"narkotikahund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"narkotikahunden","head":"narkotikahund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"narkotikahund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"narkotikahundens","head":"narkotikahund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"narkotikahund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"narkotikahundar","head":"narkotikahund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"narkotikahund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"narkotikahundars","head":"narkotikahund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"narkotikahund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"narkotikahundarna","head":"narkotikahund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"narkotikahund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"narkotikahundarnas","head":"narkotikahund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"narkotikahund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"narkotikahunds-","head":"narkotikahund","pos":"nn","param":"ci","inhs":["u"],"id":"narkotikahund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"narkotikahunds","head":"narkotikahund","pos":"nn","param":"ci","inhs":["u"],"id":"narkotikahund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"narkotikahunds-","head":"narkotikahund","pos":"nn","param":"cm","inhs":["u"],"id":"narkotikahund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"narkotikahunds","head":"narkotikahund","pos":"nn","param":"cm","inhs":["u"],"id":"narkotikahund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"narkotikahunds-","head":"narkotikahund","pos":"nn","param":"sms","inhs":["u"],"id":"narkotikahund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"mögelhund","head":"mögelhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"mögelhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"mögelhunds","head":"mögelhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"mögelhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"mögelhunden","head":"mögelhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"mögelhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"mögelhundens","head":"mögelhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"mögelhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"mögelhundar","head":"mögelhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"mögelhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"mögelhundars","head":"mögelhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"mögelhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"mögelhundarna","head":"mögelhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"mögelhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"mögelhundarnas","head":"mögelhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"mögelhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"mögelhunds-","head":"mögelhund","pos":"nn","param":"ci","inhs":["u"],"id":"mögelhund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"mögelhunds","head":"mögelhund","pos":"nn","param":"ci","inhs":["u"],"id":"mögelhund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"mögelhunds-","head":"mögelhund","pos":"nn","param":"cm","inhs":["u"],"id":"mögelhund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"mögelhunds","head":"mögelhund","pos":"nn","param":"cm","inhs":["u"],"id":"mögelhund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"mögelhunds-","head":"mögelhund","pos":"nn","param":"sms","inhs":["u"],"id":"mögelhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"lushund","head":"lushund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"lushund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"lushunds","head":"lushund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"lushund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"lushunden","head":"lushund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"lushund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"lushundens","head":"lushund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"lushund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"lushundar","head":"lushund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"lushund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"lushundars","head":"lushund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"lushund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"lushundarna","head":"lushund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"lushund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"lushundarnas","head":"lushund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"lushund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"lushunds-","head":"lushund","pos":"nn","param":"ci","inhs":["u"],"id":"lushund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"lushunds","head":"lushund","pos":"nn","param":"ci","inhs":["u"],"id":"lushund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"lushunds-","head":"lushund","pos":"nn","param":"cm","inhs":["u"],"id":"lushund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"lushunds","head":"lushund","pos":"nn","param":"cm","inhs":["u"],"id":"lushund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"lushunds-","head":"lushund","pos":"nn","param":"sms","inhs":["u"],"id":"lushund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"ledarhund","head":"ledarhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"ledarhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"ledarhunds","head":"ledarhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"ledarhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"ledarhunden","head":"ledarhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"ledarhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"ledarhundens","head":"ledarhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"ledarhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"ledarhundar","head":"ledarhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"ledarhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"ledarhundars","head":"ledarhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"ledarhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"ledarhundarna","head":"ledarhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"ledarhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"ledarhundarnas","head":"ledarhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"ledarhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"ledarhunds-","head":"ledarhund","pos":"nn","param":"ci","inhs":["u"],"id":"ledarhund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"ledarhunds","head":"ledarhund","pos":"nn","param":"ci","inhs":["u"],"id":"ledarhund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"ledarhunds-","head":"ledarhund","pos":"nn","param":"cm","inhs":["u"],"id":"ledarhund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"ledarhunds","head":"ledarhund","pos":"nn","param":"cm","inhs":["u"],"id":"ledarhund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"ledarhunds-","head":"ledarhund","pos":"nn","param":"sms","inhs":["u"],"id":"ledarhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"lavinhund","head":"lavinhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"lavinhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"lavinhunds","head":"lavinhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"lavinhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"lavinhunden","head":"lavinhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"lavinhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"lavinhundens","head":"lavinhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"lavinhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"lavinhundar","head":"lavinhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"lavinhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"lavinhundars","head":"lavinhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"lavinhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"lavinhundarna","head":"lavinhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"lavinhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"lavinhundarnas","head":"lavinhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"lavinhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"lavinhunds-","head":"lavinhund","pos":"nn","param":"ci","inhs":["u"],"id":"lavinhund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"lavinhunds","head":"lavinhund","pos":"nn","param":"ci","inhs":["u"],"id":"lavinhund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"lavinhunds-","head":"lavinhund","pos":"nn","param":"cm","inhs":["u"],"id":"lavinhund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"lavinhunds","head":"lavinhund","pos":"nn","param":"cm","inhs":["u"],"id":"lavinhund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"lavinhunds-","head":"lavinhund","pos":"nn","param":"sms","inhs":["u"],"id":"lavinhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"knarkhund","head":"knarkhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"knarkhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"knarkhunds","head":"knarkhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"knarkhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"knarkhunden","head":"knarkhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"knarkhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"knarkhundens","head":"knarkhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"knarkhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"knarkhundar","head":"knarkhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"knarkhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"knarkhundars","head":"knarkhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"knarkhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"knarkhundarna","head":"knarkhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"knarkhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"knarkhundarnas","head":"knarkhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"knarkhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"knarkhunds-","head":"knarkhund","pos":"nn","param":"ci","inhs":["u"],"id":"knarkhund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"knarkhunds","head":"knarkhund","pos":"nn","param":"ci","inhs":["u"],"id":"knarkhund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"knarkhunds-","head":"knarkhund","pos":"nn","param":"cm","inhs":["u"],"id":"knarkhund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"knarkhunds","head":"knarkhund","pos":"nn","param":"cm","inhs":["u"],"id":"knarkhund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"knarkhunds-","head":"knarkhund","pos":"nn","param":"sms","inhs":["u"],"id":"knarkhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"kamphund","head":"kamphund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"kamphund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"kamphunds","head":"kamphund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"kamphund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"kamphunden","head":"kamphund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"kamphund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"kamphundens","head":"kamphund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"kamphund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"kamphundar","head":"kamphund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"kamphund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"kamphundars","head":"kamphund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"kamphund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"kamphundarna","head":"kamphund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"kamphund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"kamphundarnas","head":"kamphund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"kamphund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"kamphunds-","head":"kamphund","pos":"nn","param":"ci","inhs":["u"],"id":"kamphund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"kamphunds","head":"kamphund","pos":"nn","param":"ci","inhs":["u"],"id":"kamphund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"kamphunds-","head":"kamphund","pos":"nn","param":"cm","inhs":["u"],"id":"kamphund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"kamphunds","head":"kamphund","pos":"nn","param":"cm","inhs":["u"],"id":"kamphund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"kamphunds-","head":"kamphund","pos":"nn","param":"sms","inhs":["u"],"id":"kamphund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"fähund","head":"fähund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"fähund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"fähunds","head":"fähund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"fähund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"fähunden","head":"fähund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"fähund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"fähundens","head":"fähund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"fähund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"fähundar","head":"fähund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"fähund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"fähundars","head":"fähund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"fähund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"fähundarna","head":"fähund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"fähund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"fähundarnas","head":"fähund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"fähund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"fähunds-","head":"fähund","pos":"nn","param":"ci","inhs":["u"],"id":"fähund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"fähunds","head":"fähund","pos":"nn","param":"ci","inhs":["u"],"id":"fähund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"fähunds-","head":"fähund","pos":"nn","param":"cm","inhs":["u"],"id":"fähund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"fähunds","head":"fähund","pos":"nn","param":"cm","inhs":["u"],"id":"fähund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"fähunds-","head":"fähund","pos":"nn","param":"sms","inhs":["u"],"id":"fähund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"fyllhund","head":"fyllhund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"fyllhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"fyllhunds","head":"fyllhund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"fyllhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"fyllhunden","head":"fyllhund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"fyllhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"fyllhundens","head":"fyllhund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"fyllhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"fyllhundar","head":"fyllhund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"fyllhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"fyllhundars","head":"fyllhund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"fyllhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"fyllhundarna","head":"fyllhund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"fyllhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"fyllhundarnas","head":"fyllhund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"fyllhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"fyllhunds-","head":"fyllhund","pos":"nn","param":"ci","inhs":["u"],"id":"fyllhund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"fyllhunds","head":"fyllhund","pos":"nn","param":"ci","inhs":["u"],"id":"fyllhund..nn.1","p":"nn_2u_mening","attr":"1"}
+{"word":"fyllhunds-","head":"fyllhund","pos":"nn","param":"cm","inhs":["u"],"id":"fyllhund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"fyllhunds","head":"fyllhund","pos":"nn","param":"cm","inhs":["u"],"id":"fyllhund..nn.1","p":"nn_2u_mening","attr":"2"}
+{"word":"fyllhunds-","head":"fyllhund","pos":"nn","param":"sms","inhs":["u"],"id":"fyllhund..nn.1","p":"nn_2u_mening","attr":"0"}
+{"word":"sådan","head":"sådan herre, sådan hund","pos":"inm","param":"invar 1:1-4","inhs":[],"id":"sådan_herre_sådan_hund..inm.1","p":"inm_i_aja_baja","attr":"3"}
+{"word":"herre,","head":"sådan herre, sådan hund","pos":"inm","param":"invar 1:2-4","inhs":[],"id":"sådan_herre_sådan_hund..inm.1","p":"inm_i_aja_baja","attr":"3"}
+{"word":"sådan","head":"sådan herre, sådan hund","pos":"inm","param":"invar 1:3-4","inhs":[],"id":"sådan_herre_sådan_hund..inm.1","p":"inm_i_aja_baja","attr":"3"}
+{"word":"hund","head":"sådan herre, sådan hund","pos":"inm","param":"invar 1:4-4","inhs":[],"id":"sådan_herre_sådan_hund..inm.1","p":"inm_i_aja_baja","attr":"3"}
+{"word":"sådan","head":"sådan herre, sådan hund","pos":"inm","param":"invar 2:1-4","inhs":[],"id":"sådan_herre_sådan_hund..inm.1","p":"inm_i_aja_baja","attr":"3"}
+{"word":"herre","head":"sådan herre, sådan hund","pos":"inm","param":"invar 2:2-4","inhs":[],"id":"sådan_herre_sådan_hund..inm.1","p":"inm_i_aja_baja","attr":"3"}
+{"word":"sådan","head":"sådan herre, sådan hund","pos":"inm","param":"invar 2:3-4","inhs":[],"id":"sådan_herre_sådan_hund..inm.1","p":"inm_i_aja_baja","attr":"3"}
+{"word":"hund","head":"sådan herre, sådan hund","pos":"inm","param":"invar 2:4-4","inhs":[],"id":"sådan_herre_sådan_hund..inm.1","p":"inm_i_aja_baja","attr":"3"}
+{"word":"som","head":"som en våt hund","pos":"abm","param":"invar 1:1-4","inhs":[],"id":"som_en_våt_hund..abm.1","p":"abm_i_till_exempel","attr":"3"}
+{"word":"en","head":"som en våt hund","pos":"abm","param":"invar 1:2-4","inhs":[],"id":"som_en_våt_hund..abm.1","p":"abm_i_till_exempel","attr":"3"}
+{"word":"våt","head":"som en våt hund","pos":"abm","param":"invar 1:3-4","inhs":[],"id":"som_en_våt_hund..abm.1","p":"abm_i_till_exempel","attr":"3"}
+{"word":"hund","head":"som en våt hund","pos":"abm","param":"invar 1:4-4","inhs":[],"id":"som_en_våt_hund..abm.1","p":"abm_i_till_exempel","attr":"3"}

@@ -4,16 +4,16 @@ import Data.Char
 import System.FilePath.Posix
 import System.Directory
 
-import Saldoer
+import Saldoer (absHeader, concHeader)
 
 skipList :: Maybe [String]
 skipList = Nothing
 
-splits []  = []
-splits xs = let (part,rest) = splitAt 200000 xs
-                (end,rest') = span ((/=) "<LexicalEntry>" . dropWhites) rest
-                -- (end,rest') = span ((/=) "<entry" . dropWhites) rest
-            in (part++end):splits rest'
+-- splits []  = []
+-- splits xs = let (part,rest) = splitAt 200000 xs
+--                 (end,rest') = span ((/=) "<LexicalEntry>" . dropWhites) rest
+--                 -- (end,rest') = span ((/=) "<entry" . dropWhites) rest
+--             in (part++end):splits rest'
 
 writeFiles :: [[String]] -> Int -> IO [FilePath]
 writeFiles [] _ = return []
@@ -30,16 +30,17 @@ writeFiles (x:xmls) n = do
         head = "<Lexicon>"
         end  = "</Lexicon>"
 
-
+initGFFiles :: String -> IO ()
 initGFFiles tot = do
   writeFile ("saldo"++tot++".gf")   $ absHeader "Tot" ""
   writeFile ("saldo"++tot++"Cnc.gf") $ concHeader "Tot" ""
 
+endGFFiles :: String -> IO ()
 endGFFiles tot = do
   appendFile ("saldo"++tot++".gf") "}"
   appendFile ("saldo"++tot++"Cnc.gf") "}"
 
-
+dropWhites :: String -> String
 dropWhites = takeWhile (not . isSpace) . dropWhile isSpace
 
 noOfParts :: IO [Int]

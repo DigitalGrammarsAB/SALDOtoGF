@@ -4,27 +4,25 @@
 module Saldoer where
 import Prelude hiding (lex)
 import System.IO
-import System.IO.Error
-import System.Cmd
+import System.Process
 import System.Exit
 import System.Directory
 import Data.Char
 import Data.Maybe
 import Data.List
-import Data.ByteString.Char8 (ByteString,pack,unpack)
-import Data.IORef
+import Data.ByteString.Lazy.Char8 (pack)
 import qualified Data.Map as Map
-import Text.Read.Lex(Lexeme(..),lex)
+-- import Text.Read.Lex(Lexeme(..),lex)
 import Control.Monad.Writer
 import Control.Monad.State
-import Control.Monad.Error
+import Control.Monad.Except
 import Control.Arrow
 import Control.Exception (onException)
-import Debug.Trace
 
 import qualified PGF as PGF
 
-import SaldoXML
+-- import SaldoXML
+import SaldoJSON
 import Prep
 import UTF8
 
@@ -35,12 +33,7 @@ The main fuction is extract, which could operate alone or together with
 SaldoMain
 -----------------------------------------------------------------------------}
 
-inputFile = "lillsaldo.xml"
---inputFile = "saldo100k.xml"
---inputFile = "saldom.xml"
-
-
-type Convert = StateT CState (ErrorT String IO)
+type Convert = StateT CState (ExceptT String IO)
 data CState   = CS {errs :: [String], msg :: [String], retries :: [GrammarInfo]
                    , pgf :: FilePath, ok :: [GrammarInfo]
                    , saldo :: Lex, changes :: Int, dead :: [String]
@@ -58,6 +51,7 @@ instance Eq GrammarInfo where
          -- checks equality on the name only, in order to
          -- simplify deletion from retries-list
 
+extract :: Maybe [String] -> String -> [Char] -> Int -> IO ()
 extract select name inputFile n  = do
   hSetBuffering stdout NoBuffering
   putStr $ "Reading "++inputFile++" ... "
@@ -67,7 +61,7 @@ extract select name inputFile n  = do
              Nothing  -> fail $ "cannot read "++inputFile
   putStrLn ""
 
-  mst <- runErrorT $ execStateT (createGF saldo
+  mst <- runExceptT $ execStateT (createGF saldo
                     >> compileGF
                     >> loop
                     >> printGFFinal

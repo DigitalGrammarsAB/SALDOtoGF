@@ -1,0 +1,10 @@
+*.pgf
+*.gfo
+generate/*
+
+Error*.txt
+Fail*.txt
+Messages*.txt
+saldo*.gf
+
+data/saldo.json

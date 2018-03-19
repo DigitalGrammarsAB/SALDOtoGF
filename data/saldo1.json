@@ -1,0 +1,51 @@
+{"word":"dväljes","head":"dväljas","pos":"vb","param":"pres ind s-form","inhs":[],"id":"dväljas..vb.1","p":"vb_vs_dväljas","attr":"0"}
+{"word":"dväljs","head":"dväljas","pos":"vb","param":"pres ind s-form","inhs":[],"id":"dväljas..vb.1","p":"vb_vs_dväljas","attr":"0"}
+{"word":"dvaldes","head":"dväljas","pos":"vb","param":"pret ind s-form","inhs":[],"id":"dväljas..vb.1","p":"vb_vs_dväljas","attr":"0"}
+{"word":"dväljdes","head":"dväljas","pos":"vb","param":"pret ind s-form","inhs":[],"id":"dväljas..vb.1","p":"vb_vs_dväljas","attr":"0"}
+{"word":"dväljes","head":"dväljas","pos":"vb","param":"imper","inhs":[],"id":"dväljas..vb.1","p":"vb_vs_dväljas","attr":"0"}
+{"word":"dväljs","head":"dväljas","pos":"vb","param":"imper","inhs":[],"id":"dväljas..vb.1","p":"vb_vs_dväljas","attr":"0"}
+{"word":"dväljas","head":"dväljas","pos":"vb","param":"inf s-form","inhs":[],"id":"dväljas..vb.1","p":"vb_vs_dväljas","attr":"0"}
+{"word":"dvalts","head":"dväljas","pos":"vb","param":"sup s-form","inhs":[],"id":"dväljas..vb.1","p":"vb_vs_dväljas","attr":"0"}
+{"word":"dvälts","head":"dväljas","pos":"vb","param":"sup s-form","inhs":[],"id":"dväljas..vb.1","p":"vb_vs_dväljas","attr":"0"}
+{"word":"upphäver","head":"upphäva","pos":"vb","param":"pres ind aktiv","inhs":[],"id":"upphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"upphäves","head":"upphäva","pos":"vb","param":"pres ind s-form","inhs":[],"id":"upphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"upphävs","head":"upphäva","pos":"vb","param":"pres ind s-form","inhs":[],"id":"upphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"upphäve","head":"upphäva","pos":"vb","param":"pres konj aktiv","inhs":[],"id":"upphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"upphäves","head":"upphäva","pos":"vb","param":"pres konj s-form","inhs":[],"id":"upphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"upphävde","head":"upphäva","pos":"vb","param":"pret ind aktiv","inhs":[],"id":"upphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"upphov","head":"upphäva","pos":"vb","param":"pret ind aktiv","inhs":[],"id":"upphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"upphävdes","head":"upphäva","pos":"vb","param":"pret ind s-form","inhs":[],"id":"upphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"upphovs","head":"upphäva","pos":"vb","param":"pret ind s-form","inhs":[],"id":"upphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"upphove","head":"upphäva","pos":"vb","param":"pret konj aktiv","inhs":[],"id":"upphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"upphoves","head":"upphäva","pos":"vb","param":"pret konj s-form","inhs":[],"id":"upphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"upphäv","head":"upphäva","pos":"vb","param":"imper","inhs":[],"id":"upphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"upphäva","head":"upphäva","pos":"vb","param":"inf aktiv","inhs":[],"id":"upphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"upphävas","head":"upphäva","pos":"vb","param":"inf s-form","inhs":[],"id":"upphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"upphävt","head":"upphäva","pos":"vb","param":"sup aktiv","inhs":[],"id":"upphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"upphävts","head":"upphäva","pos":"vb","param":"sup s-form","inhs":[],"id":"upphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"upphävande","head":"upphäva","pos":"vb","param":"pres_part nom","inhs":[],"id":"upphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"upphävandes","head":"upphäva","pos":"vb","param":"pres_part gen","inhs":[],"id":"upphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"upphäv","head":"upphäva","pos":"vb","param":"c","inhs":[],"id":"upphäva..vb.2","p":"vb_vm_upphäva","attr":"6"}
+{"word":"upphäv-","head":"upphäva","pos":"vb","param":"c","inhs":[],"id":"upphäva..vb.2","p":"vb_vm_upphäva","attr":"6"}
+{"word":"upphäv-","head":"upphäva","pos":"vb","param":"sms","inhs":[],"id":"upphäva..vb.2","p":"vb_vm_upphäva","attr":"3"}
+{"word":"opphäver","head":"opphäva","pos":"vb","param":"pres ind aktiv","inhs":[],"id":"opphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"opphäves","head":"opphäva","pos":"vb","param":"pres ind s-form","inhs":[],"id":"opphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"opphävs","head":"opphäva","pos":"vb","param":"pres ind s-form","inhs":[],"id":"opphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"opphäve","head":"opphäva","pos":"vb","param":"pres konj aktiv","inhs":[],"id":"opphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"opphäves","head":"opphäva","pos":"vb","param":"pres konj s-form","inhs":[],"id":"opphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"opphävde","head":"opphäva","pos":"vb","param":"pret ind aktiv","inhs":[],"id":"opphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"opphov","head":"opphäva","pos":"vb","param":"pret ind aktiv","inhs":[],"id":"opphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"opphävdes","head":"opphäva","pos":"vb","param":"pret ind s-form","inhs":[],"id":"opphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"opphovs","head":"opphäva","pos":"vb","param":"pret ind s-form","inhs":[],"id":"opphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"opphove","head":"opphäva","pos":"vb","param":"pret konj aktiv","inhs":[],"id":"opphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"opphoves","head":"opphäva","pos":"vb","param":"pret konj s-form","inhs":[],"id":"opphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"opphäv","head":"opphäva","pos":"vb","param":"imper","inhs":[],"id":"opphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"opphäva","head":"opphäva","pos":"vb","param":"inf aktiv","inhs":[],"id":"opphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"opphävas","head":"opphäva","pos":"vb","param":"inf s-form","inhs":[],"id":"opphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"opphävt","head":"opphäva","pos":"vb","param":"sup aktiv","inhs":[],"id":"opphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"opphävts","head":"opphäva","pos":"vb","param":"sup s-form","inhs":[],"id":"opphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"opphävande","head":"opphäva","pos":"vb","param":"pres_part nom","inhs":[],"id":"opphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"opphävandes","head":"opphäva","pos":"vb","param":"pres_part gen","inhs":[],"id":"opphäva..vb.2","p":"vb_vm_upphäva","attr":"0"}
+{"word":"opphäv","head":"opphäva","pos":"vb","param":"c","inhs":[],"id":"opphäva..vb.2","p":"vb_vm_upphäva","attr":"6"}
+{"word":"opphäv-","head":"opphäva","pos":"vb","param":"c","inhs":[],"id":"opphäva..vb.2","p":"vb_vm_upphäva","attr":"6"}
+{"word":"opphäv-","head":"opphäva","pos":"vb","param":"sms","inhs":[],"id":"opphäva..vb.2","p":"vb_vm_upphäva","attr":"3"}

@@ -1,0 +1,15 @@
+{"word":"hund","head":"hund","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"0"}
+{"word":"hunds","head":"hund","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"0"}
+{"word":"hunden","head":"hund","pos":"nn","param":"sg def nom","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"0"}
+{"word":"hundens","head":"hund","pos":"nn","param":"sg def gen","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"0"}
+{"word":"hundar","head":"hund","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"0"}
+{"word":"hundars","head":"hund","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"0"}
+{"word":"hundarna","head":"hund","pos":"nn","param":"pl def nom","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"0"}
+{"word":"hundarnas","head":"hund","pos":"nn","param":"pl def gen","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"0"}
+{"word":"hund-","head":"hund","pos":"nn","param":"ci","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"1"}
+{"word":"hund","head":"hund","pos":"nn","param":"ci","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"1"}
+{"word":"hund-","head":"hund","pos":"nn","param":"cm","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"2"}
+{"word":"hunds-","head":"hund","pos":"nn","param":"cm","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"2"}
+{"word":"hund","head":"hund","pos":"nn","param":"cm","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"2"}
+{"word":"hunds","head":"hund","pos":"nn","param":"cm","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"2"}
+{"word":"hund-","head":"hund","pos":"nn","param":"sms","inhs":["u"],"id":"hund..nn.1","p":"nn_2u_sten","attr":"0"}
