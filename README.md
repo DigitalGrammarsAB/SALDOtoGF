@@ -7,16 +7,9 @@ Also see Krasimir Angelov's older import script: [make-saldo.hs](make-saldo.hs)
 
 ## Usage
 
-To partition SALDO and run everything:
 ```
-runghc SaldoMain.hs
+runghc SaldoMain.hs data/saldo.json
 ```
-
-To re-run from existing partition number:
-```
-runghc SaldoMain.hs 2
-```
-
 
 ## General SALDO info
 

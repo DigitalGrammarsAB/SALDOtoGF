@@ -2,6 +2,7 @@
 {-# LANGUAGE FlexibleContexts #-}
 
 module Saldoer where
+
 import Prelude hiding (lex)
 import System.IO
 import System.Process
@@ -12,7 +13,6 @@ import Data.Maybe
 import Data.List
 import Data.ByteString.Lazy.Char8 (pack)
 import qualified Data.Map as Map
--- import Text.Read.Lex(Lexeme(..),lex)
 import Control.Monad.Writer
 import Control.Monad.State
 import Control.Monad.Except
@@ -21,7 +21,6 @@ import Control.Exception (onException)
 
 import qualified PGF as PGF
 
--- import SaldoXML
 import SaldoJSON
 import Prep
 import UTF8
