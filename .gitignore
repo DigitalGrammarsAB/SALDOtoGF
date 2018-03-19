@@ -12,3 +12,4 @@ Messages*.txt
 saldo*.gf
 
 data/saldo.json
+data/saldoPart*

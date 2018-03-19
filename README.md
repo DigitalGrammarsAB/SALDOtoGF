@@ -7,12 +7,16 @@ Also see Krasimir Angelov's older import script: [make-saldo.hs](make-saldo.hs)
 
 ## Usage
 
+To partition SALDO and run everything:
 ```
-runghc SaldoMain.hs "saldo1.json"
+runghc SaldoMain.hs
 ```
 
-Import of all SALDO is quite slow (in particular the `updateGF` function).
-TODO: re-enable splitting into smaller parts as in Malin's original code (see `SaldoTools.splts`).
+To re-run from existing partition number:
+```
+runghc SaldoMain.hs 2
+```
+
 
 ## General SALDO info
 
