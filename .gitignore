@@ -1,5 +1,9 @@
+SaldoMain
+
 *.pgf
 *.gfo
+*.o
+*.hi
 generate/*
 
 Error*.txt
