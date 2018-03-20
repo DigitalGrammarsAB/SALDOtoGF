@@ -3,12 +3,10 @@
 Script for importing SALDO as a GF grammar
 Based primarily on the work of Malin Ahlberg: <https://github.com/MalinAhlberg/SwedishProject/tree/master/saldo>
 
-Also see Krasimir Angelov's older import script: [make-saldo.hs](make-saldo.hs)
-
 ## Usage
 
 ```
-runghc SaldoMain.hs data/saldo.json
+runghc Main.hs data/saldo.json
 ```
 
 ## General SALDO info

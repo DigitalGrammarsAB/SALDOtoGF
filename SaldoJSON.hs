@@ -11,7 +11,7 @@ import qualified Data.ByteString.Lazy.Builder as BSLB
 import qualified Data.ByteString.Lazy.Char8 as C8
 import Data.Aeson
 
-type Lex     = M.Map String Entry
+type Lex = M.Map String Entry
 -- type LexList =  [(String,Entry)]
 data Entry = E {pos :: BSL.ByteString, table :: [(BSL.ByteString,String)]}
   deriving Show
