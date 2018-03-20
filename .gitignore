@@ -1,12 +1,12 @@
-SaldoMain
+saldo2gf
 
 *.pgf
 *.gfo
 *.o
 *.hi
+
 generate/*
 logs/*
-
 saldo*.gf
 
 data/saldo.json
