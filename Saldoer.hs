@@ -33,22 +33,36 @@ SaldoMain
 -----------------------------------------------------------------------------}
 
 type Convert = StateT CState (ExceptT String IO)
-data CState   = CS {errs :: [String], msg :: [String], retries :: [GrammarInfo]
-                   , pgf :: FilePath, ok :: [GrammarInfo]
-                   , saldo :: Lex, changes :: Int, dead :: [String]
-                   , tmps :: [FilePath], partNo :: Int
-                   , selection :: Maybe [String], name :: String}
 
-data GrammarInfo = G {lemma :: String, pos :: String, forms :: [[String]]
-                     ,extra :: String, functions :: (String,String)
-                     , paradigms :: Paradigm}
-     deriving Show
+data CState = CS
+  { errs :: [String]
+  , msg :: [String]
+  , retries :: [GrammarInfo]
+  , pgf :: FilePath
+  , ok :: [GrammarInfo]
+  , saldo :: Lex
+  , changes :: Int
+  , dead :: [String]
+  , tmps :: [FilePath]
+  , partNo :: Int
+  , selection :: Maybe [String]
+  , name :: String
+}
+
+data GrammarInfo = G
+  { lemma :: String
+  , pos :: String
+  , forms :: [[String]]
+  , extra :: String
+  , functions :: (String,String)
+  , paradigms :: Paradigm
+  } deriving Show
+
 type Paradigm = [(String,[String],String)]
 
 instance Eq GrammarInfo where
- g1 == g2 = lemma g1 == lemma g2
-         -- checks equality on the name only, in order to
-         -- simplify deletion from retries-list
+  -- checks equality on the name only, in order to simplify deletion from retries-list
+  g1 == g2 = lemma g1 == lemma g2
 
 extract :: Maybe [String] -> String -> [Char] -> Int -> IO ()
 extract select name inputFile n  = do
@@ -253,48 +267,50 @@ compileGF = do
 -- Generate GF identifier
 -------------------------------------------------------------------
 
+-- TODO: remove `_nn_1` etc
 mkGFName :: String -> String -> String
 mkGFName id' cat = name++"_"++toGFcat cat
   where
-       toGFcat "VR" = "V"
-       toGFcat "VP" = "V"
-       toGFcat  v   = v
-       dash2us '-'  = '_'
-       dash2us    x = x
-       num x = if isDigit (head' "isDigit" x) then 'x':x else x
-       name =  undot -- $ (++ [last id'])
-              $ num
-              $ transform_letters
-              $ map dash2us
-              $ takeWhile (/= '.')  -- in case there are unwanted (unintedned?) dots left
-              $ undot (decodeUTF8 id')
-       transform_letters w | any (`elem` translated) w = (++"_1") $ concatMap trans w
-                           | otherwise                 = concatMap trans w -- to be sure..
+    toGFcat "VR" = "V"
+    toGFcat "VP" = "V"
+    toGFcat  v   = v
+    dash2us '-'  = '_'
+    dash2us    x = x
+    num x = if isDigit (head' "isDigit" x) then 'x':x else x
+    name = undot -- $ (++ [last id'])
+          $ num
+          -- $ transform_letters
+          $ map dash2us
+          $ takeWhile (/= '.')  -- in case there are unwanted (unintedned?) dots left
+          $ undot (decodeUTF8 id')
+    -- transform_letters w | any (`elem` translated) w = (++"_1") $ concatMap trans w
+    --                     | otherwise                 = concatMap trans w -- to be sure..
+    --
+    -- trans '\229' = "aa"
+    -- trans '\197' = "AA"
+    -- trans '\228' = "ae"
+    -- trans '\196' = "AE"
+    -- trans '\224' = "a"
+    -- trans '\225' = "a"
+    -- trans '\232' = "e_"
+    -- trans '\233' = "_e"
+    -- trans '\234' = "ee"
+    -- trans '\231' = "c"
+    -- trans '\252' = "u"
+    -- trans '\244' = "oo"
+    -- trans '\246' = "oe"
+    -- trans '\241' = "n"
+    -- trans '\214' = "OE"
+    -- trans '\183' = "_"
+    -- trans x   | isAscii x =  [x]
+    --           | otherwise = "x"
+    -- translated = ['\229', '\197', '\228', '\196', '\224', '\225', '\232', '\233', '\234', '\231', '\252', '\246', '\241', '\214', '\183','\244']
 
-       trans '\229' = "aa"
-       trans '\197' = "AA"
-       trans '\228' = "ae"
-       trans '\196' = "AE"
-       trans '\224' = "a"
-       trans '\225' = "a"
-       trans '\232' = "e_"
-       trans '\233' = "_e"
-       trans '\234' = "ee"
-       trans '\231' = "c"
-       trans '\252' = "u"
-       trans '\244' = "oo"
-       trans '\246' = "oe"
-       trans '\241' = "n"
-       trans '\214' = "OE"
-       trans '\183' = "_"
-       trans x   | isAscii x =  [x]
-                 | otherwise = "x"
-undot [] = []
-undot ('.':'.':xs) = '_' : undot xs
-undot     ('.':xs) = '_' : undot xs
-undot       (x:xs) = x:undot xs
+    undot [] = []
+    undot ('.':'.':xs) = '_' : undot xs
+    undot     ('.':xs) = '_' : undot xs
+    undot       (x:xs) = x:undot xs
 
-translated = ['\229', '\197', '\228', '\196', '\224', '\225', '\232', '\233', '\234', '\231', '\252', '\246', '\241', '\214', '\183','\244']
 -------------------------------------------------------------------
 -- Mapping from SALDO categories/params to GF Resource Library
 -------------------------------------------------------------------
@@ -499,12 +515,13 @@ printGF' entries num name = do
       concatMap showCnc entries ++
       "}"
 
-showAbs (G id cat lemmas a _ paradigms) = "  " ++ mkGFName id cat ++ " : "
-                                        ++ find cat ++ " ;\n"
+-- TODO: include original ID as comment
+showAbs (G id cat lemmas a _ paradigms) = "  " ++ mkGFName id cat ++ " : " ++ find cat ++ " ;\n"
   where
     find "VR" = "V"
     find "VP" = "V"
     find x    = x
+-- TODO: include original ID as comment
 showCnc (G id cat [[]] a _ paradigms)    = "--  " ++ mkGFName id cat ++ " has not enough forms \n"
 showCnc (G id cat lemmas a (mk,end) paradigms)
       = "  " ++ mkGFName id cat ++ " = " ++ mk++ " "
