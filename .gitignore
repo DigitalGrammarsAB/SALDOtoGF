@@ -5,10 +5,8 @@ SaldoMain
 *.o
 *.hi
 generate/*
+logs/*
 
-Error*.txt
-Fail*.txt
-Messages*.txt
 saldo*.gf
 
 data/saldo.json

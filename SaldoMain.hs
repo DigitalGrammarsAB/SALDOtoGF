@@ -29,6 +29,7 @@ skipList :: Maybe [String]
 skipList = Nothing
 
 -- | Split into chunks, but make sure a lexgram id isn't split between chunks
+splits :: [String] -> [[String]]
 splits []  = []
 splits xs = (part++end):splits rest'
   where

@@ -11,6 +11,7 @@ import System.Directory
 import Data.Char
 import Data.Maybe
 import Data.List
+import Data.ByteString.Lazy (ByteString)
 import Data.ByteString.Lazy.Char8 (pack)
 import qualified Data.Map as Map
 import Control.Monad.Writer
@@ -18,11 +19,11 @@ import Control.Monad.State
 import Control.Monad.Except
 import Control.Arrow
 import Control.Exception (onException)
+import Text.Printf
 
 import qualified PGF as PGF
 
 import SaldoJSON
-import Prep
 import UTF8
 
 {-----------------------------------------------------------------------------
@@ -64,7 +65,7 @@ instance Eq GrammarInfo where
   -- checks equality on the name only, in order to simplify deletion from retries-list
   g1 == g2 = lemma g1 == lemma g2
 
-extract :: Maybe [String] -> String -> [Char] -> Int -> IO ()
+extract :: Maybe [String] -> String -> FilePath -> Int -> IO ()
 extract select name inputFile n  = do
   hSetBuffering stdout NoBuffering
   putStr $ "Reading "++inputFile++" ... "
@@ -84,19 +85,23 @@ extract select name inputFile n  = do
              Right st -> do
                  let ms   =  "\n Messages:\n "++ unlines (msg st)
                  let fails =  "\n Failing:\n " ++ unlines (show (retries st):dead st)
-                 writeFile ("MessagesS"++show n++".txt") ms -- S to keep old files
-                 writeFile ("FailS"++show n++".txt") fails
+                 writeFile (logFile "messages" n) ms
+                 writeFile (logFile "fail" n) fails
                  appendCode name $ ok st
                  return $ unlines (errs st)
-  writeFile ("Errors"++show n++".txt")  $ "\n Errors:\n "  ++ er
+  writeFile (logFile "errors" n)  $ "\n Errors:\n "  ++ er
 
   where
-    loop = do
-     updateGF
-     compileGF
-     changes <- gets changes
-     unless (changes == 0) loop
+    logFile :: String -> Int -> FilePath
+    logFile s n = ("logs/"++s++show n++".txt")
 
+    loop = do
+      updateGF
+      compileGF
+      changes <- gets changes
+      unless (changes == 0) loop
+
+appendCode :: String -> [GrammarInfo] -> IO ()
 appendCode name entries = do
   appendFile ("saldo"++name++".gf")    (concatMap showAbs entries)
   appendFile ("saldo"++name++"Cnc.gf") (concatMap showCnc entries)
@@ -134,31 +139,139 @@ findGrammar (id,E pos table) =  do
 
 --- particles can be prepositions (hitta på), adverbs (åka hem), nouns (åka hem)...
 --  we first check for reflexives, and accept the rest as particles.
+
+okCat :: String -> String -> Bool
 okCat "VP" = hasPart
 okCat "VR" = isRefl
 okCat _    = const True
-findA "VP" w =  ")\""++part++"\""
- where part = findsndWord w
+
+findA :: String -> String ->String
+findA "VP" w =  ")\""++part++"\"" where part = findsndWord w
 findA _  _ = ""
 --w | part `elem` preps = ")\""++part++"\"" --paranthesis to close mkV
         -- | otherwise         = ""
 
+hasPart :: String -> Bool
 hasPart = (\x -> all isAlpha x &&  x/="sig") . findsndWord
+
+hasPrep :: String -> Bool
 hasPrep = (`elem` preps) . findsndWord
+
+isRefl :: String -> Bool
 isRefl  = (=="sig") . findsndWord
 
 -- extracts all words except for the first
+findsndWord :: String -> String
 findsndWord = drop 1 . fst . break (=='.') . snd . break (=='_')
 
-preps = Prep.prepositions
-
---  ["över","efter","före","bakom","mellan","av","med","under","för"
---  ,"från","framför","i","på","genom","till","utan","utom","vid","in"] -- 'vid','in' is not a prep in GF
-
+-- | all Swedish prepostions according to Wikipedia
+-- http://sv.wiktionary.org/wiki/Kategori:Svenska/Prepositioner
+preps :: [String]
+preps =
+  ["à"
+  ,"af"
+  ,"an"
+  ,"angående"
+  ,"apropå"
+  ,"av"
+  ,"bak"
+  ,"bakanför"
+  ,"bakför"
+  ,"bakom"
+  ,"bland"
+  ,"bortanför"
+  ,"bortom"
+  ,"bredvid"
+  ,"efter"
+  ,"emellan"
+  ,"enligt"
+  ,"exklusive"
+  ,"framanför"
+  ,"framför"
+  ,"framom"
+  ,"från"
+  ,"för"
+  ,"före"
+  ,"förutom"
+  ,"genom"
+  ,"gentemot"
+  ,"givet"
+  ,"hinsides"
+  ,"hitom"
+  ,"hos"
+  ,"i"
+  ,"ifrån"
+  ,"igenom"
+  ,"ikring"
+  ,"in" -- in is not in the original list, but needed
+  ,"inifrån"
+  ,"inklusive"
+  ,"innan"
+  ,"innanför"
+  ,"inom"
+  ,"intill"
+  ,"inuti"
+  ,"invid"
+  ,"jämlikt"
+  ,"jämte"
+  ,"kontra"
+  ,"kring"
+  ,"längs"
+  ,"längsefter"
+  ,"med"
+  ,"medelst"
+  ,"mellan"
+  ,"mittemellan"
+  ,"mittimellan"
+  ,"mot"
+  ,"mä"
+  ,"oavsett"
+  ,"om"
+  ,"ovan"
+  ,"ovanför"
+  ,"ovanpå"
+  ,"per"
+  ,"på"
+  ,"runt"
+  ,"runtomkring"
+  ,"sedan"
+  ,"som"
+  ,"te"
+  ,"till"
+  ,"tillika"
+  ,"tills"
+  ,"trots"
+  ,"under"
+  ,"undör"
+  ,"uppför"
+  ,"uppå"
+  ,"ur"
+  ,"ut"-- in is not in the original list, but needed
+  ,"utan"
+  ,"utanför"
+  ,"utanpå"
+  ,"utav"
+  ,"uti"
+  ,"utifrån"
+  ,"utom"
+  ,"utur"
+  ,"utöver"
+  ,"via"
+  ,"vid"
+  ,"visavi"
+  ,"än"
+  ,"å"
+  ,"åt"
+  ,"öfver"
+  ,"öfwer"
+  ,"över"
+  ]
 
 -------------------------------------------------------------------
 -- Compare the current GF version with SALDO
 -------------------------------------------------------------------
+
+updateGF :: Convert ()
 updateGF = do
   report "will update"
   tmp_saldo <- gets pgf
@@ -178,6 +291,7 @@ updateGF = do
   io $ putStrLn update
   report update
 
+check :: PGF.PGF -> GrammarInfo -> Convert ()
 check gf entry@(G id cat lemmas _ _ _) = do
   saldo <- gets saldo
   case Map.lookup id saldo of
@@ -185,6 +299,7 @@ check gf entry@(G id cat lemmas _ _ _) = do
        Nothing      -> do tellFailing ("unknown id in SALDO: " ++ id)
                           isDead id
 
+checkWord :: PGF.PGF -> [(ByteString, String)] -> GrammarInfo -> Convert ()
 checkWord gf t entry@(G id cat lemmas _ _ _) = do
   langName <- getLangName
   let gf_t     = concat $ PGF.tabularLinearizes gf (read $ langName)
@@ -193,8 +308,7 @@ checkWord gf t entry@(G id cat lemmas _ _ _) = do
                                       , gf_cat == cat]
   checkForms paramMap t gf_t entry
 
-checkForms
-  :: Eq a => [(a, [String])] -> [(a, [Char])] -> [([Char], [Char])] -> GrammarInfo -> Convert ()
+checkForms :: Eq a => [(a, [String])] -> [(a, String)] -> [(String, String)] -> GrammarInfo -> Convert ()
 checkForms paramMap fm_t gf_t entry@(G id cat lemmas _ _  _)
   | null diffs = accept entry
   | otherwise  = do c <- gets changes
@@ -238,10 +352,9 @@ checkForms paramMap fm_t gf_t entry@(G id cat lemmas _ _  _)
                                           return Nothing
           where
             fm_p = head' ("getLemma "++gf_p++"."++" Word: "++id) [fm_p | (fm_p,gf_p') <- paramMap, gf_p `elem` gf_p']
--------------------------------------------------------------------
--- Compile with GF
--------------------------------------------------------------------
 
+
+-- | Compile with GF
 compileGF :: Convert ()
 compileGF = do
   io $ putStrLn "Compile generate/saldoCnc.gf ... "
@@ -263,11 +376,8 @@ compileGF = do
   setPGF fpath
 
 
--------------------------------------------------------------------
--- Generate GF identifier
--------------------------------------------------------------------
-
--- TODO: remove `_nn_1` etc
+-- | Generate GF identifier
+-- | This is lossy: the numbers and pos from SALDO are removed
 mkGFName :: String -> String -> String
 mkGFName id' cat = name++"_"++toGFcat cat
   where
@@ -276,46 +386,18 @@ mkGFName id' cat = name++"_"++toGFcat cat
     toGFcat  v   = v
     dash2us '-'  = '_'
     dash2us    x = x
-    num x = if isDigit (head' "isDigit" x) then 'x':x else x
-    name = undot -- $ (++ [last id'])
-          $ num
-          -- $ transform_letters
+    num x = if isDigit (head' "isDigit" x) then 'x':x else x -- don't start with a digit
+    name =  num
           $ map dash2us
-          $ takeWhile (/= '.')  -- in case there are unwanted (unintedned?) dots left
-          $ undot (decodeUTF8 id')
-    -- transform_letters w | any (`elem` translated) w = (++"_1") $ concatMap trans w
-    --                     | otherwise                 = concatMap trans w -- to be sure..
-    --
-    -- trans '\229' = "aa"
-    -- trans '\197' = "AA"
-    -- trans '\228' = "ae"
-    -- trans '\196' = "AE"
-    -- trans '\224' = "a"
-    -- trans '\225' = "a"
-    -- trans '\232' = "e_"
-    -- trans '\233' = "_e"
-    -- trans '\234' = "ee"
-    -- trans '\231' = "c"
-    -- trans '\252' = "u"
-    -- trans '\244' = "oo"
-    -- trans '\246' = "oe"
-    -- trans '\241' = "n"
-    -- trans '\214' = "OE"
-    -- trans '\183' = "_"
-    -- trans x   | isAscii x =  [x]
-    --           | otherwise = "x"
-    -- translated = ['\229', '\197', '\228', '\196', '\224', '\225', '\232', '\233', '\234', '\231', '\252', '\246', '\241', '\214', '\183','\244']
-
-    undot [] = []
-    undot ('.':'.':xs) = '_' : undot xs
-    undot     ('.':xs) = '_' : undot xs
-    undot       (x:xs) = x:undot xs
+          $ takeWhile (/= '.')
+          $ decodeUTF8 id'
 
 -------------------------------------------------------------------
 -- Mapping from SALDO categories/params to GF Resource Library
 -------------------------------------------------------------------
 
 -- all word classes that should be imported should be listed here.
+catMap :: [(ByteString, String, [(ByteString, [String])], (String, String), [(String, [String], String)])]
 catMap  =
   [ (pack "ab", "Adv", map (first pack) advParamMap,  ("mkAdv",""), advParadigmList )
   , (pack "av",   "A", map (first pack) adjParamMap,  ("mkA",""), adjParadigmList )
@@ -328,12 +410,14 @@ catMap  =
   ]
 
 -- For prepositions, not run automatically
+prepCatMap :: [(ByteString, String, [(ByteString, String)], (String, String), [(String, [String], String)])]
 prepCatMap =  [(pack "pp", "Prep", [(pack "invar","s")],("mkPrep",""),[("mkPrep",["s"],"")])]
 
 advParamMap :: [(String,[String])]
 advParamMap =
   [("pos", ["s"]),("invar",["s"])] -- is invar needed?
 
+advParadigmList :: [(String, [String], String)]
 advParadigmList =
   [("mkAdv", ["s"], "") ]
 
@@ -354,8 +438,7 @@ a14 = "s (AF (ASuperl SupStrong) Gen)"
 a15 = "s (AF (ASuperl SupWeak) Nom)"
 a16 = "s (AF (ASuperl SupWeak) Gen)"
 
-
-
+adjParamMap :: [(String, [String])]
 adjParamMap =
   [("pos indef sg u nom",      [a1] )
   ,("pos indef sg u gen",      [a2] )
@@ -375,7 +458,7 @@ adjParamMap =
   ,("super def no_masc gen",   [a16])
   ]
 
-
+adjParadigmList :: [(String, [String], String)]
 adjParadigmList =
   [ ("mkA", [a1], "") , ("mkA", [a1, a3], "")
   , ("mkA", [a1, a11, a13], "")
@@ -384,7 +467,6 @@ adjParadigmList =
   , ("mkA", [a1, a3 , a7, a5 , a11, a13, a15], "")
   , ("mk3A", [a1, a3, a5], "")
   ]
-
 
 v1  = "s (VF (VPres Act))"
 v2  = "s (VF (VPres Pass))"
@@ -407,6 +489,7 @@ v17 = "s (VI (VPtPret (Weak Sg) Gen))"
 v18 = "s (VI (VPtPret (Weak Pl) Nom))"
 v19 = "s (VI (VPtPret (Weak Pl) Gen))"
 
+verbParamMap :: [(String, [String])]
 --"s (VF (VImper Pass))")   "part")
 verbParamMap =
   [("pres ind aktiv",               [v1] )
@@ -430,6 +513,7 @@ verbParamMap =
   ,("pret_part def pl gen",         [v19])
   ]
 
+verbParadigmList :: [(String, [String], String)]
 verbParadigmList =
   [ ("mkV", [v1], "")
   , ("mkV", [v6, v3, v8], "")
@@ -438,17 +522,21 @@ verbParadigmList =
 
 -- could use normal verbParamMap if we are sure it is a preposition,
 -- and will look the same in all paradims
+verbPParamMap :: [(String, [String])]
 verbPParamMap = map (first (++" 1:1-2")) verbParamMap
               ++map (\(a,b) -> (a++" 1:2-2",["part"])) verbParamMap
 
+verbPParadigmList :: [(String, [String], String)]
 verbPParadigmList =
   [ ("", [v1], "" )
   , ("", [v6, v3, v8], "")
   , ("", [v6, v1, v5, v3, v8, v10], "")
   ]
 
+verbRParamMap :: [(String, [String])]
 verbRParamMap = map (first (++" 1:1-2")) verbParamMap
 
+verbRParadigmList :: [(String, [String], String)]
 verbRParadigmList =
   [ ("", [v1],  "")
   , ("", [v6, v3, v8], "")
@@ -464,6 +552,7 @@ n6 = "s Pl Indef Gen"
 n7 = "s Pl Def Nom"
 n8 = "s Pl Def Gen"
 
+nounParamMap :: [(String, [String])]
 nounParamMap =
   [ ("sg indef nom", [n1])
   , ("sg indef gen", [n2])
@@ -475,6 +564,7 @@ nounParamMap =
   , ("pl def gen",   [n8])
   ]
 
+nounParadigmList :: [(String, [String], String)]
 nounParadigmList =
   [ ("mkN", [n1], "")
   , ("mkN", [n1], "utrum")
@@ -484,10 +574,11 @@ nounParadigmList =
   ]
 
 
-
 -------------------------------------------------------------------
 -- Dump GF code
 -------------------------------------------------------------------
+
+printGFFinal :: Convert ()
 printGFFinal = do
   good <- gets ok
   num <- gets partNo
@@ -502,6 +593,7 @@ printGF = do
   nam <- gets name
   io $ printGF' entries (show num) nam
 
+printGF' :: [GrammarInfo] -> String -> String -> IO ()
 printGF' [] _ _ = putStrLn "no lemmas to write"
 printGF' entries num name = do
   let absName = "generate/saldo"++name++num++".gf"
@@ -515,32 +607,31 @@ printGF' entries num name = do
       concatMap showCnc entries ++
       "}"
 
--- TODO: include original ID as comment
-showAbs (G id cat lemmas a _ paradigms) = "  " ++ mkGFName id cat ++ " : " ++ find cat ++ " ;\n"
+showAbs :: GrammarInfo -> String
+showAbs (G id cat lemmas a _ paradigms) = printf "  %s : %s ; -- %s\n" (mkGFName id cat) (find cat) id
   where
     find "VR" = "V"
     find "VP" = "V"
     find x    = x
--- TODO: include original ID as comment
-showCnc (G id cat [[]] a _ paradigms)    = "--  " ++ mkGFName id cat ++ " has not enough forms \n"
+
+showCnc :: GrammarInfo -> String
+showCnc (G id cat [[]] a _ paradigms) = printf "-- %s has not enough forms\n" (mkGFName id cat)
 showCnc (G id cat lemmas a (mk,end) paradigms)
-      = "  " ++ mkGFName id cat ++ " = " ++ mk++ " "
-                         ++  unwords [case lemma_v of
-                              {[]     ->"(variants {})";
-                               xs -> unwords (map fnutta xs)}
-                              | lemma_v <- lemmas]
-                         ++ (if null a then "" else " "++a++" ")
-                         ++end ++ " ;\n"
+  = printf "  %s = %s %s%s%s ; -- %s\n" (mkGFName id cat) mk defs extra end id
  where
+    defs = unwords [ if null lemma_v then "(variants {})" else unwords (map fnutta lemma_v) | lemma_v <- lemmas]
+    extra = if null a then "" else " "++a++" "
     -- avoid putting extra fnutts on variants"
     -- wrong! how to handle this.. maybe won't occur again?
     fnutta x@"variant {}" = "("++x++")"
     fnutta x = "\""++x++"\""
 
+absHeader :: String -> String -> String
 absHeader n nam =
   "--# -path=.:abstract:alltenses/\n" ++ "abstract saldo"++nam++n++" = Cat ** {\n"++
       "\n"++ "fun\n"
 
+concHeader :: String -> String -> String
 concHeader n nam =
       "--# -path=.:swedish:scandinavian:abstract:common:alltenses\n" ++
       "concrete saldo"++nam++n++"Cnc of saldo"++nam++n++" = CatSwe ** open ParadigmsSwe in {\n"++
@@ -550,24 +641,29 @@ concHeader n nam =
       "\n"++
       "lin\n"
 
-getCncName, getAbsName, getPGFName :: Convert String
+getCncName :: Convert String
 getCncName = do
  n   <- gets partNo
  nam <- gets name
  return $ "generate/saldo"++nam++show n++"Cnc.gf"
+
+getAbsName :: Convert String
 getAbsName = do
  n   <- gets partNo
  nam <- gets name
  return $ "generate/saldo"++nam++show n++".gf"
-getLangName= do
+
+getLangName :: Convert String
+getLangName = do
  n   <- gets partNo
  nam <- gets name
  return $ "saldo"++nam++show n++"Cnc"
+
+getPGFName :: Convert String
 getPGFName = do
  n   <- gets partNo
  nam <- gets name
  return $ "saldo"++nam++show n++".pgf"
-
 
 cleanUp :: Convert ()
 cleanUp = do
@@ -578,17 +674,24 @@ cleanUp = do
 -- State
 -------------------------------------------------------------------
 
+initState :: Int -> Maybe [String] -> String -> CState
 initState n s name
   = CS {errs = [], msg = [], retries = []
         , pgf = "", ok = [] ,dead = []
         , saldo = Map.empty, changes = 0, tmps = []
         , partNo = n, selection = s, name = name }
 
+setPGF :: FilePath -> Convert ()
 setPGF f = modify $ \s -> s { pgf = f}
+
+replace :: GrammarInfo -> Convert ()
 replace gr = modify $ \s -> s {retries = gr : delete gr (retries s)} -- hehe, make nice?
+
 -- add to dead , remove from retries
+isDead :: String -> Convert ()
 isDead d = modify $ \s -> s {dead = d:dead s, retries = delete (emptyG d) (retries s)}  -- hehe, make nice?
   where emptyG d = G d [] [] [] ("","") []
+
 --add to ok, remove from retries
 accept :: GrammarInfo -> Convert ()
 accept e = do report $ "accepting "++lemma e
@@ -598,8 +701,10 @@ accept e = do report $ "accepting "++lemma e
 
 setPartNo :: Int -> Convert ()
 setPartNo n = modify $ \s -> s {partNo = n}
+
 addTemp :: FilePath -> Convert ()
 addTemp f = modify $ \s -> s {tmps = f:tmps s}
+
 -------------------------------------------------------------------
 -- Helpers
 -------------------------------------------------------------------
@@ -619,8 +724,3 @@ lookup' a  =  map snd . filter ((== a) . fst)
 head' :: String -> [a] ->  a
 head' s []     = error $ "Error in head in "++s
 head' _ (x:xs) = x
-
-
-f = do pgf <- PGF.readPGF "../gf/BigTest.pgf"
-       let g  = PGF.tabularLinearizes  pgf (read "BigTestSwe") (read "switch8on_V2")
-       return g
