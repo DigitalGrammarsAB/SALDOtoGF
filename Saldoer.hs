@@ -377,9 +377,8 @@ compileGF = do
 
 
 -- | Generate GF identifier
--- | This is lossy: the numbers and pos from SALDO are removed
 mkGFName :: String -> String -> String
-mkGFName id' cat = name++"_"++toGFcat cat
+mkGFName id' cat = printf "%s_%s%s" name (toGFcat cat) (maybeNum)
   where
     toGFcat "VR" = "V"
     toGFcat "VP" = "V"
@@ -391,6 +390,7 @@ mkGFName id' cat = name++"_"++toGFcat cat
           $ map dash2us
           $ takeWhile (/= '.')
           $ decodeUTF8 id'
+    maybeNum = if last id' /= '1' then ['_',last id'] else ""
 
 -------------------------------------------------------------------
 -- Mapping from SALDO categories/params to GF Resource Library
