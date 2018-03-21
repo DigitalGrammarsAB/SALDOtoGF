@@ -378,7 +378,7 @@ compileGF = do
 
 -- | Generate GF identifier
 mkGFName :: String -> String -> String
-mkGFName id' cat = printf "%s_%s%s" name (toGFcat cat) (maybeNum)
+mkGFName id' cat = printf "%s%s_%s" name maybeNum (toGFcat cat)
   where
     toGFcat "VR" = "V"
     toGFcat "VP" = "V"

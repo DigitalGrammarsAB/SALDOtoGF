@@ -28,7 +28,7 @@ partName n = "data/saldoPart"++show n++".json"
 skipList :: Maybe [String]
 skipList = Nothing
 
--- | Split into chunks, but make sure a lexgram id isn't split between chunks
+-- | Split into chunks, but make sure a lemgram id isn't split between chunks
 splits :: [String] -> [[String]]
 splits []  = []
 splits xs = (part++end):splits rest'
