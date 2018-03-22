@@ -378,19 +378,19 @@ compileGF = do
 
 -- | Generate GF identifier
 mkGFName :: String -> String -> String
-mkGFName id' cat = printf "%s%s_%s" name maybeNum (toGFcat cat)
+mkGFName id' cat = printf "%s_%c_%s" name num (toGFcat cat)
   where
     toGFcat "VR" = "V"
     toGFcat "VP" = "V"
     toGFcat  v   = v
     dash2us '-'  = '_'
     dash2us    x = x
-    num x = if isDigit (head' "isDigit" x) then 'x':x else x -- don't start with a digit
-    name =  num
+    pfxnum x = if isDigit (head' "isDigit" x) then 'x':x else x -- don't start with a digit
+    name =  pfxnum
           $ map dash2us
           $ takeWhile (/= '.')
           $ decodeUTF8 id'
-    maybeNum = if last id' /= '1' then ['_',last id'] else ""
+    num = last id'
 
 -------------------------------------------------------------------
 -- Mapping from SALDO categories/params to GF Resource Library
@@ -601,11 +601,11 @@ printGF' entries num name = do
   writeFile  absName $
       absHeader num name ++
       concatMap showAbs entries ++
-      "}"
+      "}\n"
   writeFile cncName $
       concHeader num name ++
       concatMap showCnc entries ++
-      "}"
+      "}\n"
 
 showAbs :: GrammarInfo -> String
 showAbs (G id cat lemmas a _ paradigms) = printf "  %s : %s ; -- %s\n" (mkGFName id cat) (find cat) id

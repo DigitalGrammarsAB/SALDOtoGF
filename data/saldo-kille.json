@@ -1,0 +1,26 @@
+{"word":"kille","head":"kille","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"kille..nn.1","p":"nn_2u_vinge","attr":"0"}
+{"word":"killes","head":"kille","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"kille..nn.1","p":"nn_2u_vinge","attr":"0"}
+{"word":"killen","head":"kille","pos":"nn","param":"sg def nom","inhs":["u"],"id":"kille..nn.1","p":"nn_2u_vinge","attr":"0"}
+{"word":"killens","head":"kille","pos":"nn","param":"sg def gen","inhs":["u"],"id":"kille..nn.1","p":"nn_2u_vinge","attr":"0"}
+{"word":"killar","head":"kille","pos":"nn","param":"pl indef nom","inhs":["u"],"id":"kille..nn.1","p":"nn_2u_vinge","attr":"0"}
+{"word":"killars","head":"kille","pos":"nn","param":"pl indef gen","inhs":["u"],"id":"kille..nn.1","p":"nn_2u_vinge","attr":"0"}
+{"word":"killarna","head":"kille","pos":"nn","param":"pl def nom","inhs":["u"],"id":"kille..nn.1","p":"nn_2u_vinge","attr":"0"}
+{"word":"killarnas","head":"kille","pos":"nn","param":"pl def gen","inhs":["u"],"id":"kille..nn.1","p":"nn_2u_vinge","attr":"0"}
+{"word":"kill-","head":"kille","pos":"nn","param":"ci","inhs":["u"],"id":"kille..nn.1","p":"nn_2u_vinge","attr":"1"}
+{"word":"kill","head":"kille","pos":"nn","param":"ci","inhs":["u"],"id":"kille..nn.1","p":"nn_2u_vinge","attr":"1"}
+{"word":"kill-","head":"kille","pos":"nn","param":"cm","inhs":["u"],"id":"kille..nn.1","p":"nn_2u_vinge","attr":"2"}
+{"word":"killes-","head":"kille","pos":"nn","param":"cm","inhs":["u"],"id":"kille..nn.1","p":"nn_2u_vinge","attr":"2"}
+{"word":"kills-","head":"kille","pos":"nn","param":"cm","inhs":["u"],"id":"kille..nn.1","p":"nn_2u_vinge","attr":"2"}
+{"word":"kill","head":"kille","pos":"nn","param":"cm","inhs":["u"],"id":"kille..nn.1","p":"nn_2u_vinge","attr":"2"}
+{"word":"killes","head":"kille","pos":"nn","param":"cm","inhs":["u"],"id":"kille..nn.1","p":"nn_2u_vinge","attr":"2"}
+{"word":"kills","head":"kille","pos":"nn","param":"cm","inhs":["u"],"id":"kille..nn.1","p":"nn_2u_vinge","attr":"2"}
+{"word":"kill-","head":"kille","pos":"nn","param":"sms","inhs":["u"],"id":"kille..nn.1","p":"nn_2u_vinge","attr":"0"}
+{"word":"kille","head":"kille","pos":"nn","param":"sg indef nom","inhs":["u"],"id":"kille..nn.2","p":"nn_0u_radar","attr":"0"}
+{"word":"killes","head":"kille","pos":"nn","param":"sg indef gen","inhs":["u"],"id":"kille..nn.2","p":"nn_0u_radar","attr":"0"}
+{"word":"killen","head":"kille","pos":"nn","param":"sg def nom","inhs":["u"],"id":"kille..nn.2","p":"nn_0u_radar","attr":"0"}
+{"word":"killens","head":"kille","pos":"nn","param":"sg def gen","inhs":["u"],"id":"kille..nn.2","p":"nn_0u_radar","attr":"0"}
+{"word":"kille-","head":"kille","pos":"nn","param":"ci","inhs":["u"],"id":"kille..nn.2","p":"nn_0u_radar","attr":"1"}
+{"word":"kille","head":"kille","pos":"nn","param":"ci","inhs":["u"],"id":"kille..nn.2","p":"nn_0u_radar","attr":"1"}
+{"word":"kille-","head":"kille","pos":"nn","param":"cm","inhs":["u"],"id":"kille..nn.2","p":"nn_0u_radar","attr":"2"}
+{"word":"kille","head":"kille","pos":"nn","param":"cm","inhs":["u"],"id":"kille..nn.2","p":"nn_0u_radar","attr":"2"}
+{"word":"kille-","head":"kille","pos":"nn","param":"sms","inhs":["u"],"id":"kille..nn.2","p":"nn_0u_radar","attr":"0"}
