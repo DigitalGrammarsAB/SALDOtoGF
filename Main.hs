@@ -1,4 +1,4 @@
-import Saldoer
+import Saldoer (doExtract)
 
 import Data.List
 import System.Environment (getArgs)
@@ -8,25 +8,17 @@ main = do
   args <- getArgs
   case args of
     [path] -> do
-      let name = "Tot"
       saldom <- readFile path
       let parts = splits $ lines saldom
       putStrLn "read saldo. Writing partitions"
       fpaths <- writeFiles parts 0
       putStrLn "written all files. Extracting ..."
-      let skip = 0
-      initGFFiles name
-      zipWithM (extract skipList name) fpaths [skip..]
-      putStrLn "extraction complete.. Completing files ..."
-      endGFFiles name
+      doExtract fpaths 0
     _ -> do
       putStrLn "Please specify file to extract"
 
 partName :: Int -> String
 partName n = "data/saldoPart"++show n++".json"
-
-skipList :: Maybe [String]
-skipList = Nothing
 
 -- | Split into chunks, but make sure a lemgram id isn't split between chunks
 splits :: [String] -> [[String]]
@@ -59,13 +51,3 @@ writeFiles (x:xmls) n = do
      writeFile name (unlines x)
      names <- writeFiles xmls (n+1)
      return $ name:names
-
-initGFFiles :: String -> IO ()
-initGFFiles tot = do
-  writeFile ("saldo"++tot++".gf")   $ absHeader "Tot" ""
-  writeFile ("saldo"++tot++"Cnc.gf") $ concHeader "Tot" ""
-
-endGFFiles :: String -> IO ()
-endGFFiles tot = do
-  appendFile ("saldo"++tot++".gf") "}"
-  appendFile ("saldo"++tot++"Cnc.gf") "}"

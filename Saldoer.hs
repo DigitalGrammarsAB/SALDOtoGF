@@ -65,7 +65,15 @@ instance Eq GrammarInfo where
   -- checks equality on the name only, in order to simplify deletion from retries-list
   g1 == g2 = lemma g1 == lemma g2
 
-extract :: Maybe [String] -> String -> FilePath -> Int -> IO ()
+doExtract :: [FilePath] -> Int -> IO ()
+doExtract fpaths skip = do
+  let name = "Tot"
+  entriess <- zipWithM (extract Nothing name) fpaths [skip..]
+  let entriesSorted = sortOn lemma (concat entriess)
+  writeFile "DictSweAbs.gf" $ absHeader "DictSweAbs" ++ concatMap showAbs entriesSorted ++ "}\n"
+  writeFile "DictSwe.gf" $ concHeader "DictSwe" "DictSweAbs" ++ concatMap showCnc entriesSorted ++ "}\n"
+
+extract :: Maybe [String] -> String -> FilePath -> Int -> IO [GrammarInfo]
 extract select name inputFile n  = do
   hSetBuffering stdout NoBuffering
   putStr $ "Reading "++inputFile++" ... "
@@ -80,16 +88,17 @@ extract select name inputFile n  = do
                     >> loop
                     >> printGFFinal
                     >> cleanUp)  (initState n select name)
-  er <- case mst of
-             Left er  -> return er
+  (entries,errs) <- case mst of
+             Left er  -> return ([],er)
              Right st -> do
                  let ms   =  "\n Messages:\n "++ unlines (msg st)
                  let fails =  "\n Failing:\n " ++ unlines (show (retries st):dead st)
                  writeFile (logFile "messages" n) ms
                  writeFile (logFile "fail" n) fails
-                 appendCode name $ ok st
-                 return $ unlines (errs st)
-  writeFile (logFile "errors" n)  $ "\n Errors:\n "  ++ er
+                 -- appendCode name $ ok st
+                 return (ok st, unlines (errs st))
+  writeFile (logFile "errors" n)  $ "\n Errors:\n "  ++ errs
+  return entries
 
   where
     logFile :: String -> Int -> FilePath
@@ -100,11 +109,6 @@ extract select name inputFile n  = do
       compileGF
       changes <- gets changes
       unless (changes == 0) loop
-
-appendCode :: String -> [GrammarInfo] -> IO ()
-appendCode name entries = do
-  appendFile ("saldo"++name++".gf")    (concatMap showAbs entries)
-  appendFile ("saldo"++name++"Cnc.gf") (concatMap showCnc entries)
 
 -------------------------------------------------------------------
 -- Bootstrap initial version of GF
@@ -154,8 +158,8 @@ findA _  _ = ""
 hasPart :: String -> Bool
 hasPart = (\x -> all isAlpha x &&  x/="sig") . findsndWord
 
-hasPrep :: String -> Bool
-hasPrep = (`elem` preps) . findsndWord
+-- hasPrep :: String -> Bool
+-- hasPrep = (`elem` preps) . findsndWord
 
 isRefl :: String -> Bool
 isRefl  = (=="sig") . findsndWord
@@ -164,108 +168,108 @@ isRefl  = (=="sig") . findsndWord
 findsndWord :: String -> String
 findsndWord = drop 1 . fst . break (=='.') . snd . break (=='_')
 
--- | all Swedish prepostions according to Wikipedia
--- http://sv.wiktionary.org/wiki/Kategori:Svenska/Prepositioner
-preps :: [String]
-preps =
-  ["à"
-  ,"af"
-  ,"an"
-  ,"angående"
-  ,"apropå"
-  ,"av"
-  ,"bak"
-  ,"bakanför"
-  ,"bakför"
-  ,"bakom"
-  ,"bland"
-  ,"bortanför"
-  ,"bortom"
-  ,"bredvid"
-  ,"efter"
-  ,"emellan"
-  ,"enligt"
-  ,"exklusive"
-  ,"framanför"
-  ,"framför"
-  ,"framom"
-  ,"från"
-  ,"för"
-  ,"före"
-  ,"förutom"
-  ,"genom"
-  ,"gentemot"
-  ,"givet"
-  ,"hinsides"
-  ,"hitom"
-  ,"hos"
-  ,"i"
-  ,"ifrån"
-  ,"igenom"
-  ,"ikring"
-  ,"in" -- in is not in the original list, but needed
-  ,"inifrån"
-  ,"inklusive"
-  ,"innan"
-  ,"innanför"
-  ,"inom"
-  ,"intill"
-  ,"inuti"
-  ,"invid"
-  ,"jämlikt"
-  ,"jämte"
-  ,"kontra"
-  ,"kring"
-  ,"längs"
-  ,"längsefter"
-  ,"med"
-  ,"medelst"
-  ,"mellan"
-  ,"mittemellan"
-  ,"mittimellan"
-  ,"mot"
-  ,"mä"
-  ,"oavsett"
-  ,"om"
-  ,"ovan"
-  ,"ovanför"
-  ,"ovanpå"
-  ,"per"
-  ,"på"
-  ,"runt"
-  ,"runtomkring"
-  ,"sedan"
-  ,"som"
-  ,"te"
-  ,"till"
-  ,"tillika"
-  ,"tills"
-  ,"trots"
-  ,"under"
-  ,"undör"
-  ,"uppför"
-  ,"uppå"
-  ,"ur"
-  ,"ut"-- in is not in the original list, but needed
-  ,"utan"
-  ,"utanför"
-  ,"utanpå"
-  ,"utav"
-  ,"uti"
-  ,"utifrån"
-  ,"utom"
-  ,"utur"
-  ,"utöver"
-  ,"via"
-  ,"vid"
-  ,"visavi"
-  ,"än"
-  ,"å"
-  ,"åt"
-  ,"öfver"
-  ,"öfwer"
-  ,"över"
-  ]
+-- -- | all Swedish prepostions according to Wikipedia
+-- -- http://sv.wiktionary.org/wiki/Kategori:Svenska/Prepositioner
+-- preps :: [String]
+-- preps =
+--   ["à"
+--   ,"af"
+--   ,"an"
+--   ,"angående"
+--   ,"apropå"
+--   ,"av"
+--   ,"bak"
+--   ,"bakanför"
+--   ,"bakför"
+--   ,"bakom"
+--   ,"bland"
+--   ,"bortanför"
+--   ,"bortom"
+--   ,"bredvid"
+--   ,"efter"
+--   ,"emellan"
+--   ,"enligt"
+--   ,"exklusive"
+--   ,"framanför"
+--   ,"framför"
+--   ,"framom"
+--   ,"från"
+--   ,"för"
+--   ,"före"
+--   ,"förutom"
+--   ,"genom"
+--   ,"gentemot"
+--   ,"givet"
+--   ,"hinsides"
+--   ,"hitom"
+--   ,"hos"
+--   ,"i"
+--   ,"ifrån"
+--   ,"igenom"
+--   ,"ikring"
+--   ,"in" -- in is not in the original list, but needed
+--   ,"inifrån"
+--   ,"inklusive"
+--   ,"innan"
+--   ,"innanför"
+--   ,"inom"
+--   ,"intill"
+--   ,"inuti"
+--   ,"invid"
+--   ,"jämlikt"
+--   ,"jämte"
+--   ,"kontra"
+--   ,"kring"
+--   ,"längs"
+--   ,"längsefter"
+--   ,"med"
+--   ,"medelst"
+--   ,"mellan"
+--   ,"mittemellan"
+--   ,"mittimellan"
+--   ,"mot"
+--   ,"mä"
+--   ,"oavsett"
+--   ,"om"
+--   ,"ovan"
+--   ,"ovanför"
+--   ,"ovanpå"
+--   ,"per"
+--   ,"på"
+--   ,"runt"
+--   ,"runtomkring"
+--   ,"sedan"
+--   ,"som"
+--   ,"te"
+--   ,"till"
+--   ,"tillika"
+--   ,"tills"
+--   ,"trots"
+--   ,"under"
+--   ,"undör"
+--   ,"uppför"
+--   ,"uppå"
+--   ,"ur"
+--   ,"ut"-- in is not in the original list, but needed
+--   ,"utan"
+--   ,"utanför"
+--   ,"utanpå"
+--   ,"utav"
+--   ,"uti"
+--   ,"utifrån"
+--   ,"utom"
+--   ,"utur"
+--   ,"utöver"
+--   ,"via"
+--   ,"vid"
+--   ,"visavi"
+--   ,"än"
+--   ,"å"
+--   ,"åt"
+--   ,"öfver"
+--   ,"öfwer"
+--   ,"över"
+--   ]
 
 -------------------------------------------------------------------
 -- Compare the current GF version with SALDO
@@ -596,14 +600,16 @@ printGF = do
 printGF' :: [GrammarInfo] -> String -> String -> IO ()
 printGF' [] _ _ = putStrLn "no lemmas to write"
 printGF' entries num name = do
-  let absName = "generate/saldo"++name++num++".gf"
-      cncName = "generate/saldo"++name++num++"Cnc.gf"
+  let
+    sname = "saldo"++name++num
+    absName = "generate/"++sname++".gf"
+    cncName = "generate/"++sname++"Cnc.gf"
   writeFile  absName $
-      absHeader num name ++
+      absHeader sname ++
       concatMap showAbs entries ++
       "}\n"
   writeFile cncName $
-      concHeader num name ++
+      concHeader (sname++"Cnc") sname ++
       concatMap showCnc entries ++
       "}\n"
 
@@ -626,20 +632,24 @@ showCnc (G id cat lemmas a (mk,end) paradigms)
     fnutta x@"variant {}" = "("++x++")"
     fnutta x = "\""++x++"\""
 
-absHeader :: String -> String -> String
-absHeader n nam =
-  "--# -path=.:abstract:alltenses/\n" ++ "abstract saldo"++nam++n++" = Cat ** {\n"++
-      "\n"++ "fun\n"
+absHeader :: String -> String
+absHeader nam = unlines $
+  [ "--# -path=.:abstract:alltenses/"
+  , printf "abstract %s = Cat ** {" nam
+  , ""
+  , "fun"
+  ]
 
 concHeader :: String -> String -> String
-concHeader n nam =
-      "--# -path=.:swedish:scandinavian:abstract:common:alltenses\n" ++
-      "concrete saldo"++nam++n++"Cnc of saldo"++nam++n++" = CatSwe ** open ParadigmsSwe in {\n"++
-      "\n"++
-      "flags\n"++
-      "  optimize=values ; coding=utf8 ;\n"++
-      "\n"++
-      "lin\n"
+concHeader cname aname = unlines $
+  [ "--# -path=.:swedish:scandinavian:abstract:common:alltenses"
+  , printf "concrete %s of %s = CatSwe ** open ParadigmsSwe in {" cname aname
+  , ""
+  , "flags"
+  , "  optimize=values ; coding=utf8 ;"
+  , ""
+  , "lin"
+  ]
 
 getCncName :: Convert String
 getCncName = do
