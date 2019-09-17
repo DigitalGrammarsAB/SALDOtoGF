@@ -49,11 +49,11 @@ parseDict path = do
     tryDecode s =
       case decode s of
         Just x  -> Right x
-        Nothing -> Left $ "Cannot parse Line from: " ++ (show s)
+        Nothing -> Left $ "Cannot parse Line from: " ++ show s
     elns = map tryDecode (C8.lines s) :: [Either String Line]
   sequence_ [ putStrLn err | Left err <- elns ]
   let
-    lns = [ (lid, mkEntry line) | Right (line@(L {lId = lid})) <- elns ]
+    lns = [ (lid, mkEntry line) | Right line@L{lId = lid} <- elns ]
     lx = M.fromListWith combineEntries lns
   return $ Just lx
 
@@ -64,10 +64,10 @@ mkEntry l = E
   }
 
 combineEntries :: Entry -> Entry -> Entry
-combineEntries a b | (pos a /= pos b) = error "Cannot combine entries"
+combineEntries a b | pos a /= pos b = error "Cannot combine entries"
 combineEntries a b = E
   { pos = pos a
-  , table = (table a) ++ (table b)
+  , table = table a ++ table b
   }
 
 toBS :: String -> BSL.ByteString

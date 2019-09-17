@@ -1,13 +1,11 @@
-saldo2gf
-
 *.pgf
 *.gfo
 *.o
 *.hi
 
+build/*
 generate/*
 logs/*
-saldo*.gf
 
 data/saldo.json
 data/saldoPart*

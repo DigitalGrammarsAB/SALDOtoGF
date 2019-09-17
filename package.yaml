@@ -1,0 +1,26 @@
+name: SALDOtoGF
+version: 3.0
+synopsis: Conversion script from SALDO to GF grammar
+description: See README.md
+maintainer: John J. Camilleri <john@digitalgrammars.com>
+github: DigitalGrammarsAB/SALDOtoGF
+category: Development
+extra-source-files:
+  - README.md
+
+ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
+
+dependencies:
+  - base >= 4.9 && < 5
+  - bytestring
+  - containers
+  - aeson
+  - gf >= 3.10
+  - mtl
+  - directory
+  - filepath
+  - process
+
+executable:
+  main: Main.hs
+  source-dirs: src

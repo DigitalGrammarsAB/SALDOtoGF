@@ -4,27 +4,28 @@
 module Saldoer where
 
 import Prelude hiding (lex)
-import System.IO
-import System.Process
-import System.Exit
-import System.Directory
-import Data.Char
-import Data.Maybe
-import Data.List
+import System.IO (hClose, openTempFile, stdout, hSetBuffering, BufferMode(..))
+import System.Process (rawSystem)
+import System.Exit (ExitCode(..))
+import System.Directory (removeFile, copyFile)
+import System.FilePath ((</>),(<.>))
+import Data.Char (isDigit,isAlpha)
+import Data.Maybe (catMaybes,mapMaybe)
+import Data.List (delete, sortOn)
 import Data.ByteString.Lazy (ByteString)
 import Data.ByteString.Lazy.Char8 (pack)
 import qualified Data.Map as Map
-import Control.Monad.Writer
-import Control.Monad.State
-import Control.Monad.Except
-import Control.Arrow
+import Control.Monad (when, unless, zipWithM)
+import Control.Monad.Trans (lift)
+import Control.Monad.State (StateT(..), modify, gets, execStateT)
+import Control.Monad.Except (ExceptT(..), runExceptT)
+import Control.Arrow (first)
 import Control.Exception (onException)
 import Text.Printf
 
-import qualified PGF as PGF
+import qualified PGF
 
-import SaldoJSON
-import UTF8
+import SaldoJSON (Entry(..), Lex, parseDict)
 
 {-----------------------------------------------------------------------------
 Translates saldom.xml into GF dictionary.
@@ -32,6 +33,12 @@ To change input format, just replace parseDict
 The main fuction is extract, which could operate alone or together with
 SaldoMain
 -----------------------------------------------------------------------------}
+
+genDir :: FilePath
+genDir = "generate"
+
+buildDir :: FilePath
+buildDir = "build"
 
 type Convert = StateT CState (ExceptT String IO)
 
@@ -70,8 +77,8 @@ doExtract fpaths skip = do
   let name = "Tot"
   entriess <- zipWithM (extract Nothing name) fpaths [skip..]
   let entriesSorted = sortOn lemma (concat entriess)
-  writeFile "DictSweAbs.gf" $ absHeader "DictSweAbs" ++ concatMap showAbs entriesSorted ++ "}\n"
-  writeFile "DictSwe.gf" $ concHeader "DictSwe" "DictSweAbs" ++ concatMap showCnc entriesSorted ++ "}\n"
+  writeFile (genDir </> "DictSweAbs.gf") $ absHeader "DictSweAbs" ++ concatMap showAbs entriesSorted ++ "}\n"
+  writeFile (genDir </> "DictSwe.gf") $ concHeader "DictSwe" "DictSweAbs" ++ concatMap showCnc entriesSorted ++ "}\n"
 
 extract :: Maybe [String] -> String -> FilePath -> Int -> IO [GrammarInfo]
 extract select name inputFile n  = do
@@ -102,7 +109,7 @@ extract select name inputFile n  = do
 
   where
     logFile :: String -> Int -> FilePath
-    logFile s n = ("logs/"++s++show n++".txt")
+    logFile s n = "logs/"++s++show n++".txt"
 
     loop = do
       updateGF
@@ -166,7 +173,7 @@ isRefl  = (=="sig") . findsndWord
 
 -- extracts all words except for the first
 findsndWord :: String -> String
-findsndWord = drop 1 . fst . break (=='.') . snd . break (=='_')
+findsndWord = drop 1 . takeWhile (/='.') . dropWhile (/='_')
 
 -- -- | all Swedish prepostions according to Wikipedia
 -- -- http://sv.wiktionary.org/wiki/Kategori:Svenska/Prepositioner
@@ -306,7 +313,7 @@ check gf entry@(G id cat lemmas _ _ _) = do
 checkWord :: PGF.PGF -> [(ByteString, String)] -> GrammarInfo -> Convert ()
 checkWord gf t entry@(G id cat lemmas _ _ _) = do
   langName <- getLangName
-  let gf_t     = concat $ PGF.tabularLinearizes gf (read $ langName)
+  let gf_t     = concat $ PGF.tabularLinearizes gf (read langName)
                                                (read (mkGFName id cat))
       paramMap = head' "check" [map | (_,gf_cat,map,_,_) <- catMap
                                       , gf_cat == cat]
@@ -324,7 +331,7 @@ checkForms paramMap fm_t gf_t entry@(G id cat lemmas _ _  _)
     diffs = [(fm_p,fm_v,gf_p,gf_v)  -- | gf_p' <- gf_p
                                    | (fm_p,gf_p) <- paramMap
                                    , fm_vs      <- [lookup' fm_p fm_t]
-                                   , let gf_v  = catMaybes $ map (`lookup` gf_t) gf_p
+                                   , let gf_v  = mapMaybe (`lookup` gf_t) gf_p
                                    , Just fm_v  <- [isDiff gf_v fm_vs]]
    -- if there is no information about the form in saldo, we chose to accept it
     isDiff  _ [] = Nothing
@@ -343,10 +350,8 @@ checkForms paramMap fm_t gf_t entry@(G id cat lemmas _ _  _)
         -- to do: if the comparative forms for an adjective doesn't exist, add compounda
            then do report ("all forms for "++id++" not found" )
                    getNextLemma (G id cat lemmas b f ps)
-           else replace (G id cat [catMaybes forms] a {-(specialF pre-} f ps)
+           else replace (G id cat [catMaybes forms] a f ps)
       where
-        specialF "mk3A" _ = ("mk3A","") --- to be done more nicely -- can probably be removed now, but test first
-        specialF x           f = f
         getLemma  gf_p=
                      case lookup fm_p fm_t of
                           Just ""   -> do report ("form "++gf_p++" was empty for "++id)
@@ -361,10 +366,10 @@ checkForms paramMap fm_t gf_t entry@(G id cat lemmas _ _  _)
 -- | Compile with GF
 compileGF :: Convert ()
 compileGF = do
-  io $ putStrLn "Compile generate/saldoCnc.gf ... "
+  io $ putStrLn "Compiling GF ... "
   concName <- getCncName
   pgfName  <- getPGFName
-  res <- io $ rawSystem "gf" ["--batch", "--make", concName, "+RTS", "-K64M"]
+  res <- io $ rawSystem "gf" ["--batch", "--make", "--output-dir", buildDir, concName, "+RTS", "-K64M"]
   case res of
     ExitSuccess      -> return ()
     ExitFailure code -> do
@@ -393,7 +398,8 @@ mkGFName id' cat = printf "%s_%c_%s" name num (toGFcat cat)
     name =  pfxnum
           $ map dash2us
           $ takeWhile (/= '.')
-          $ decodeUTF8 id'
+          $ id'
+          -- $ decodeUTF8 id'
     num = last id'
 
 -------------------------------------------------------------------
@@ -602,8 +608,8 @@ printGF' [] _ _ = putStrLn "no lemmas to write"
 printGF' entries num name = do
   let
     sname = "saldo"++name++num
-    absName = "generate/"++sname++".gf"
-    cncName = "generate/"++sname++"Cnc.gf"
+    absName = genDir </> sname <.> "gf"
+    cncName = genDir </> sname ++ "Cnc" <.> "gf"
   writeFile  absName $
       absHeader sname ++
       concatMap showAbs entries ++
@@ -633,7 +639,7 @@ showCnc (G id cat lemmas a (mk,end) paradigms)
     fnutta x = "\""++x++"\""
 
 absHeader :: String -> String
-absHeader nam = unlines $
+absHeader nam = unlines
   [ "--# -path=.:abstract:alltenses/"
   , printf "abstract %s = Cat ** {" nam
   , ""
@@ -641,7 +647,7 @@ absHeader nam = unlines $
   ]
 
 concHeader :: String -> String -> String
-concHeader cname aname = unlines $
+concHeader cname aname = unlines
   [ "--# -path=.:swedish:scandinavian:abstract:common:alltenses"
   , printf "concrete %s of %s = CatSwe ** open ParadigmsSwe in {" cname aname
   , ""
@@ -655,13 +661,13 @@ getCncName :: Convert String
 getCncName = do
  n   <- gets partNo
  nam <- gets name
- return $ "generate/saldo"++nam++show n++"Cnc.gf"
+ return $ genDir </> "saldo"++nam++show n++"Cnc" <.> "gf"
 
 getAbsName :: Convert String
 getAbsName = do
  n   <- gets partNo
  nam <- gets name
- return $ "generate/saldo"++nam++show n++".gf"
+ return $ genDir </> "saldo"++nam++show n <.> "gf"
 
 getLangName :: Convert String
 getLangName = do
@@ -673,7 +679,7 @@ getPGFName :: Convert String
 getPGFName = do
  n   <- gets partNo
  nam <- gets name
- return $ "saldo"++nam++show n++".pgf"
+ return $ buildDir </> "saldo"++nam++show n <.> "pgf"
 
 cleanUp :: Convert ()
 cleanUp = do

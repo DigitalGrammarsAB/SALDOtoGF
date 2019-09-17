@@ -1,7 +1,14 @@
-all: saldo2gf
+.PHONY: build clean
 
-saldo2gf: *.hs
-	ghc -O2 -o saldo2gf Main.hs
+# See if Stack is installed on system
+STACK=$(shell if hash stack 2>/dev/null; then echo "1"; else echo "0"; fi)
+
+build: src/*.hs
+ifeq ($(STACK),1)
+	stack build
+else
+	cabal build
+endif
 
 clean:
-	rm -f generate/*.gf* *.o *.hi *.pgf
+	rm -f build/*.pgf generate/*.gf* logs/*.txt

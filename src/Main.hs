@@ -2,8 +2,8 @@ import Saldoer (doExtract)
 
 import Data.List
 import System.Environment (getArgs)
-import Control.Monad (zipWithM)
 
+main :: IO ()
 main = do
   args <- getArgs
   case args of
@@ -14,7 +14,7 @@ main = do
       fpaths <- writeFiles parts 0
       putStrLn "written all files. Extracting ..."
       doExtract fpaths 0
-    _ -> do
+    _ ->
       putStrLn "Please specify file to extract"
 
 partName :: Int -> String

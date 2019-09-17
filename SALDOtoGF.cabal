@@ -1,0 +1,45 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: bcf2e6a9fada7c8ccd41cbec1b1ec314949d9a7e5fcbdf15d4abd290748e059a
+
+name:           SALDOtoGF
+version:        3.0
+synopsis:       Conversion script from SALDO to GF grammar
+description:    See README.md
+category:       Development
+homepage:       https://github.com/DigitalGrammarsAB/SALDOtoGF#readme
+bug-reports:    https://github.com/DigitalGrammarsAB/SALDOtoGF/issues
+maintainer:     John J. Camilleri <john@digitalgrammars.com>
+build-type:     Simple
+extra-source-files:
+    README.md
+
+source-repository head
+  type: git
+  location: https://github.com/DigitalGrammarsAB/SALDOtoGF
+
+executable SALDOtoGF
+  main-is: Main.hs
+  other-modules:
+      Saldoer
+      SaldoJSON
+      UTF8
+      Paths_SALDOtoGF
+  hs-source-dirs:
+      src
+  ghc-options: -Wall -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
+  build-depends:
+      aeson
+    , base >=4.9 && <5
+    , bytestring
+    , containers
+    , directory
+    , filepath
+    , gf >=3.10
+    , mtl
+    , process
+  default-language: Haskell2010
