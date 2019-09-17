@@ -12,14 +12,18 @@ and has undergone improvement by [Digital Grammars AB](https://www.digitalgramma
 
 ## Usage
 
-```
-runghc Main.hs data/saldo.json
-```
+The SALDO data itself is not included as part of this repository.
+We specifically use the morphological SALDO lexicon (`saldom`).
+This is obtained from:
 
-## General SALDO info
+- LMF (XML): <https://svn.spraakdata.gu.se/sb-arkiv/pub/lmf/saldom/saldom.xml>
+- JSON: ?
 
-- Official download page: <https://spraakbanken.gu.se/swe/resurs/saldom>
-- Latest release (LMF/XML): <https://svn.spraakdata.gu.se/sb-arkiv/pub/lmf/saldom/saldom.xml>
+The main executable is then run with this file as input argument, e.g.:
+
+```
+stack run -- data/saldo.xml
+```
 
 ## Folder structure
 

@@ -14,12 +14,14 @@ dependencies:
   - base >= 4.9 && < 5
   - bytestring
   - containers
-  - aeson
-  - gf >= 3.10
-  - mtl
+  - text
   - directory
   - filepath
   - process
+  - mtl
+  - aeson
+  - xml
+  - gf >= 3.10
 
 executable:
   main: Main.hs

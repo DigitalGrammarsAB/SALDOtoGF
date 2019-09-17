@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: bcf2e6a9fada7c8ccd41cbec1b1ec314949d9a7e5fcbdf15d4abd290748e059a
+-- hash: a4b2f627e77f3b255ebcf708dfd4ca960a52bc55567a0f58fbcb2ec44eadbb54
 
 name:           SALDOtoGF
 version:        3.0
@@ -25,9 +25,10 @@ source-repository head
 executable SALDOtoGF
   main-is: Main.hs
   other-modules:
+      Common
       Saldoer
       SaldoJSON
-      UTF8
+      SaldoXML
       Paths_SALDOtoGF
   hs-source-dirs:
       src
@@ -42,4 +43,6 @@ executable SALDOtoGF
     , gf >=3.10
     , mtl
     , process
+    , text
+    , xml
   default-language: Haskell2010

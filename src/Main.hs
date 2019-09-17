@@ -1,24 +1,38 @@
+
+-- | This module takes care of command-line arguments and splitting the input data files
+
 import Saldoer (doExtract)
 
-import Data.List
+import Data.List (isPrefixOf)
 import System.Environment (getArgs)
+import System.FilePath ((</>), (<.>), takeExtension)
+import Control.Monad (when)
+
+import qualified SaldoXML as XML
+import qualified SaldoJSON as JSON
 
 main :: IO ()
 main = do
   args <- getArgs
-  case args of
-    [path] -> do
-      saldom <- readFile path
-      let parts = splits $ lines saldom
-      putStrLn "read saldo. Writing partitions"
-      fpaths <- writeFiles parts 0
-      putStrLn "written all files. Extracting ..."
-      doExtract fpaths 0
-    _ ->
-      putStrLn "Please specify file to extract"
+  when (null args) $ fail "Please specify file to extract"
+  let path = head args
+  case takeExtension path of
+    ".xml" -> do
+        lexi <- XML.parseDict path
+        print lexi
+    _ -> fail "Unsupported file extension"
+  -- saldom <- readFile path
+  -- let parts = splits $ lines saldom
+  -- putStrLn "read saldo. Writing partitions"
+  -- fpaths <- writeFiles parts 0
+  -- putStrLn "written all files. Extracting ..."
+  -- doExtract fpaths 0
 
 partName :: Int -> String
-partName n = "data/saldoPart"++show n++".json"
+partName n = "data" </> "saldoPart"++show n <.> "json"
+
+-- TODO this splitting is JSON specific! Must use Entry type
+
 
 -- | Split into chunks, but make sure a lemgram id isn't split between chunks
 splits :: [String] -> [[String]]
