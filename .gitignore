@@ -10,3 +10,6 @@ logs/*
 data/saldom.xml
 data/saldo.json
 data/saldoPart*
+
+# for keeping empty folders
+!.gitkeep
