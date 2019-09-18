@@ -14,12 +14,10 @@ import System.FilePath ((</>),(<.>))
 
 import Data.Char (isDigit,isAlpha)
 import Data.Maybe (catMaybes,mapMaybe)
-import qualified Data.Map as Map
+import qualified Data.Map.Strict as M
 import Data.List (delete, sortOn)
 import Data.Text (Text)
 import qualified Data.Text as T
--- import Data.ByteString.Lazy (ByteString)
--- import Data.ByteString.Lazy.Char8 (pack)
 import Text.Printf
 
 import Control.Monad (when, unless, zipWithM)
@@ -91,7 +89,7 @@ doExtract lexs skip = do
       printf "\nExtracting part %d of %d\n" (n+1) (length lexs)
       extract Nothing name lexi n
   entriess <- zipWithM run lexs [skip..]
-  let entriesSorted = sortOn grLemma (concat entriess)
+  let entriesSorted = sortOn grLemma (concat entriess) :: [GrammarInfo]
   nl
   writeReportFile (genDir </> "DictSweAbs.gf") $ absHeader "DictSweAbs" ++ concatMap showAbs entriesSorted ++ "}\n"
   writeReportFile (genDir </> "DictSwe.gf") $ concHeader "DictSwe" "DictSweAbs" ++ concatMap showCnc entriesSorted ++ "}\n"
@@ -108,13 +106,13 @@ extract select name saldo n  = do
   (entries,errs) <- case mst of
              Left er  -> return ([],er)
              Right st -> do
-                 let ms   =  "\n Messages:\n "++ unlines (stMsg st)
-                 let fails =  "\n Failing:\n " ++ show (stRetries st) ++ T.unpack (T.unlines (stDead st))
+                 let ms = unlines (stMsg st)
+                 let fails = show (stRetries st) ++ T.unpack (T.unlines (stDead st))
                  writeFile (logFile "messages" n) ms
                  writeFile (logFile "fail" n) fails
                  -- appendCode name $ stOK st
                  return (stOK st, unlines (stErrs st))
-  writeFile (logFile "errors" n)  $ "\n Errors:\n "  ++ errs
+  writeFile (logFile "errors" n) errs
   return entries
 
   where
@@ -134,7 +132,7 @@ extract select name saldo n  = do
 createGF :: Lex -> Convert ()
 createGF sal = do
   io $ putStr "Creating GF source"
-  mapM_ findGrammar (Map.toList sal)
+  mapM_ findGrammar (M.toList sal)
   todo <- gets stRetries
   when (null todo) $ fail "No words from this section. Skipping"
   modify $ \s -> s {stLex = sal}
@@ -319,7 +317,7 @@ updateGF = do
 check :: PGF.PGF -> GrammarInfo -> Convert ()
 check gf entry@(G id cat lemmas _ _ _) = do
   saldo <- gets stLex
-  case Map.lookup id saldo of
+  case M.lookup id saldo of
        Just (E p t) -> checkWord gf t entry
        Nothing      -> do tellFailing (printf "unknown id in SALDO: %s" id)
                           isDead id
@@ -720,7 +718,7 @@ initState n s name = CS
   , stPGF = ""
   , stOK = []
   , stDead = []
-  , stLex = Map.empty
+  , stLex = M.empty
   , stChanges = 0
   , stTmps = []
   , stPartNo = n

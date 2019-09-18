@@ -7,7 +7,7 @@ module SaldoJSON (Lex, Entry(..), parseDict) where
 
 import Common
 
-import qualified Data.Map as M
+import qualified Data.Map.Strict as M
 import qualified Data.ByteString.Lazy as BSL
 import qualified Data.ByteString.Lazy.Char8 as C8
 import Data.Text (Text)

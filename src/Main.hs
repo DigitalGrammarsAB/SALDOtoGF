@@ -3,7 +3,7 @@
 
 import Saldoer (doExtract)
 
-import qualified Data.Map as M
+import qualified Data.Map.Strict as M
 import Data.List (splitAt)
 import System.Environment (getArgs)
 import System.FilePath (takeExtension)
@@ -20,7 +20,7 @@ chunkSize = 10000 -- (prev: 200000 lines of JSON)
 
 main :: IO ()
 main = do
-  putStrLn "➟ SALDO to GF converter\n"
+  putStrLn "SALDO ➟ GF converter\n"
   args <- getArgs
   when (null args) $ fail "Please specify file to extract"
   let path = head args
