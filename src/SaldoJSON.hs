@@ -56,13 +56,13 @@ parseDict path = do
 
 mkEntry :: Line -> Entry
 mkEntry l = E
-  { pos = lPOS l
-  , table = [(lParam l, lWord l)]
+  { ePOS = lPOS l
+  , eTable = [(lParam l, lWord l)]
   }
 
 combineEntries :: Entry -> Entry -> Entry
-combineEntries a b | pos a /= pos b = error "Cannot combine entries"
+combineEntries a b | ePOS a /= ePOS b = error "Cannot combine entries"
 combineEntries a b = E
-  { pos = pos a
-  , table = table a ++ table b
+  { ePOS = ePOS a
+  , eTable = eTable a ++ eTable b
   }

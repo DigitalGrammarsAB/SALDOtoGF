@@ -12,8 +12,8 @@ type Lex = M.Map Text Entry -- key is lemgram ID
 type Table = [(Text,Text)]
 
 data Entry = E
-  { pos :: Text
-  , table :: Table -- morphological tags to surface form: ("sg def gen" ,"killens")
+  { ePOS :: Text
+  , eTable :: Table -- morphological tags to surface form: ("sg def gen" ,"killens")
   } deriving Show
 
 putErrLn :: String -> IO ()

@@ -51,34 +51,34 @@ logDir = "logs"
 type Convert = StateT CState (ExceptT String IO)
 
 data CState = CS
-  { errs :: [String]
-  , msg :: [String]
-  , retries :: [GrammarInfo]
-  , pgf :: FilePath
-  , ok :: [GrammarInfo]
-  , saldo :: Lex
-  , changes :: Int
-  , dead :: [Text]
-  , tmps :: [FilePath]
-  , partNo :: Int
-  , selection :: Maybe [Text]
-  , name :: String
+  { stErrs :: [String]
+  , stMsg :: [String]
+  , stRetries :: [GrammarInfo]
+  , stPGF :: FilePath
+  , stOK :: [GrammarInfo]
+  , stLex :: Lex
+  , stChanges :: Int
+  , stDead :: [Text]
+  , stTmps :: [FilePath]
+  , stPartNo :: Int
+  , stSelection :: Maybe [Text]
+  , stName :: String
 }
 
 data GrammarInfo = G
-  { lemma :: Text
-  , pos :: Text
-  , forms :: [[Text]]
-  , extra :: Text
-  , functions :: (Text,Text)
-  , paradigms :: Paradigm
+  { grLemma :: Text
+  , grPOS :: Text
+  , grForms :: [[Text]]
+  , grExtra :: Text
+  , grFunctions :: (Text,Text)
+  , grParadigms :: Paradigm
   } deriving Show
 
 type Paradigm = [(Text,[Text],Text)]
 
 instance Eq GrammarInfo where
-  -- checks equality on the name only, in order to simplify deletion from retries-list
-  g1 == g2 = lemma g1 == lemma g2
+  -- checks equality on the name only, in order to simplify deletion from retries list
+  g1 == g2 = grLemma g1 == grLemma g2
 
 -----------------------------------------------------------------------------
 
@@ -91,7 +91,7 @@ doExtract lexs skip = do
       printf "\nExtracting part %d of %d\n" (n+1) (length lexs)
       extract Nothing name lexi n
   entriess <- zipWithM run lexs [skip..]
-  let entriesSorted = sortOn lemma (concat entriess)
+  let entriesSorted = sortOn grLemma (concat entriess)
   nl
   writeReportFile (genDir </> "DictSweAbs.gf") $ absHeader "DictSweAbs" ++ concatMap showAbs entriesSorted ++ "}\n"
   writeReportFile (genDir </> "DictSwe.gf") $ concHeader "DictSwe" "DictSweAbs" ++ concatMap showCnc entriesSorted ++ "}\n"
@@ -108,12 +108,12 @@ extract select name saldo n  = do
   (entries,errs) <- case mst of
              Left er  -> return ([],er)
              Right st -> do
-                 let ms   =  "\n Messages:\n "++ unlines (msg st)
-                 let fails =  "\n Failing:\n " ++ show (retries st) ++ T.unpack (T.unlines (dead st))
+                 let ms   =  "\n Messages:\n "++ unlines (stMsg st)
+                 let fails =  "\n Failing:\n " ++ show (stRetries st) ++ T.unpack (T.unlines (stDead st))
                  writeFile (logFile "messages" n) ms
                  writeFile (logFile "fail" n) fails
-                 -- appendCode name $ ok st
-                 return (ok st, unlines (errs st))
+                 -- appendCode name $ stOK st
+                 return (stOK st, unlines (stErrs st))
   writeFile (logFile "errors" n)  $ "\n Errors:\n "  ++ errs
   return entries
 
@@ -124,7 +124,7 @@ extract select name saldo n  = do
     loop = do
       updateGF
       compileGF
-      changes <- gets changes
+      changes <- gets stChanges
       unless (changes == 0) loop
 
 -------------------------------------------------------------------
@@ -135,9 +135,9 @@ createGF :: Lex -> Convert ()
 createGF sal = do
   io $ putStr "Creating GF source"
   mapM_ findGrammar (Map.toList sal)
-  todo <- gets retries
+  todo <- gets stRetries
   when (null todo) $ fail "No words from this section. Skipping"
-  modify $ \s -> s {saldo = sal}
+  modify $ \s -> s {stLex = sal}
 
   printGF
   report "Lexicon created"
@@ -145,7 +145,7 @@ createGF sal = do
 
 findGrammar :: (Text,Entry) -> Convert ()
 findGrammar (id,E pos table) =  do
-  rest <- gets selection
+  rest <- gets stSelection
   let keep = maybe True (id `elem`) rest
   when keep $ do
     let xs =
@@ -162,7 +162,7 @@ findGrammar (id,E pos table) =  do
       let cnc =
             [ G id gf_cat [[snd $ head' "createGF" table]] "" (f,findA gf_cat (T.append id f')) paradigms
             | (gf_cat,(f,f'),paradigms) <- xs]
-      modify $ \s -> s {retries = cnc++retries s}
+      modify $ \s -> s {stRetries = cnc++stRetries s}
 
 --- particles can be prepositions (hitta på), adverbs (åka hem), nouns (åka hem)...
 --  we first check for reflexives, and accept the rest as particles.
@@ -301,24 +301,24 @@ findsndWord = T.drop 1 . T.takeWhile (/='.') . T.dropWhile (/='_')
 updateGF :: Convert ()
 updateGF = do
   report "will update"
-  tmp_saldo <- gets pgf
+  tmp_saldo <- gets stPGF
   io $ putStrLn ("Reading "++tmp_saldo)
   pgf <- io $ PGF.readPGF tmp_saldo
 
   io $ putStrLn "Updating GF source"
-  cnc_file <- gets retries
-  modify $ \s -> s {changes = 0, retries = []}
+  cnc_file <- gets stRetries
+  modify $ \s -> s {stChanges = 0, stRetries = []}
   report $ "updating "++ unlines (map show cnc_file)
   mapM_ (check pgf) cnc_file
   printGF
-  c <- gets changes
+  c <- gets stChanges
   let update = "updated "++show c++" words"
   io $ putStrLn update
   report update
 
 check :: PGF.PGF -> GrammarInfo -> Convert ()
 check gf entry@(G id cat lemmas _ _ _) = do
-  saldo <- gets saldo
+  saldo <- gets stLex
   case Map.lookup id saldo of
        Just (E p t) -> checkWord gf t entry
        Nothing      -> do tellFailing (printf "unknown id in SALDO: %s" id)
@@ -338,8 +338,8 @@ checkWord gf t entry@(G id cat lemmas _ _ _) = do
 checkForms :: [(Text, [Text])] -> Table -> Table -> GrammarInfo -> Convert ()
 checkForms paramMap fm_t gf_t entry@(G id cat lemmas _ _  _)
   | null diffs = accept entry
-  | otherwise  = do c <- gets changes
-                    modify $ \s -> s {changes = c+1}
+  | otherwise  = do c <- gets stChanges
+                    modify $ \s -> s {stChanges = c+1}
                     report $ printf "redo word %s" id
                     report (show [[(lookup f fm_t,lookup g' gf_t) | g' <- g ] | (f,g) <- paramMap])
                     getNextLemma $!  entry
@@ -356,10 +356,10 @@ checkForms paramMap fm_t gf_t entry@(G id cat lemmas _ _  _)
     isDiff ys xs | any (`elem` xs) ys = Nothing
                  | otherwise   = Just $ head xs
 
-    getNextLemma x@(G id cat lemmas _ _ []) = do
+    getNextLemma (G id cat lemmas _ _ []) = do
         tellFailing (printf "No more paradigms to choose from: %s" id)
         isDead id
-    getNextLemma entry@(G id cat lemmas b f ((pre,xs,a):ps)) = do
+    getNextLemma (G id cat lemmas b f ((pre,xs,a):ps)) = do
         report $ printf "working on %s" id
         report $ printf "next paradigm: %s" (show xs)
         report $ printf "to choose from: %s" (show ps)
@@ -395,7 +395,7 @@ compileGF = do
   case res of
     ExitSuccess      -> return ()
     ExitFailure code -> do
-                   n <- gets partNo
+                   n <- gets stPartNo
                    io $ putStrLn "failed to create PGF.\nWill skip this section"
                    fail ("compiliation failed with error code "++show code
                          ++"\nPartition "++show n++" will be skipped")
@@ -610,17 +610,17 @@ nounParadigmList =
 
 printGFFinal :: Convert ()
 printGFFinal = do
-  good <- gets ok
-  num <- gets partNo
+  good <- gets stOK
+  num <- gets stPartNo
   io $ printGF' good (show num) "Fin"
 
 printGF :: Convert ()
 printGF = do
-  new  <- gets retries
-  good <- gets ok
+  new  <- gets stRetries
+  good <- gets stOK
   let entries = new++good
-  num <- gets partNo
-  nam <- gets name
+  num <- gets stPartNo
+  nam <- gets stName
   io $ printGF' entries (show num) nam
 
 printGF' :: [GrammarInfo] -> String -> String -> IO ()
@@ -681,31 +681,31 @@ concHeader cname aname = unlines
 
 getCncName :: Convert String
 getCncName = do
- n   <- gets partNo
- nam <- gets name
+ n   <- gets stPartNo
+ nam <- gets stName
  return $ genDir </> "saldo"++nam++show n++"Cnc" <.> "gf"
 
-getAbsName :: Convert String
-getAbsName = do
- n   <- gets partNo
- nam <- gets name
- return $ genDir </> "saldo"++nam++show n <.> "gf"
+-- getAbsName :: Convert String
+-- getAbsName = do
+--  n   <- gets stPartNo
+--  nam <- gets stName
+--  return $ genDir </> "saldo"++nam++show n <.> "gf"
 
 getLangName :: Convert String
 getLangName = do
- n   <- gets partNo
- nam <- gets name
+ n   <- gets stPartNo
+ nam <- gets stName
  return $ "saldo"++nam++show n++"Cnc"
 
 getPGFName :: Convert String
 getPGFName = do
- n   <- gets partNo
- nam <- gets name
+ n   <- gets stPartNo
+ nam <- gets stName
  return $ buildDir </> "saldo"++nam++show n <.> "pgf"
 
 cleanUp :: Convert ()
 cleanUp = do
-  ts <- gets tmps
+  ts <- gets stTmps
   io $ mapM_ (\t -> onException (removeFile t) (return ())) ts
 
 -------------------------------------------------------------------
@@ -713,35 +713,45 @@ cleanUp = do
 -------------------------------------------------------------------
 
 initState :: Int -> Maybe [Text] -> String -> CState
-initState n s name
-  = CS {errs = [], msg = [], retries = []
-        , pgf = "", ok = [] ,dead = []
-        , saldo = Map.empty, changes = 0, tmps = []
-        , partNo = n, selection = s, name = name }
+initState n s name = CS
+  { stErrs = []
+  , stMsg = []
+  , stRetries = []
+  , stPGF = ""
+  , stOK = []
+  , stDead = []
+  , stLex = Map.empty
+  , stChanges = 0
+  , stTmps = []
+  , stPartNo = n
+  , stSelection = s
+  , stName = name
+  }
 
 setPGF :: FilePath -> Convert ()
-setPGF f = modify $ \s -> s { pgf = f}
+setPGF f = modify $ \s -> s { stPGF = f}
 
 replace :: GrammarInfo -> Convert ()
-replace gr = modify $ \s -> s {retries = gr : delete gr (retries s)} -- hehe, make nice?
+replace gr = modify $ \s -> s {stRetries = gr : delete gr (stRetries s)} -- hehe, make nice?
 
 -- add to dead , remove from retries
 isDead :: Text -> Convert ()
-isDead d = modify $ \s -> s {dead = d:dead s, retries = delete (emptyG d) (retries s)}  -- hehe, make nice?
+isDead d = modify $ \s -> s {stDead = d:stDead s, stRetries = delete (emptyG d) (stRetries s)}  -- hehe, make nice?
   where emptyG d = G d "" [] "" ("","") []
 
 --add to ok, remove from retries
 accept :: GrammarInfo -> Convert ()
-accept e = do report $ printf "accepting %s" (lemma e)
-              modify $ \s -> s {retries = delete e (retries s), ok = e:ok s}
-              r <- gets retries
-              report $ printf "deleted %s from retries. result: %s" (lemma e) (show (e `elem` r))
+accept e = do
+  report $ printf "accepting %s" (grLemma e)
+  modify $ \s -> s {stRetries = delete e (stRetries s), stOK = e:stOK s}
+  r <- gets stRetries
+  report $ printf "deleted %s from retries. result: %s" (grLemma e) (show (e `elem` r))
 
-setPartNo :: Int -> Convert ()
-setPartNo n = modify $ \s -> s {partNo = n}
+-- setPartNo :: Int -> Convert ()
+-- setPartNo n = modify $ \s -> s {stPartNo = n}
 
 addTemp :: FilePath -> Convert ()
-addTemp f = modify $ \s -> s {tmps = f:tmps s}
+addTemp f = modify $ \s -> s {stTmps = f:stTmps s}
 
 -------------------------------------------------------------------
 -- Helpers
@@ -751,10 +761,10 @@ io :: IO a -> Convert a
 io = lift . lift
 
 report :: String -> Convert ()
-report x = modify $ \s  -> s {msg = x:msg s}
+report x = modify $ \s  -> s {stMsg = x:stMsg s}
 
 tellFailing :: String -> Convert ()
-tellFailing x = modify $ \s -> s {errs = x:errs s}
+tellFailing x = modify $ \s -> s {stErrs = x:stErrs s}
 
 lookup' :: Eq a => a -> [(a,b)] -> [b]
 lookup' a  =  map snd . filter ((== a) . fst)

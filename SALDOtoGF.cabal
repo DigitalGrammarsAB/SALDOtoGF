@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 168ef584b5c69f4c719b04c333ee638377f57564759efff75af89fb27620e406
+-- hash: 9a3bde614cda564b60f01564d9e47d2d7216c92ca3e29d4bf673a14f8ad07f67
 
 name:           SALDOtoGF
 version:        3.0
@@ -33,6 +33,7 @@ executable SALDOtoGF
   hs-source-dirs:
       src
   ghc-options: -Wunused-imports -Wcompat -Wincomplete-record-updates -Wincomplete-uni-patterns -Wredundant-constraints
+
   build-depends:
       aeson
     , base >=4.9 && <5
