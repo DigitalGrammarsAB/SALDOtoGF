@@ -14,16 +14,17 @@ and has undergone improvement by [Digital Grammars AB](https://www.digitalgramma
 
 The SALDO data itself is not included as part of this repository.
 We specifically use the morphological SALDO lexicon (`saldom`).
-This is obtained from:
-
-- LMF (XML): <https://svn.spraakdata.gu.se/sb-arkiv/pub/lmf/saldom/saldom.xml>
-- JSON: ?
-
+This is obtained from: <https://svn.spraakdata.gu.se/sb-arkiv/pub/lmf/saldom/saldom.xml>
 The main executable is then run with this file as input argument, e.g.:
 
 ```
 stack run -- data/saldo.xml
 ```
+
+### JSON format
+
+There is also support for the saldom JSON format, but since the format itself is not an official
+one, this is not recommended. But the code is there in `SaldoJSON.hs` if it needs reviving.
 
 ## Folder structure
 

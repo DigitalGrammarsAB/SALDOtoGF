@@ -42,8 +42,8 @@ parseDict d = do
       let childs = findChildren (mkQName "WordForm") le :: [Element]
       in catMaybes $ flip map childs $ \wf -> do -- :: Maybe (Text,Text)
         writtenForm <- getAttVal "writtenForm" wf
-        msd <- getAttVal "msd" wf -- TODO separate
-        return (writtenForm, msd)
+        msd <- getAttVal "msd" wf
+        return (msd, writtenForm)
 
 -- | Find the child which matches "att" and return "val"
 -- if element =

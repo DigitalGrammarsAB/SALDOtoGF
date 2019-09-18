@@ -21,3 +21,8 @@ putErrLn = hPutStrLn stderr
 
 nl :: IO ()
 nl = putStrLn ""
+
+writeReportFile :: FilePath -> String -> IO ()
+writeReportFile path contents = do
+  putStrLn $ "Writing " ++ path
+  writeFile path contents

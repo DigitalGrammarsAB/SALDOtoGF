@@ -4,7 +4,7 @@
 
 -- | Main extraction algorithm
 
-module Saldoer (doExtract) where
+module Saldoer (doExtract, extract) where
 
 import System.IO (hClose, openTempFile, stdout, hSetBuffering, BufferMode(..))
 import System.Process (rawSystem)
@@ -31,9 +31,7 @@ import Control.Exception (onException)
 
 import qualified PGF
 
-import Common
--- import SaldoJSON (Entry(..), Lex, parseDict)
-import SaldoXML (Entry(..), Lex, parseDict)
+import Common (Entry(..), Lex, Table, nl, writeReportFile)
 
 -----------------------------------------------------------------------------
 -- Directories
@@ -85,25 +83,23 @@ instance Eq GrammarInfo where
 -----------------------------------------------------------------------------
 
 -- | Main entry point: extract all parts and write final GF modules
-doExtract :: [FilePath] -> Int -> IO ()
-doExtract fpaths skip = do
-  let name = "Tot"
-  entriess <- zipWithM (extract Nothing name) fpaths [skip..]
+doExtract :: [Lex] -> Int -> IO ()
+doExtract lexs skip = do
+  let
+    name = "Tot"
+    run lexi n = do
+      printf "\nExtracting part %d of %d\n" (n+1) (length lexs)
+      extract Nothing name lexi n
+  entriess <- zipWithM run lexs [skip..]
   let entriesSorted = sortOn lemma (concat entriess)
-  writeFile (genDir </> "DictSweAbs.gf") $ absHeader "DictSweAbs" ++ concatMap showAbs entriesSorted ++ "}\n"
-  writeFile (genDir </> "DictSwe.gf") $ concHeader "DictSwe" "DictSweAbs" ++ concatMap showCnc entriesSorted ++ "}\n"
+  nl
+  writeReportFile (genDir </> "DictSweAbs.gf") $ absHeader "DictSweAbs" ++ concatMap showAbs entriesSorted ++ "}\n"
+  writeReportFile (genDir </> "DictSwe.gf") $ concHeader "DictSwe" "DictSweAbs" ++ concatMap showCnc entriesSorted ++ "}\n"
 
 -- | Extract individual part
-extract :: Maybe [Text] -> String -> FilePath -> Int -> IO [GrammarInfo]
-extract select name inputFile n  = do
+extract :: Maybe [Text] -> String -> Lex -> Int -> IO [GrammarInfo]
+extract select name saldo n  = do
   hSetBuffering stdout NoBuffering
-  putStr $ "Reading "++inputFile++" ... "
-  res   <- parseDict inputFile
-  saldo <- case res of
-             Just s   -> return s
-             Nothing  -> fail $ "cannot read "++inputFile
-  nl
-
   mst <- runExceptT $ execStateT (createGF saldo
                     >> compileGF
                     >> loop
@@ -137,7 +133,7 @@ extract select name inputFile n  = do
 
 createGF :: Lex -> Convert ()
 createGF sal = do
-  io $ putStr "Creating GF source for SALDO ..."
+  io $ putStr "Creating GF source"
   mapM_ findGrammar (Map.toList sal)
   todo <- gets retries
   when (null todo) $ fail "No words from this section. Skipping"
@@ -306,18 +302,16 @@ updateGF :: Convert ()
 updateGF = do
   report "will update"
   tmp_saldo <- gets pgf
-  io $ putStr ("Reading "++tmp_saldo++" ... ")
+  io $ putStrLn ("Reading "++tmp_saldo)
   pgf <- io $ PGF.readPGF tmp_saldo
-  io nl
 
-  io $ putStr "Updating GF source for SALDO ... "
+  io $ putStrLn "Updating GF source"
   cnc_file <- gets retries
   modify $ \s -> s {changes = 0, retries = []}
   report $ "updating "++ unlines (map show cnc_file)
   mapM_ (check pgf) cnc_file
   printGF
   c <- gets changes
-  io nl
   let update = "updated "++show c++" words"
   io $ putStrLn update
   report update
@@ -394,10 +388,10 @@ checkForms paramMap fm_t gf_t entry@(G id cat lemmas _ _  _)
 -- | Compile with GF
 compileGF :: Convert ()
 compileGF = do
-  io $ putStrLn "Compiling GF ... "
+  io $ putStrLn "Compiling GF"
   concName <- getCncName
   pgfName  <- getPGFName
-  res <- io $ rawSystem "gf" ["--batch", "--make", "--output-dir", buildDir, concName, "+RTS", "-K64M"]
+  res <- io $ rawSystem "gf" ["--quiet", "--batch", "--make", "--output-dir", buildDir, concName, "+RTS", "-K64M"]
   case res of
     ExitSuccess      -> return ()
     ExitFailure code -> do

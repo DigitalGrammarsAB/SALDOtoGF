@@ -4,17 +4,23 @@
 import Saldoer (doExtract)
 
 import qualified Data.Map as M
-import Data.List (isPrefixOf)
+import Data.List (splitAt)
 import System.Environment (getArgs)
-import System.FilePath ((</>), (<.>), takeExtension)
+import System.FilePath (takeExtension)
 import Control.Monad (when)
 import Text.Printf
 
 import qualified SaldoXML as XML
 import qualified SaldoJSON as JSON
 
+-- | How many lexical entries to process at a time with GF
+chunkSize :: Int
+-- chunkSize = 4 -- testing
+chunkSize = 10000 -- (prev: 200000 lines of JSON)
+
 main :: IO ()
 main = do
+  putStrLn "➟ SALDO to GF converter\n"
   args <- getArgs
   when (null args) $ fail "Please specify file to extract"
   let path = head args
@@ -26,50 +32,23 @@ main = do
   mlex <- parser path
   case mlex of
     Nothing -> fail $ "Error parsing " ++ path
-    Just lexi ->
-      printf "Parsed %d entries" (M.size lexi)
+    Just lexi -> do
+      printf "Parsed %d entries\n" (M.size lexi)
+      let parts = splitMap chunkSize lexi
+      doExtract parts 0
 
-  -- saldom <- readFile path
-  -- let parts = splits $ lines saldom
-  -- putStrLn "read saldo. Writing partitions"
-  -- fpaths <- writeFiles parts 0
-  -- putStrLn "written all files. Extracting ..."
-  -- doExtract fpaths 0
+-- | Split map into smaller maps of size n
+splitMap :: Ord k => Int -> M.Map k a -> [M.Map k a]
+splitMap n mp =
+  let
+    ls = M.toList mp -- :: [(k,a)]
+    lss = splitList n ls -- :: [[(k,a)]]
+  in
+    map M.fromList lss
 
-partName :: Int -> String
-partName n = "data" </> "saldoPart"++show n <.> "json"
-
--- TODO this splitting is JSON specific! Must use Entry type
-
-
--- | Split into chunks, but make sure a lemgram id isn't split between chunks
-splits :: [String] -> [[String]]
-splits []  = []
-splits xs = (part++end):splits rest'
+-- | Split list into chunks of size n
+splitList :: Int -> [a] -> [[a]]
+splitList _ []  = []
+splitList n xs = part:splitList n rest
   where
-    (part,rest) = splitAt 200000 xs
-    lastid = findID $ last part
-    (end,rest') = span (\s -> findID s == lastid) rest
-
-    findID :: String -> String
-    findID s = case findSubstring "\"id\"" s of
-      Just n -> takeWhile ((/=)'"') $ drop (n+6) s
-      Nothing -> ""
-
--- | Like elemIndex but for substrings
-findSubstring :: Eq a => [a] -> [a] -> Maybe Int
-findSubstring = find 0
-  where
-    find x a b
-      | null a || null b = Nothing
-      | a `isPrefixOf` b = Just x
-      | otherwise = find (x+1) a (tail b)
-
-writeFiles :: [[String]] -> Int -> IO [FilePath]
-writeFiles [] _ = return []
-writeFiles (x:xmls) n = do
-     putStrLn $ "Writing part "++show n
-     let name = partName n
-     writeFile name (unlines x)
-     names <- writeFiles xmls (n+1)
-     return $ name:names
+    (part,rest) = splitAt n xs
