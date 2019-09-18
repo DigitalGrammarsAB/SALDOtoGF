@@ -3,10 +3,12 @@
 
 import Saldoer (doExtract)
 
+import qualified Data.Map as M
 import Data.List (isPrefixOf)
 import System.Environment (getArgs)
 import System.FilePath ((</>), (<.>), takeExtension)
 import Control.Monad (when)
+import Text.Printf
 
 import qualified SaldoXML as XML
 import qualified SaldoJSON as JSON
@@ -16,11 +18,17 @@ main = do
   args <- getArgs
   when (null args) $ fail "Please specify file to extract"
   let path = head args
-  case takeExtension path of
-    ".xml" -> do
-        lexi <- XML.parseDict path
-        print lexi
+  parser <- case takeExtension path of
+    ".xml" -> return XML.parseDict
+    ".json" -> return JSON.parseDict
     _ -> fail "Unsupported file extension"
+  putStrLn $ "Parsing " ++ path
+  mlex <- parser path
+  case mlex of
+    Nothing -> fail $ "Error parsing " ++ path
+    Just lexi ->
+      printf "Parsed %d entries" (M.size lexi)
+
   -- saldom <- readFile path
   -- let parts = splits $ lines saldom
   -- putStrLn "read saldo. Writing partitions"
@@ -50,7 +58,7 @@ splits xs = (part++end):splits rest'
 
 -- | Like elemIndex but for substrings
 findSubstring :: Eq a => [a] -> [a] -> Maybe Int
-findSubstring a b = find 0 a b
+findSubstring = find 0
   where
     find x a b
       | null a || null b = Nothing
