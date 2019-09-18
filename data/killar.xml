@@ -84,6 +84,53 @@
   <feat att="msd" val="sms"/>
   </WordForm>
 </LexicalEntry>
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="kille"/>
+   <feat att="lemgram" val="kille..nn.2"/>
+   <feat att="partOfSpeech" val="nn"/>
+   <feat att="paradigm" val="nn_0u_radar"/>
+   <feat att="inherent" val="u"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="kille"/>
+  <feat att="msd" val="sg indef nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="killes"/>
+  <feat att="msd" val="sg indef gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="killen"/>
+  <feat att="msd" val="sg def nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="killens"/>
+  <feat att="msd" val="sg def gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="kille-"/>
+  <feat att="msd" val="ci"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="kille"/>
+  <feat att="msd" val="ci"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="kille-"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="kille"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="kille-"/>
+  <feat att="msd" val="sms"/>
+  </WordForm>
+</LexicalEntry>
 
 </Lexicon>
 </LexicalResource>

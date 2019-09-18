@@ -7,7 +7,7 @@ build/*
 generate/*
 logs/*
 
-data/saldom*.xml
+data/saldom.xml
 
 # for keeping empty folders
 !.gitkeep

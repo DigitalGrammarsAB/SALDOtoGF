@@ -1,0 +1,418 @@
+<LexicalResource dtdVersion="16">
+<GlobalInformation>
+<feat att="languageCoding" val="ISO 639-3"/>
+</GlobalInformation>
+<Lexicon>
+<feat att="language" val="swe"/>
+
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="val"/>
+   <feat att="lemgram" val="val..nn.1"/>
+   <feat att="partOfSpeech" val="nn"/>
+   <feat att="paradigm" val="nn_6n_blad"/>
+   <feat att="inherent" val="n"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="val"/>
+  <feat att="msd" val="sg indef nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="vals"/>
+  <feat att="msd" val="sg indef gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="valet"/>
+  <feat att="msd" val="sg def nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="valets"/>
+  <feat att="msd" val="sg def gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="val"/>
+  <feat att="msd" val="pl indef nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="vals"/>
+  <feat att="msd" val="pl indef gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="valen"/>
+  <feat att="msd" val="pl def nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="valens"/>
+  <feat att="msd" val="pl def gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="val-"/>
+  <feat att="msd" val="ci"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="val"/>
+  <feat att="msd" val="ci"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="val-"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="vals-"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="val"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="vals"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="val-"/>
+  <feat att="msd" val="sms"/>
+  </WordForm>
+</LexicalEntry>
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="val"/>
+   <feat att="lemgram" val="val..nn.2"/>
+   <feat att="partOfSpeech" val="nn"/>
+   <feat att="paradigm" val="nn_2u_sten"/>
+   <feat att="inherent" val="u"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="val"/>
+  <feat att="msd" val="sg indef nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="vals"/>
+  <feat att="msd" val="sg indef gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="valen"/>
+  <feat att="msd" val="sg def nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="valens"/>
+  <feat att="msd" val="sg def gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="valar"/>
+  <feat att="msd" val="pl indef nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="valars"/>
+  <feat att="msd" val="pl indef gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="valarna"/>
+  <feat att="msd" val="pl def nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="valarnas"/>
+  <feat att="msd" val="pl def gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="val-"/>
+  <feat att="msd" val="ci"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="val"/>
+  <feat att="msd" val="ci"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="val-"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="vals-"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="val"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="vals"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="val-"/>
+  <feat att="msd" val="sms"/>
+  </WordForm>
+</LexicalEntry>
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="vala"/>
+   <feat att="lemgram" val="vala..nn.1"/>
+   <feat att="partOfSpeech" val="nn"/>
+   <feat att="paradigm" val="nn_1u_kamera"/>
+   <feat att="inherent" val="u"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="vala"/>
+  <feat att="msd" val="sg indef nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="valas"/>
+  <feat att="msd" val="sg indef gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="valan"/>
+  <feat att="msd" val="sg def nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="valans"/>
+  <feat att="msd" val="sg def gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="valor"/>
+  <feat att="msd" val="pl indef nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="valors"/>
+  <feat att="msd" val="pl indef gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="valorna"/>
+  <feat att="msd" val="pl def nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="valornas"/>
+  <feat att="msd" val="pl def gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="vala-"/>
+  <feat att="msd" val="ci"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="vala"/>
+  <feat att="msd" val="ci"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="vala-"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="vala"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="vala-"/>
+  <feat att="msd" val="sms"/>
+  </WordForm>
+</LexicalEntry>
+
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="kille"/>
+   <feat att="lemgram" val="kille..nn.1"/>
+   <feat att="partOfSpeech" val="nn"/>
+   <feat att="paradigm" val="nn_2u_vinge"/>
+   <feat att="inherent" val="u"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="kille"/>
+  <feat att="msd" val="sg indef nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="killes"/>
+  <feat att="msd" val="sg indef gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="killen"/>
+  <feat att="msd" val="sg def nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="killens"/>
+  <feat att="msd" val="sg def gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="killar"/>
+  <feat att="msd" val="pl indef nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="killars"/>
+  <feat att="msd" val="pl indef gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="killarna"/>
+  <feat att="msd" val="pl def nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="killarnas"/>
+  <feat att="msd" val="pl def gen"/>
+  </WordForm>
+<WordForm>
+  <feat att="writtenForm" val="kill-"/>
+  <feat att="msd" val="ci"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="kill"/>
+  <feat att="msd" val="ci"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="kill-"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="killes-"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="kills-"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="kill"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="killes"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="kills"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="kill-"/>
+  <feat att="msd" val="sms"/>
+  </WordForm>
+</LexicalEntry>
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="kille"/>
+   <feat att="lemgram" val="kille..nn.2"/>
+   <feat att="partOfSpeech" val="nn"/>
+   <feat att="paradigm" val="nn_0u_radar"/>
+   <feat att="inherent" val="u"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="kille"/>
+  <feat att="msd" val="sg indef nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="killes"/>
+  <feat att="msd" val="sg indef gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="killen"/>
+  <feat att="msd" val="sg def nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="killens"/>
+  <feat att="msd" val="sg def gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="kille-"/>
+  <feat att="msd" val="ci"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="kille"/>
+  <feat att="msd" val="ci"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="kille-"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="kille"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="kille-"/>
+  <feat att="msd" val="sms"/>
+  </WordForm>
+</LexicalEntry>
+
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="blod"/>
+   <feat att="lemgram" val="blod..nn.1"/>
+   <feat att="partOfSpeech" val="nn"/>
+   <feat att="paradigm" val="nn_0v_blod"/>
+   <feat att="inherent" val="v"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="blod"/>
+  <feat att="msd" val="sg indef nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blods"/>
+  <feat att="msd" val="sg indef gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="bloden"/>
+  <feat att="msd" val="sg def nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blodet"/>
+  <feat att="msd" val="sg def nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blodens"/>
+  <feat att="msd" val="sg def gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blodets"/>
+  <feat att="msd" val="sg def gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blod-"/>
+  <feat att="msd" val="ci"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blods-"/>
+  <feat att="msd" val="ci"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blod"/>
+  <feat att="msd" val="ci"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blods"/>
+  <feat att="msd" val="ci"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blod-"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blods-"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blod"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blods"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blod-"/>
+  <feat att="msd" val="sms"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blods-"/>
+  <feat att="msd" val="sms"/>
+  </WordForm>
+</LexicalEntry>
+
+</Lexicon>
+</LexicalResource>

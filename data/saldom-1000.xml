@@ -1,0 +1,965 @@
+<LexicalResource dtdVersion="16">
+<GlobalInformation>
+<feat att="languageCoding" val="ISO 639-3"/>
+</GlobalInformation>
+<Lexicon>
+<feat att="language" val="swe"/>
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="dväljas"/>
+   <feat att="lemgram" val="dväljas..vb.1"/>
+   <feat att="partOfSpeech" val="vb"/>
+   <feat att="paradigm" val="vb_vs_dväljas"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="dväljes"/>
+  <feat att="msd" val="pres ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="dväljs"/>
+  <feat att="msd" val="pres ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="dvaldes"/>
+  <feat att="msd" val="pret ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="dväljdes"/>
+  <feat att="msd" val="pret ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="dväljes"/>
+  <feat att="msd" val="imper"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="dväljs"/>
+  <feat att="msd" val="imper"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="dväljas"/>
+  <feat att="msd" val="inf s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="dvalts"/>
+  <feat att="msd" val="sup s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="dvälts"/>
+  <feat att="msd" val="sup s-form"/>
+  </WordForm>
+</LexicalEntry>
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="upphäva"/>
+   <feat att="lemgram" val="upphäva..vb.2"/>
+   <feat att="partOfSpeech" val="vb"/>
+   <feat att="paradigm" val="vb_vm_upphäva"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="upphäver"/>
+  <feat att="msd" val="pres ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="upphäves"/>
+  <feat att="msd" val="pres ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="upphävs"/>
+  <feat att="msd" val="pres ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="upphäve"/>
+  <feat att="msd" val="pres konj aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="upphäves"/>
+  <feat att="msd" val="pres konj s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="upphävde"/>
+  <feat att="msd" val="pret ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="upphov"/>
+  <feat att="msd" val="pret ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="upphävdes"/>
+  <feat att="msd" val="pret ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="upphovs"/>
+  <feat att="msd" val="pret ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="upphove"/>
+  <feat att="msd" val="pret konj aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="upphoves"/>
+  <feat att="msd" val="pret konj s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="upphäv"/>
+  <feat att="msd" val="imper"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="upphäva"/>
+  <feat att="msd" val="inf aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="upphävas"/>
+  <feat att="msd" val="inf s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="upphävt"/>
+  <feat att="msd" val="sup aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="upphävts"/>
+  <feat att="msd" val="sup s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="upphävande"/>
+  <feat att="msd" val="pres_part nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="upphävandes"/>
+  <feat att="msd" val="pres_part gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="upphäv"/>
+  <feat att="msd" val="c"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="upphäv-"/>
+  <feat att="msd" val="c"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="upphäv-"/>
+  <feat att="msd" val="sms"/>
+  </WordForm>
+</LexicalEntry>
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="opphäva"/>
+   <feat att="lemgram" val="opphäva..vb.2"/>
+   <feat att="partOfSpeech" val="vb"/>
+   <feat att="paradigm" val="vb_vm_upphäva"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="opphäver"/>
+  <feat att="msd" val="pres ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="opphäves"/>
+  <feat att="msd" val="pres ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="opphävs"/>
+  <feat att="msd" val="pres ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="opphäve"/>
+  <feat att="msd" val="pres konj aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="opphäves"/>
+  <feat att="msd" val="pres konj s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="opphävde"/>
+  <feat att="msd" val="pret ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="opphov"/>
+  <feat att="msd" val="pret ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="opphävdes"/>
+  <feat att="msd" val="pret ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="opphovs"/>
+  <feat att="msd" val="pret ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="opphove"/>
+  <feat att="msd" val="pret konj aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="opphoves"/>
+  <feat att="msd" val="pret konj s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="opphäv"/>
+  <feat att="msd" val="imper"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="opphäva"/>
+  <feat att="msd" val="inf aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="opphävas"/>
+  <feat att="msd" val="inf s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="opphävt"/>
+  <feat att="msd" val="sup aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="opphävts"/>
+  <feat att="msd" val="sup s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="opphävande"/>
+  <feat att="msd" val="pres_part nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="opphävandes"/>
+  <feat att="msd" val="pres_part gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="opphäv"/>
+  <feat att="msd" val="c"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="opphäv-"/>
+  <feat att="msd" val="c"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="opphäv-"/>
+  <feat att="msd" val="sms"/>
+  </WordForm>
+</LexicalEntry>
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="undvara"/>
+   <feat att="lemgram" val="undvara..vb.1"/>
+   <feat att="partOfSpeech" val="vb"/>
+   <feat att="paradigm" val="vb_vm_undvara"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="undvarar"/>
+  <feat att="msd" val="pres ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="undvaras"/>
+  <feat att="msd" val="pres ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="undvarade"/>
+  <feat att="msd" val="pret ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="undvarades"/>
+  <feat att="msd" val="pret ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="undvara"/>
+  <feat att="msd" val="imper"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="undvara"/>
+  <feat att="msd" val="inf aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="undvaras"/>
+  <feat att="msd" val="inf s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="undvarat"/>
+  <feat att="msd" val="sup aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="undvarit"/>
+  <feat att="msd" val="sup aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="undvarats"/>
+  <feat att="msd" val="sup s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="undvarits"/>
+  <feat att="msd" val="sup s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="undvarande"/>
+  <feat att="msd" val="pres_part nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="undvarandes"/>
+  <feat att="msd" val="pres_part gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="undvar"/>
+  <feat att="msd" val="c"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="undvar-"/>
+  <feat att="msd" val="c"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="undvar-"/>
+  <feat att="msd" val="sms"/>
+  </WordForm>
+</LexicalEntry>
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="strida"/>
+   <feat att="lemgram" val="strida..vb.1"/>
+   <feat att="partOfSpeech" val="vb"/>
+   <feat att="paradigm" val="vb_vm_strida"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="strider"/>
+  <feat att="msd" val="pres ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="strides"/>
+  <feat att="msd" val="pres ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="strids"/>
+  <feat att="msd" val="pres ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="stride"/>
+  <feat att="msd" val="pres konj aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="strides"/>
+  <feat att="msd" val="pres konj s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="stridde"/>
+  <feat att="msd" val="pret ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="stred"/>
+  <feat att="msd" val="pret ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="striddes"/>
+  <feat att="msd" val="pret ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="streds"/>
+  <feat att="msd" val="pret ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="strede"/>
+  <feat att="msd" val="pret konj aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="stredes"/>
+  <feat att="msd" val="pret konj s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="strid"/>
+  <feat att="msd" val="imper"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="strida"/>
+  <feat att="msd" val="inf aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="stridas"/>
+  <feat att="msd" val="inf s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="stritt"/>
+  <feat att="msd" val="sup aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="stridit"/>
+  <feat att="msd" val="sup aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="stritts"/>
+  <feat att="msd" val="sup s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="stridits"/>
+  <feat att="msd" val="sup s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="stridande"/>
+  <feat att="msd" val="pres_part nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="stridandes"/>
+  <feat att="msd" val="pres_part gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="strid"/>
+  <feat att="msd" val="c"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="strid-"/>
+  <feat att="msd" val="c"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="strid-"/>
+  <feat att="msd" val="sms"/>
+  </WordForm>
+</LexicalEntry>
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="snika"/>
+   <feat att="lemgram" val="snika..vb.1"/>
+   <feat att="partOfSpeech" val="vb"/>
+   <feat att="paradigm" val="vb_vm_snika"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="sniker"/>
+  <feat att="msd" val="pres ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="snikas"/>
+  <feat att="msd" val="pres ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="snike"/>
+  <feat att="msd" val="pres konj aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="snikes"/>
+  <feat att="msd" val="pres konj s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="snek"/>
+  <feat att="msd" val="pret ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="snikte"/>
+  <feat att="msd" val="pret ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="sneks"/>
+  <feat att="msd" val="pret ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="sniktes"/>
+  <feat att="msd" val="pret ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="sneke"/>
+  <feat att="msd" val="pret konj aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="snekes"/>
+  <feat att="msd" val="pret konj s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="snika"/>
+  <feat att="msd" val="imper"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="snika"/>
+  <feat att="msd" val="inf aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="snikas"/>
+  <feat att="msd" val="inf s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="snikit"/>
+  <feat att="msd" val="sup aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="snikits"/>
+  <feat att="msd" val="sup s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="snikande"/>
+  <feat att="msd" val="pres_part nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="snikandes"/>
+  <feat att="msd" val="pres_part gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="snik"/>
+  <feat att="msd" val="c"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="snik-"/>
+  <feat att="msd" val="c"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="snik-"/>
+  <feat att="msd" val="sms"/>
+  </WordForm>
+</LexicalEntry>
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="smälla"/>
+   <feat att="lemgram" val="smälla..vb.2"/>
+   <feat att="partOfSpeech" val="vb"/>
+   <feat att="paradigm" val="vb_vm_smälla"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="smäller"/>
+  <feat att="msd" val="pres ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="smälle"/>
+  <feat att="msd" val="pres konj aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="small"/>
+  <feat att="msd" val="pret ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="smällde"/>
+  <feat att="msd" val="pret ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="smulle"/>
+  <feat att="msd" val="pret konj aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="smäll"/>
+  <feat att="msd" val="imper"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="smälla"/>
+  <feat att="msd" val="inf aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="smäll"/>
+  <feat att="msd" val="sup aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="smällande"/>
+  <feat att="msd" val="pres_part nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="smällandes"/>
+  <feat att="msd" val="pres_part gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="smäll"/>
+  <feat att="msd" val="c"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="smäll-"/>
+  <feat att="msd" val="c"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="smäll-"/>
+  <feat att="msd" val="sms"/>
+  </WordForm>
+</LexicalEntry>
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="skälva"/>
+   <feat att="lemgram" val="skälva..vb.1"/>
+   <feat att="partOfSpeech" val="vb"/>
+   <feat att="paradigm" val="vb_vm_smälla"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="skälver"/>
+  <feat att="msd" val="pres ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="skälve"/>
+  <feat att="msd" val="pres konj aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="skalv"/>
+  <feat att="msd" val="pret ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="skälvde"/>
+  <feat att="msd" val="pret ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="skulve"/>
+  <feat att="msd" val="pret konj aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="skälv"/>
+  <feat att="msd" val="imper"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="skälva"/>
+  <feat att="msd" val="inf aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="skälv"/>
+  <feat att="msd" val="sup aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="skälvande"/>
+  <feat att="msd" val="pres_part nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="skälvandes"/>
+  <feat att="msd" val="pres_part gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="skälv"/>
+  <feat att="msd" val="c"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="skälv-"/>
+  <feat att="msd" val="c"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="skälv-"/>
+  <feat att="msd" val="sms"/>
+  </WordForm>
+</LexicalEntry>
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="sluta"/>
+   <feat att="lemgram" val="sluta..vb.2"/>
+   <feat att="partOfSpeech" val="vb"/>
+   <feat att="paradigm" val="vb_vm_sluta"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="slutar"/>
+  <feat att="msd" val="pres ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="slutes"/>
+  <feat att="msd" val="pres ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="sluts"/>
+  <feat att="msd" val="pres ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="slute"/>
+  <feat att="msd" val="pres konj aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="slutes"/>
+  <feat att="msd" val="pres konj s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="slutade"/>
+  <feat att="msd" val="pret ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="slöt"/>
+  <feat att="msd" val="pret ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="slutades"/>
+  <feat att="msd" val="pret ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="slöts"/>
+  <feat att="msd" val="pret ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="slöte"/>
+  <feat att="msd" val="pret konj aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="slötes"/>
+  <feat att="msd" val="pret konj s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="slut"/>
+  <feat att="msd" val="imper"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="sluta"/>
+  <feat att="msd" val="inf aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="slutas"/>
+  <feat att="msd" val="inf s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="slutat"/>
+  <feat att="msd" val="sup aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="slutats"/>
+  <feat att="msd" val="sup s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="slutande"/>
+  <feat att="msd" val="pres_part nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="slutandes"/>
+  <feat att="msd" val="pres_part gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="slut"/>
+  <feat att="msd" val="c"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="slut-"/>
+  <feat att="msd" val="c"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="slut-"/>
+  <feat att="msd" val="sms"/>
+  </WordForm>
+</LexicalEntry>
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="samvara"/>
+   <feat att="lemgram" val="samvara..vb.1"/>
+   <feat att="partOfSpeech" val="vb"/>
+   <feat att="paradigm" val="vb_vm_samvara"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="samvarar"/>
+  <feat att="msd" val="pres ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="samvaras"/>
+  <feat att="msd" val="pres ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="samvarade"/>
+  <feat att="msd" val="pret ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="samvarades"/>
+  <feat att="msd" val="pret ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="samvara"/>
+  <feat att="msd" val="imper"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="samvara"/>
+  <feat att="msd" val="inf aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="samvaras"/>
+  <feat att="msd" val="inf s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="samvarit"/>
+  <feat att="msd" val="sup aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="samvarits"/>
+  <feat att="msd" val="sup s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="samvarande"/>
+  <feat att="msd" val="pres_part nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="samvarandes"/>
+  <feat att="msd" val="pres_part gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="samvar"/>
+  <feat att="msd" val="c"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="samvar-"/>
+  <feat att="msd" val="c"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="samvar-"/>
+  <feat att="msd" val="sms"/>
+  </WordForm>
+</LexicalEntry>
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="ryka"/>
+   <feat att="lemgram" val="ryka..vb.1"/>
+   <feat att="partOfSpeech" val="vb"/>
+   <feat att="paradigm" val="vb_vm_ryka"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="ryker"/>
+  <feat att="msd" val="pres ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="ryke"/>
+  <feat att="msd" val="pres konj aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="rök"/>
+  <feat att="msd" val="pret ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="rykte"/>
+  <feat att="msd" val="pret ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="röke"/>
+  <feat att="msd" val="pret konj aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="ryk"/>
+  <feat att="msd" val="imper"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="ryka"/>
+  <feat att="msd" val="inf aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="rykt"/>
+  <feat att="msd" val="sup aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="rukit"/>
+  <feat att="msd" val="sup aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="rykande"/>
+  <feat att="msd" val="pres_part nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="rykandes"/>
+  <feat att="msd" val="pres_part gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="ryk"/>
+  <feat att="msd" val="c"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="ryk-"/>
+  <feat att="msd" val="c"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="ryk-"/>
+  <feat att="msd" val="sms"/>
+  </WordForm>
+</LexicalEntry>
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="nysa"/>
+   <feat att="lemgram" val="nysa..vb.1"/>
+   <feat att="partOfSpeech" val="vb"/>
+   <feat att="paradigm" val="vb_vm_nysa"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="nyser"/>
+  <feat att="msd" val="pres ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="nyses"/>
+  <feat att="msd" val="pres ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="nyse"/>
+  <feat att="msd" val="pres konj aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="nyses"/>
+  <feat att="msd" val="pres konj s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="nyste"/>
+  <feat att="msd" val="pret ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="nös"/>
+  <feat att="msd" val="pret ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="nystes"/>
+  <feat att="msd" val="pret ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="nös"/>
+  <feat att="msd" val="pret ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="nöse"/>
+  <feat att="msd" val="pret konj aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="nöses"/>
+  <feat att="msd" val="pret konj s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="nys"/>
+  <feat att="msd" val="imper"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="nysa"/>
+  <feat att="msd" val="inf aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="nysas"/>
+  <feat att="msd" val="inf s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="nyst"/>
+  <feat att="msd" val="sup aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="nysit"/>
+  <feat att="msd" val="sup aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="nusit"/>
+  <feat att="msd" val="sup aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="nysts"/>
+  <feat att="msd" val="sup s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="nysits"/>
+  <feat att="msd" val="sup s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="nusits"/>
+  <feat att="msd" val="sup s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="nysande"/>
+  <feat att="msd" val="pres_part nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="nysandes"/>
+  <feat att="msd" val="pres_part gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="nys"/>
+  <feat att="msd" val="c"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="nys-"/>
+  <feat att="msd" val="c"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="nys-"/>
+  <feat att="msd" val="sms"/>
+  </WordForm>
+</LexicalEntry>
+
+</Lexicon>
+</LexicalResource>
