@@ -112,24 +112,26 @@ doExtract lexs skip = do
       [ (abs,cnc)
       | g <- uniqs
       , let oldId = mkGFName g -- vala_1_N
-      -- TODO abort if newID is in gf_ids
-      , let newId = mkGFNameNumberless g -- vala_N
+      , let newId = T.pack $ mkGFNameNumberless g -- vala_N
+      , newId `S.notMember` gf_ids
       , let cat = grPOS g
       , let abs = printf "  %s : %s ; -- %s\n" newId cat oldId
       , let cnc = printf "  %s = %s ;\n" newId oldId
       ]
 
+  printf "Adding numberless functions for %d of %d lemmas\n\n" (length shadows) (S.size gf_ids)
+
   writeReportFile (genDir </> "DictSweAbs.gf") $ concat
     [ absHeader "DictSweAbs"
     , concatMap showAbs entriesSorted
-    , "\n  -- Shadows\n"
+    , "\n  -- Numberless\n"
     , concatMap fst shadows
     , "}\n"
     ]
   writeReportFile (genDir </> "DictSwe.gf") $ concat
     [ concHeader "DictSwe" "DictSweAbs"
     , concatMap showCnc entriesSorted
-    , "\n  -- Shadows\n"
+    , "\n  -- Numberless\n"
     , concatMap snd shadows
     , "}\n"
     ]
