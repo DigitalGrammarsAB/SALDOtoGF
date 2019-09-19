@@ -6,6 +6,8 @@
 * Directory structure organisation
 * Use Stack, HPack
 * Refactoring, in particular switching to `Text` where applicable
+* Numberless GF functions when only one sense
+* TODO: fixes in extraction: (kille, blod as examples)
 
 ## 2.0 (March 2018)
 

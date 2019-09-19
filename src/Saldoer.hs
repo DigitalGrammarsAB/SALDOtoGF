@@ -91,8 +91,41 @@ doExtract lexs skip = do
   entriess <- zipWithM run lexs [skip..]
   let entriesSorted = sortOn grLemma (concat entriess) :: [GrammarInfo]
   nl
-  writeReportFile (genDir </> "DictSweAbs.gf") $ absHeader "DictSweAbs" ++ concatMap showAbs entriesSorted ++ "}\n"
-  writeReportFile (genDir </> "DictSwe.gf") $ concHeader "DictSwe" "DictSweAbs" ++ concatMap showCnc entriesSorted ++ "}\n"
+
+  -- Find entries with only one sense and create numberless lins for them
+  let
+    gf_ids :: M.Map Text Text -- ident, cat
+    gf_ids = M.fromList $ map (\g -> (T.pack (mkGFName g), grPOS g)) entriesSorted
+
+    uniqs :: M.Map Text Text -- ident, cat
+    uniqs = flip M.filterWithKey gf_ids $ \i _ ->
+      case T.breakOn "_1" i of
+        (_,"") -> False -- sense not #1
+        _ -> let sense2 = T.replace "_1" "_2" i in M.notMember sense2 gf_ids
+
+    shadows :: [(String,String)] -- abs, cnc
+    shadows =
+      [ (abs,cnc)
+      | (i,cat) <- M.toList uniqs
+      , let newId = T.replace "_1" "" i -- kille_N
+      , let abs = printf "  %s : %s ; -- %s\n" newId cat i
+      , let cnc = printf "  %s = %s ;\n" newId i
+      ]
+
+  writeReportFile (genDir </> "DictSweAbs.gf") $ concat
+    [ absHeader "DictSweAbs"
+    , concatMap showAbs entriesSorted
+    , "\n  -- Shadows\n"
+    , concatMap fst shadows
+    , "}\n"
+    ]
+  writeReportFile (genDir </> "DictSwe.gf") $ concat
+    [ concHeader "DictSwe" "DictSweAbs"
+    , concatMap showCnc entriesSorted
+    , "\n  -- Shadows\n"
+    , concatMap snd shadows
+    , "}\n"
+    ]
 
 -- | Extract individual part
 extract :: Maybe [Text] -> String -> Lex -> Int -> IO [GrammarInfo]
@@ -330,18 +363,19 @@ checkWord :: PGF.PGF -> Table -> GrammarInfo -> Convert ()
 checkWord gf t entry@(G id cat lemmas _ _ _) = do
   langName <- getLangName
   let
-    gf_t = map packTuple $ concat $ PGF.tabularLinearizes gf (read langName) (read (mkGFName id cat))
+    gf_t = map packTuple $ concat $ PGF.tabularLinearizes gf (read langName) (read (mkGFName entry))
     paramMap = head' "check" [map | (_,gf_cat,map,_,_) <- catMap, gf_cat == cat]
   checkForms paramMap t gf_t entry
 
 checkForms :: [(Text, [Text])] -> Table -> Table -> GrammarInfo -> Convert ()
 checkForms paramMap fm_t gf_t entry@(G id cat lemmas _ _  _)
   | null diffs = accept entry
-  | otherwise  = do c <- gets stChanges
-                    modify $ \s -> s {stChanges = c+1}
-                    report $ printf "redo word %s" id
-                    report (show [[(lookup f fm_t,lookup g' gf_t) | g' <- g ] | (f,g) <- paramMap])
-                    getNextLemma $!  entry
+  | otherwise  = do
+      c <- gets stChanges
+      modify $ \s -> s {stChanges = c+1}
+      report $ printf "redo word %s" id
+      report (show [[(lookup f fm_t,lookup g' gf_t) | g' <- g ] | (f,g) <- paramMap])
+      getNextLemma $! entry
   where
     diffs =
       [ (fm_p,fm_v,gf_p,gf_v)
@@ -365,9 +399,10 @@ checkForms paramMap fm_t gf_t entry@(G id cat lemmas _ _  _)
         forms <- mapM getLemma xs
         if Nothing `elem` forms
         -- to do: if the comparative forms for an adjective doesn't exist, add compounda
-           then do report (printf "all forms for %s not found" id)
-                   getNextLemma (G id cat lemmas b f ps)
-           else replace (G id cat [catMaybes forms] a f ps)
+        then do
+          report (printf "all forms for %s not found" id)
+          getNextLemma (G id cat lemmas b f ps)
+        else replace (G id cat [catMaybes forms] a f ps)
       where
         getLemma :: Text -> Convert (Maybe Text)
         getLemma gf_p =
@@ -404,19 +439,18 @@ compileGF = do
   report "compilation done"
   setPGF fpath
 
--- | Generate GF identifier
-mkGFName :: Text -> Text -> String
-mkGFName id' cat = printf "%s_%c_%s" name num (toGFcat cat)
+-- | Generate GF identifier from GrammarInfo term
+mkGFName :: GrammarInfo -> String
+mkGFName gi = printf "%s_%c_%s" name num (toGFcat cat)
   where
+    id' = grLemma gi
+    cat = grPOS gi
     toGFcat "VR" = "V"
     toGFcat "VP" = "V"
     toGFcat  v   = v
     dash2us = T.replace "-" "_"
     pfxnum x = if isDigit (T.head x) then 'x' `T.cons` x else x -- don't start with a digit
-    name =  pfxnum
-          $ dash2us
-          $ T.takeWhile (/= '.')
-            id'
+    name = pfxnum $ dash2us $ T.takeWhile (/= '.') id'
     num = T.last id'
 
 -------------------------------------------------------------------
@@ -637,30 +671,29 @@ printGF' entries num name = do
       "}\n"
 
 showAbs :: GrammarInfo -> String
-showAbs (G id cat lemmas a _ paradigms) = printf "  %s : %s ; -- %s\n" (mkGFName id cat) (find cat) id
+showAbs entry@(G id cat _ _ _ _) =
+  printf "  %s : %s ; -- %s\n" (mkGFName entry) (convert cat) id
   where
-    find "VR" = "V"
-    find "VP" = "V"
-    find x    = x
+    convert "VR" = "V"
+    convert "VP" = "V"
+    convert x    = x
 
 showCnc :: GrammarInfo -> String
-showCnc (G id cat [[]] a _ paradigms) = printf "-- %s has not enough forms\n" (mkGFName id cat)
-showCnc (G id cat lemmas a (mk,end) paradigms)
-  = printf "  %s = %s %s%s%s ; -- %s\n" (mkGFName id cat) mk defs extra end id
- where
-    defs = T.unwords [ if null lemma_v then "(variants {})" else T.unwords (map fnutta lemma_v) | lemma_v <- lemmas]
+showCnc entry@(G id _ [[]] _ _ _) = printf "-- %s does not have enough forms\n" (mkGFName entry)
+showCnc entry@(G id _ lemmas a (mk,end) _) =
+  printf "  %s = %s %s%s%s ;\n" (mkGFName entry) mk defs extra end
+  where
+    defs = T.unwords [ T.unwords (map fnutta lemma_v) | lemma_v <- lemmas]
+    -- defs = T.unwords [ if null lemma_v then "(variants {})" else T.unwords (map fnutta lemma_v) | lemma_v <- lemmas]
     extra = if T.null a then "" else T.concat [" ", a, " "]
-
-    -- avoid putting extra fnutts on variants"
-    -- wrong! how to handle this.. maybe won't occur again?
     fnutta :: Text -> Text
-    fnutta x@"variant {}" = T.concat ["(", x, ")"]
+    -- fnutta x@"variant {}" = T.concat ["(", x, ")"]
     fnutta x = T.concat ["\"", x, "\""]
 
 absHeader :: String -> String
-absHeader nam = unlines
+absHeader name = unlines
   [ "--# -path=.:abstract:alltenses/"
-  , printf "abstract %s = Cat ** {" nam
+  , printf "abstract %s = Cat ** {" name
   , ""
   , "fun"
   ]
