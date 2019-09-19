@@ -6,17 +6,18 @@ import Saldoer (doExtract)
 import qualified Data.Map.Strict as M
 import Data.List (splitAt)
 import System.Environment (getArgs)
-import System.FilePath (takeExtension)
-import Control.Monad (when)
+import System.FilePath (takeExtension, replaceExtension)
+import Control.Monad (when,unless)
 import Text.Printf
 
 import qualified SaldoXML as XML
 import qualified SaldoJSON as JSON
+import qualified SaldoHSDump as HSDump
 
 -- | How many lexical entries to process at a time with GF
 chunkSize :: Int
 -- chunkSize = 4 -- testing
-chunkSize = 10000 -- (prev: 200000 lines of JSON)
+chunkSize = 10000
 
 main :: IO ()
 main = do
@@ -27,6 +28,7 @@ main = do
   parser <- case takeExtension path of
     ".xml" -> return XML.parseDict
     ".json" -> return JSON.parseDict
+    ".hsdump" -> return HSDump.parseDict
     _ -> fail "Unsupported file extension"
   putStrLn $ "Parsing " ++ path
   mlex <- parser path
@@ -34,6 +36,7 @@ main = do
     Nothing -> fail $ "Error parsing " ++ path
     Just lexi -> do
       printf "Parsed %d entries\n" (M.size lexi)
+      unless (takeExtension path == ".hsdump") $ HSDump.dumpDict (path `replaceExtension` "hsdump") lexi
       let parts = splitMap chunkSize lexi
       doExtract parts 0
 

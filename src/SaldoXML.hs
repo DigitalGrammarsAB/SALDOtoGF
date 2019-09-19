@@ -3,7 +3,7 @@
 -- | Parse SALDO XML format into internal datatype
 -- Identical API to SaldoJSON
 
-module SaldoXML (Lex, Entry(..), parseDict) where
+module SaldoXML (parseDict) where
 
 import Common
 
@@ -11,7 +11,7 @@ import Data.Maybe (mapMaybe, catMaybes)
 import qualified Data.Map.Strict as M
 import Data.Text (Text)
 import qualified Data.Text as T
-import qualified Data.ByteString as BS
+import qualified Data.Text.IO as TIO
 
 import Text.XML.Light
 
@@ -20,7 +20,7 @@ mkQName s = QName s Nothing Nothing
 
 parseDict :: FilePath -> IO (Maybe Lex)
 parseDict d = do
-  mroot <- parseXMLDoc <$> BS.readFile d
+  mroot <- parseXMLDoc <$> TIO.readFile d
   case mroot of
     Nothing -> putErrLn "Cannot parse XML file" >> return Nothing
     Just root -> do

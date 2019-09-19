@@ -8,6 +8,7 @@ generate/*
 logs/*
 
 data/saldom.xml
+data/*.hsdump
 
 # for keeping empty folders
 !.gitkeep

@@ -3,7 +3,7 @@
 -- | Parse SALDO JSON format into internal datatype
 -- Identical API to SaldoXML
 
-module SaldoJSON (Lex, Entry(..), parseDict) where
+module SaldoJSON (parseDict) where
 
 import Common
 

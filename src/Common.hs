@@ -14,7 +14,7 @@ type Table = [(Text,Text)]
 data Entry = E
   { ePOS :: Text
   , eTable :: Table -- morphological tags to surface form: ("sg def gen" ,"killens")
-  } deriving Show
+  } deriving (Show, Read)
 
 putErrLn :: String -> IO ()
 putErrLn = hPutStrLn stderr
