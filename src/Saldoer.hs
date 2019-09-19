@@ -151,12 +151,12 @@ extract select name saldo n  = do
   (entries,errs) <- case mst of
     Left er  -> return ([],er)
     Right st -> do
-      let ms = unlines (stMsg st)
+      let ms = unlines (reverse (stMsg st))
       let fails = unlines $ "Retries:" : map show (stRetries st) ++ "Dead:" : map T.unpack (stDead st)
       writeFile (logFile "messages" n) ms
       writeFile (logFile "fail" n) fails
       -- appendCode name $ stOK st
-      return (stOK st, unlines (stErrs st))
+      return (stOK st, unlines (reverse (stErrs st)))
   writeFile (logFile "errors" n) errs
   return entries
 
