@@ -12,10 +12,12 @@ import System.Exit (ExitCode(..))
 import System.Directory (removeFile, copyFile)
 import System.FilePath ((</>),(<.>))
 
-import Data.Char (isDigit,isAlpha)
+import Data.Char ({-isDigit,-}isAlpha)
 import Data.Maybe (catMaybes,mapMaybe)
 import qualified Data.Map.Strict as M
 import Data.List (delete, sortOn)
+import Data.Set (Set)
+import qualified Data.Set as S
 import Data.Text (Text)
 import qualified Data.Text as T
 import Text.Printf
@@ -94,22 +96,27 @@ doExtract lexs skip = do
 
   -- Find entries with only one sense and create numberless lins for them
   let
-    gf_ids :: M.Map Text Text -- ident, cat
-    gf_ids = M.fromList $ map (\g -> (T.pack (mkGFName g), grPOS g)) entriesSorted
+    gf_ids :: Set Text -- idents
+    gf_ids = S.fromList $ map (T.pack . mkGFName) entriesSorted
 
-    uniqs :: M.Map Text Text -- ident, cat
-    uniqs = flip M.filterWithKey gf_ids $ \i _ ->
-      case T.breakOn "_1" i of
-        (_,"") -> False -- sense not #1
-        _ -> let sense2 = T.replace "_1" "_2" i in M.notMember sense2 gf_ids
+    uniqs :: [GrammarInfo]
+    uniqs = flip filter entriesSorted $ \g ->
+      let
+        lemgram = grLemma g -- kille..nn.1
+        -- gfid1 = mkGFName g -- kille_1_N
+        gfid2 = T.pack $ mkGFName (g {grLemma = T.dropEnd 1 lemgram `T.snoc` '2'}) -- kille_2_N
+      in T.last lemgram == '1' && S.notMember gfid2 gf_ids
 
     shadows :: [(String,String)] -- abs, cnc
     shadows =
       [ (abs,cnc)
-      | (i,cat) <- M.toList uniqs
-      , let newId = T.replace "_1" "" i -- kille_N
-      , let abs = printf "  %s : %s ; -- %s\n" newId cat i
-      , let cnc = printf "  %s = %s ;\n" newId i
+      | g <- uniqs
+      , let oldId = mkGFName g -- vala_1_N
+      -- TODO abort if newID is in gf_ids
+      , let newId = mkGFNameNumberless g -- vala_N
+      , let cat = grPOS g
+      , let abs = printf "  %s : %s ; -- %s\n" newId cat oldId
+      , let cnc = printf "  %s = %s ;\n" newId oldId
       ]
 
   writeReportFile (genDir </> "DictSweAbs.gf") $ concat
@@ -441,17 +448,27 @@ compileGF = do
 
 -- | Generate GF identifier from GrammarInfo term
 mkGFName :: GrammarInfo -> String
-mkGFName gi = printf "%s_%c_%s" name num (toGFcat cat)
+mkGFName G{grLemma = id', grPOS = cat} =
+  printf "%s_%c_%s" name num (toGFcat cat)
   where
-    id' = grLemma gi
-    cat = grPOS gi
-    toGFcat "VR" = "V"
-    toGFcat "VP" = "V"
-    toGFcat  v   = v
-    dash2us = T.replace "-" "_"
-    pfxnum x = if isDigit (T.head x) then 'x' `T.cons` x else x -- don't start with a digit
-    name = pfxnum $ dash2us $ T.takeWhile (/= '.') id'
+    -- pfxnum x = if isDigit (T.head x) then 'x' `T.cons` x else x -- don't start with a digit
+    name = {-pfxnum $-} dash2us $ T.takeWhile (/= '.') id'
     num = T.last id'
+
+-- | Generate GF identifier from GrammarInfo term, omitting sense number
+mkGFNameNumberless :: GrammarInfo -> String
+mkGFNameNumberless G{grLemma = id', grPOS = cat} =
+  printf "%s_%s" name (toGFcat cat)
+  where
+    name = dash2us $ T.takeWhile (/= '.') id'
+
+dash2us :: Text ->  Text
+dash2us = T.replace "-" "_"
+
+toGFcat :: Text ->  Text
+toGFcat "VR" = "V"
+toGFcat "VP" = "V"
+toGFcat  v   = v
 
 -------------------------------------------------------------------
 -- Mapping from SALDO categories/params to GF Resource Library

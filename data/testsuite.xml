@@ -413,6 +413,53 @@
   <feat att="msd" val="sms"/>
   </WordForm>
 </LexicalEntry>
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="1100-tal"/>
+   <feat att="lemgram" val="_1100-tal..nn.1"/>
+   <feat att="partOfSpeech" val="nn"/>
+   <feat att="paradigm" val="nn_0n_ansvar"/>
+   <feat att="inherent" val="n"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="1100-tal"/>
+  <feat att="msd" val="sg indef nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="1100-tals"/>
+  <feat att="msd" val="sg indef gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="1100-talet"/>
+  <feat att="msd" val="sg def nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="1100-talets"/>
+  <feat att="msd" val="sg def gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="1100-tals-"/>
+  <feat att="msd" val="ci"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="1100-tals"/>
+  <feat att="msd" val="ci"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="1100-tals-"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="1100-tals"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="1100-tals-"/>
+  <feat att="msd" val="sms"/>
+  </WordForm>
+</LexicalEntry>
 
 </Lexicon>
 </LexicalResource>
