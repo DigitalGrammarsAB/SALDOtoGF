@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: c552fd48820d19e3c25c7e64e28fb8e8a8d8661988f715474141869dc35a336f
+-- hash: e9afb7f6f5b53c4d6dbb591e03f81bb2d0b4d6aadcf355a6237e49c65df88469
 
 name:           SALDOtoGF
 version:        3.0
@@ -17,6 +17,7 @@ maintainer:     John J. Camilleri <john@digitalgrammars.com>
 build-type:     Simple
 extra-source-files:
     README.md
+    CHANGELOG.md
 
 source-repository head
   type: git

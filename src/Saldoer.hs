@@ -98,20 +98,23 @@ doExtract lexs skip = do
 extract :: Maybe [Text] -> String -> Lex -> Int -> IO [GrammarInfo]
 extract select name saldo n  = do
   hSetBuffering stdout NoBuffering
-  mst <- runExceptT $ execStateT (createGF saldo
-                    >> compileGF
-                    >> loop
-                    >> printGFFinal
-                    >> cleanUp)  (initState n select name)
+  let
+    run = do
+      createGF saldo
+      compileGF
+      loop
+      printGFFinal
+      cleanUp
+  mst <- runExceptT $ execStateT run (initState n select name)
   (entries,errs) <- case mst of
-             Left er  -> return ([],er)
-             Right st -> do
-                 let ms = unlines (stMsg st)
-                 let fails = show (stRetries st) ++ T.unpack (T.unlines (stDead st))
-                 writeFile (logFile "messages" n) ms
-                 writeFile (logFile "fail" n) fails
-                 -- appendCode name $ stOK st
-                 return (stOK st, unlines (stErrs st))
+    Left er  -> return ([],er)
+    Right st -> do
+      let ms = unlines (stMsg st)
+      let fails = unlines $ "Retries:" : map show (stRetries st) ++ "Dead:" : map T.unpack (stDead st)
+      writeFile (logFile "messages" n) ms
+      writeFile (logFile "fail" n) fails
+      -- appendCode name $ stOK st
+      return (stOK st, unlines (stErrs st))
   writeFile (logFile "errors" n) errs
   return entries
 
@@ -136,7 +139,6 @@ createGF sal = do
   todo <- gets stRetries
   when (null todo) $ fail "No words from this section. Skipping"
   modify $ \s -> s {stLex = sal}
-
   printGF
   report "Lexicon created"
   io nl
@@ -300,9 +302,8 @@ updateGF :: Convert ()
 updateGF = do
   report "will update"
   tmp_saldo <- gets stPGF
-  io $ putStrLn ("Reading "++tmp_saldo)
+  io $ putStrLn "Reading PGF"
   pgf <- io $ PGF.readPGF tmp_saldo
-
   io $ putStrLn "Updating GF source"
   cnc_file <- gets stRetries
   modify $ \s -> s {stChanges = 0, stRetries = []}
@@ -310,7 +311,7 @@ updateGF = do
   mapM_ (check pgf) cnc_file
   printGF
   c <- gets stChanges
-  let update = "updated "++show c++" words"
+  let update = printf "Updated %d words" c
   io $ putStrLn update
   report update
 
@@ -355,7 +356,7 @@ checkForms paramMap fm_t gf_t entry@(G id cat lemmas _ _  _)
                  | otherwise   = Just $ head xs
 
     getNextLemma (G id cat lemmas _ _ []) = do
-        tellFailing (printf "No more paradigms to choose from: %s" id)
+        tellFailing (printf "no more paradigms to choose from: %s" id)
         isDead id
     getNextLemma (G id cat lemmas b f ((pre,xs,a):ps)) = do
         report $ printf "working on %s" id
@@ -393,17 +394,15 @@ compileGF = do
   case res of
     ExitSuccess      -> return ()
     ExitFailure code -> do
-                   n <- gets stPartNo
-                   io $ putStrLn "failed to create PGF.\nWill skip this section"
-                   fail ("compiliation failed with error code "++show code
-                         ++"\nPartition "++show n++" will be skipped")
-  (fpath,h) <- io $ openTempFile "." "tmp.pgf"
+      n <- gets stPartNo
+      io $ putStrLn "Failed to create PGF.\nWill skip this section"
+      fail (printf "Compiliation failed with error code %d\nPartition %d will be skipped" code n)
+  (fpath,h) <- io $ openTempFile buildDir "tmp.pgf"
   io $ hClose h
   io $ copyFile pgfName fpath
   addTemp fpath
   report "compilation done"
   setPGF fpath
-
 
 -- | Generate GF identifier
 mkGFName :: Text -> Text -> String
@@ -764,9 +763,11 @@ report x = modify $ \s  -> s {stMsg = x:stMsg s}
 tellFailing :: String -> Convert ()
 tellFailing x = modify $ \s -> s {stErrs = x:stErrs s}
 
+-- | Find all values matching key in non-unique key-value list
 lookup' :: Eq a => a -> [(a,b)] -> [b]
 lookup' a  =  map snd . filter ((== a) . fst)
 
+-- | Head which reports context on failure
 head' :: String -> [a] ->  a
 head' s []     = error $ "Error in head in "++s
 head' _ (x:xs) = x
