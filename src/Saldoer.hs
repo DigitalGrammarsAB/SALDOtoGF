@@ -15,7 +15,7 @@ import System.FilePath ((</>),(<.>))
 import Data.Char ({-isDigit,-}isAlpha)
 import Data.Maybe (catMaybes,mapMaybe)
 import qualified Data.Map.Strict as M
-import Data.List (delete, sortOn)
+import qualified Data.List as L
 import Data.Set (Set)
 import qualified Data.Set as S
 import Data.Text (Text)
@@ -71,10 +71,8 @@ data GrammarInfo = G
   , grForms :: [[Text]]
   , grExtra :: Text
   , grFunctions :: (Text,Text)
-  , grParadigms :: Paradigm
+  , grParadigms :: ParadigmList
   } deriving Show
-
-type Paradigm = [(Text,[Text],Text)]
 
 instance Eq GrammarInfo where
   -- checks equality on the name only, in order to simplify deletion from retries list
@@ -91,7 +89,7 @@ doExtract lexs skip = do
       printf "\nExtracting part %d of %d\n" (n+1) (length lexs)
       extract Nothing name lexi n
   entriess <- zipWithM run lexs [skip..]
-  let entriesSorted = sortOn grLemma (concat entriess) :: [GrammarInfo]
+  let entriesSorted = L.sortOn grLemma (concat entriess) :: [GrammarInfo]
   nl
 
   -- Find entries with only one sense and create numberless lins for them
@@ -124,14 +122,14 @@ doExtract lexs skip = do
   writeReportFile (genDir </> "DictSweAbs.gf") $ concat
     [ absHeader "DictSweAbs"
     , concatMap showAbs entriesSorted
-    , "\n  -- Numberless\n"
+    , if null shadows then "" else "\n  -- Numberless\n"
     , concatMap fst shadows
     , "}\n"
     ]
   writeReportFile (genDir </> "DictSwe.gf") $ concat
     [ concHeader "DictSwe" "DictSweAbs"
     , concatMap showCnc entriesSorted
-    , "\n  -- Numberless\n"
+    , if null shadows then "" else "\n  -- Numberless\n"
     , concatMap snd shadows
     , "}\n"
     ]
@@ -141,6 +139,11 @@ extract :: Maybe [Text] -> String -> Lex -> Int -> IO [GrammarInfo]
 extract select name saldo n  = do
   hSetBuffering stdout NoBuffering
   let
+    loop = do
+      updateGF
+      compileGF
+      changes <- gets stChanges
+      unless (changes == 0) loop
     run = do
       createGF saldo
       compileGF
@@ -164,15 +167,8 @@ extract select name saldo n  = do
     logFile :: String -> Int -> FilePath
     logFile s n = logDir </> s++show n <.> "txt"
 
-    loop = do
-      updateGF
-      compileGF
-      changes <- gets stChanges
-      unless (changes == 0) loop
-
--------------------------------------------------------------------
+-----------------------------------------------------------------------------
 -- Bootstrap initial version of GF
--------------------------------------------------------------------
 
 createGF :: Lex -> Convert ()
 createGF sal = do
@@ -204,7 +200,7 @@ findGrammar (id,E pos table) =  do
       let cnc =
             [ G id gf_cat [[snd $ head' "createGF" table]] "" (f,findA gf_cat (T.append id f')) paradigms
             | (gf_cat,(f,f'),paradigms) <- xs]
-      modify $ \s -> s {stRetries = cnc++stRetries s}
+      modify $ \s -> s {stRetries = stRetries s ++ cnc}
 
 --- particles can be prepositions (hitta på), adverbs (åka hem), nouns (åka hem)...
 --  we first check for reflexives, and accept the rest as particles.
@@ -336,10 +332,10 @@ findsndWord = T.drop 1 . T.takeWhile (/='.') . T.dropWhile (/='_')
 --   ,"över"
 --   ]
 
--------------------------------------------------------------------
+-----------------------------------------------------------------------------
 -- Compare the current GF version with SALDO
--------------------------------------------------------------------
 
+-- | Check all items in retries list
 updateGF :: Convert ()
 updateGF = do
   report "will update"
@@ -347,36 +343,39 @@ updateGF = do
   io $ putStrLn "Reading PGF"
   pgf <- io $ PGF.readPGF tmp_saldo
   io $ putStrLn "Updating GF source"
-  cnc_file <- gets stRetries
+  gis <- gets stRetries -- gis :: [GrammarInfo]
   modify $ \s -> s {stChanges = 0, stRetries = []}
-  report $ "updating "++ unlines (map show cnc_file)
-  mapM_ (check pgf) cnc_file
+  report $ L.intercalate "\n" (map show gis)
+  mapM_ (check pgf) gis
   printGF
   c <- gets stChanges
   let update = printf "Updated %d words" c
   io $ putStrLn update
   report update
 
+-- | Check individual item
+-- 1: get table from SALDO
 check :: PGF.PGF -> GrammarInfo -> Convert ()
-check gf entry@(G id cat lemmas _ _ _) = do
+check pgf entry@(G id cat lemmas _ _ _) = do
   saldo <- gets stLex
   case M.lookup id saldo of
-       Just (E p t) -> checkWord gf t entry
-       Nothing      -> do tellFailing (printf "unknown id in SALDO: %s" id)
-                          isDead id
+    Just (E p t) -> checkWord pgf t entry
+    Nothing -> do
+      tellFailing (printf "unknown id in SALDO: %s" id)
+      isDead id
 
-packTuple :: (String,String) -> (Text,Text)
-packTuple (a,b) = (T.pack a, T.pack b)
-
+-- 2: get table from PGF
 checkWord :: PGF.PGF -> Table -> GrammarInfo -> Convert ()
-checkWord gf t entry@(G id cat lemmas _ _ _) = do
+checkWord pgf t entry@(G id cat lemmas _ _ _) = do
   langName <- getLangName
   let
-    gf_t = map packTuple $ concat $ PGF.tabularLinearizes gf (read langName) (read (mkGFName entry))
-    paramMap = head' "check" [map | (_,gf_cat,map,_,_) <- catMap, gf_cat == cat]
+    packTuple (a,b) = (T.pack a, T.pack b)
+    gf_t = map packTuple $ concat $ PGF.tabularLinearizes pgf (read langName) (read (mkGFName entry))
+    paramMap = head' "checkWord" [map | (_,gf_cat,map,_,_) <- catMap, gf_cat == cat] -- find relevant paramMap for cat
   checkForms paramMap t gf_t entry
 
-checkForms :: [(Text, [Text])] -> Table -> Table -> GrammarInfo -> Convert ()
+-- 3: compare the two tables
+checkForms :: ParamMap -> Table -> Table -> GrammarInfo -> Convert ()
 checkForms paramMap fm_t gf_t entry@(G id cat lemmas _ _  _)
   | null diffs = accept entry
   | otherwise  = do
@@ -386,32 +385,36 @@ checkForms paramMap fm_t gf_t entry@(G id cat lemmas _ _  _)
       report (show [[(lookup f fm_t,lookup g' gf_t) | g' <- g ] | (f,g) <- paramMap])
       getNextLemma $! entry
   where
+    diffs :: [(Text,Text,[Text],[Text])]
     diffs =
       [ (fm_p,fm_v,gf_p,gf_v)
-      | (fm_p,gf_p) <- paramMap
-      , fm_vs      <- [lookup' fm_p fm_t]
-      , let gf_v  = mapMaybe (`lookup` gf_t) gf_p
-      , Just fm_v  <- [isDiff gf_v fm_vs]
+      | (fm_p,gf_p) <- paramMap -- [(Text, [Text])]
+      , fm_vs       <- [lookup' fm_p fm_t]
+      , let gf_v    =  mapMaybe (`lookup` gf_t) gf_p
+      , Just fm_v   <- [isDiff gf_v fm_vs]
       ]
-   -- if there is no information about the form in saldo, we chose to accept it
+
+    -- if there is no information about the form in saldo, we chose to accept it
+    isDiff :: Eq a => [a] -> [a] -> Maybe a
     isDiff  _ [] = Nothing
     isDiff ys xs | any (`elem` xs) ys = Nothing
                  | otherwise   = Just $ head xs
 
+    getNextLemma :: GrammarInfo -> Convert ()
     getNextLemma (G id cat lemmas _ _ []) = do
-        tellFailing (printf "no more paradigms to choose from: %s" id)
-        isDead id
+      tellFailing (printf "no more paradigms to choose from: %s" id)
+      isDead id
     getNextLemma (G id cat lemmas b f ((pre,xs,a):ps)) = do
-        report $ printf "working on %s" id
-        report $ printf "next paradigm: %s" (show xs)
-        report $ printf "to choose from: %s" (show ps)
-        forms <- mapM getLemma xs
-        if Nothing `elem` forms
-        -- to do: if the comparative forms for an adjective doesn't exist, add compounda
-        then do
-          report (printf "all forms for %s not found" id)
-          getNextLemma (G id cat lemmas b f ps)
-        else replace (G id cat [catMaybes forms] a f ps)
+      report $ printf "working on %s" id
+      report $ printf "next paradigm: %s" (show xs)
+      report $ printf "to choose from: %s" (show ps)
+      forms <- mapM getLemma xs
+      if Nothing `elem` forms
+      -- to do: if the comparative forms for an adjective doesn't exist, add compounda
+      then do
+        report (printf "all forms for %s not found" id)
+        getNextLemma (G id cat lemmas b f ps)
+      else replace (G id cat [catMaybes forms] a f ps)
       where
         getLemma :: Text -> Convert (Maybe Text)
         getLemma gf_p =
@@ -472,15 +475,17 @@ toGFcat "VR" = "V"
 toGFcat "VP" = "V"
 toGFcat  v   = v
 
--------------------------------------------------------------------
+-----------------------------------------------------------------------------
 -- Mapping from SALDO categories/params to GF Resource Library
--------------------------------------------------------------------
+
+type ParamMap = [(Text, [Text])]
+type ParadigmList = [(Text, [Text], Text)]
 
 -- all word classes that should be imported should be listed here.
-catMap :: [(Text, Text, [(Text, [Text])], (Text, Text), [(Text, [Text], Text)])]
+catMap :: [(Text, Text, ParamMap, (Text, Text), ParadigmList)]
 catMap  =
-  [ ("ab", "Adv", advParamMap,  ("mkAdv",""), advParadigmList )
-  , ("av",   "A", adjParamMap,  ("mkA",""), adjParadigmList )
+  [ ("ab", "Adv", advParamMap,  ("mkAdv",""), advParadigmList)
+  , ("av",   "A", adjParamMap,  ("mkA",""), adjParadigmList)
   , ("vb",   "V", verbParamMap, ("mkV",""), verbParadigmList)
   , ("nn",   "N", nounParamMap, ("mkN",""), nounParadigmList)
   -- particles were V2. Why? -"dirV2 (partV (mkV",")"
@@ -490,14 +495,14 @@ catMap  =
   ]
 
 -- For prepositions, not run automatically
-prepCatMap :: [(Text, Text, [(Text, Text)], (Text, Text), [(Text, [Text], Text)])]
+prepCatMap :: [(Text, Text, [(Text, Text)], (Text, Text), ParadigmList)]
 prepCatMap =  [("pp", "Prep", [("invar","s")],("mkPrep",""),[("mkPrep",["s"],"")])]
 
-advParamMap :: [(Text,[Text])]
+advParamMap :: ParamMap
 advParamMap =
   [("pos", ["s"]),("invar",["s"])] -- is invar needed?
 
-advParadigmList :: [(Text, [Text], Text)]
+advParadigmList :: ParadigmList
 advParadigmList =
   [("mkAdv", ["s"], "") ]
 
@@ -518,7 +523,7 @@ a14 = "s (AF (ASuperl SupStrong) Gen)"
 a15 = "s (AF (ASuperl SupWeak) Nom)"
 a16 = "s (AF (ASuperl SupWeak) Gen)"
 
-adjParamMap :: [(Text, [Text])]
+adjParamMap :: ParamMap
 adjParamMap =
   [("pos indef sg u nom",      [a1] )
   ,("pos indef sg u gen",      [a2] )
@@ -538,7 +543,7 @@ adjParamMap =
   ,("super def no_masc gen",   [a16])
   ]
 
-adjParadigmList :: [(Text, [Text], Text)]
+adjParadigmList :: ParadigmList
 adjParadigmList =
   [ ("mkA", [a1], "") , ("mkA", [a1, a3], "")
   , ("mkA", [a1, a11, a13], "")
@@ -569,7 +574,7 @@ v17 = "s (VI (VPtPret (Weak Sg) Gen))"
 v18 = "s (VI (VPtPret (Weak Pl) Nom))"
 v19 = "s (VI (VPtPret (Weak Pl) Gen))"
 
-verbParamMap :: [(Text, [Text])]
+verbParamMap :: ParamMap
 --"s (VF (VImper Pass))")   "part")
 verbParamMap =
   [("pres ind aktiv",               [v1] )
@@ -593,7 +598,7 @@ verbParamMap =
   ,("pret_part def pl gen",         [v19])
   ]
 
-verbParadigmList :: [(Text, [Text], Text)]
+verbParadigmList :: ParadigmList
 verbParadigmList =
   [ ("mkV", [v1], "")
   , ("mkV", [v6, v3, v8], "")
@@ -602,21 +607,21 @@ verbParadigmList =
 
 -- could use normal verbParamMap if we are sure it is a preposition,
 -- and will look the same in all paradims
-verbPParamMap :: [(Text, [Text])]
+verbPParamMap :: ParamMap
 verbPParamMap = map (first (T.append " 1:1-2")) verbParamMap
               ++map (\(a,b) -> (T.append a " 1:2-2",["part"])) verbParamMap
 
-verbPParadigmList :: [(Text, [Text], Text)]
+verbPParadigmList :: ParadigmList
 verbPParadigmList =
   [ ("", [v1], "" )
   , ("", [v6, v3, v8], "")
   , ("", [v6, v1, v5, v3, v8, v10], "")
   ]
 
-verbRParamMap :: [(Text, [Text])]
+verbRParamMap :: ParamMap
 verbRParamMap = map (first (T.append " 1:1-2")) verbParamMap
 
-verbRParadigmList :: [(Text, [Text], Text)]
+verbRParadigmList :: ParadigmList
 verbRParadigmList =
   [ ("", [v1],  "")
   , ("", [v6, v3, v8], "")
@@ -632,7 +637,7 @@ n6 = "s Pl Indef Gen"
 n7 = "s Pl Def Nom"
 n8 = "s Pl Def Gen"
 
-nounParamMap :: [(Text, [Text])]
+nounParamMap :: ParamMap
 nounParamMap =
   [ ("sg indef nom", [n1])
   , ("sg indef gen", [n2])
@@ -644,7 +649,7 @@ nounParamMap =
   , ("pl def gen",   [n8])
   ]
 
-nounParadigmList :: [(Text, [Text], Text)]
+nounParadigmList :: ParadigmList
 nounParadigmList =
   [ ("mkN", [n1], "")
   , ("mkN", [n1], "utrum")
@@ -653,10 +658,8 @@ nounParadigmList =
   , ("mkN", [n1, n3, n5, n7], "")
   ]
 
-
--------------------------------------------------------------------
+-----------------------------------------------------------------------------
 -- Dump GF code
--------------------------------------------------------------------
 
 printGFFinal :: Convert ()
 printGFFinal = do
@@ -703,10 +706,8 @@ showCnc entry@(G id _ lemmas a (mk,end) _) =
   printf "  %s = %s %s%s%s ;\n" (mkGFName entry) mk defs extra end
   where
     defs = T.unwords [ T.unwords (map fnutta lemma_v) | lemma_v <- lemmas]
-    -- defs = T.unwords [ if null lemma_v then "(variants {})" else T.unwords (map fnutta lemma_v) | lemma_v <- lemmas]
-    extra = if T.null a then "" else T.concat [" ", a, " "]
+    extra = if T.null a then "" else T.concat [" ", a]
     fnutta :: Text -> Text
-    -- fnutta x@"variant {}" = T.concat ["(", x, ")"]
     fnutta x = T.concat ["\"", x, "\""]
 
 absHeader :: String -> String
@@ -757,9 +758,8 @@ cleanUp = do
   ts <- gets stTmps
   io $ mapM_ (\t -> onException (removeFile t) (return ())) ts
 
--------------------------------------------------------------------
+-----------------------------------------------------------------------------
 -- State
--------------------------------------------------------------------
 
 initState :: Int -> Maybe [Text] -> String -> CState
 initState n s name = CS
@@ -780,19 +780,26 @@ initState n s name = CS
 setPGF :: FilePath -> Convert ()
 setPGF f = modify $ \s -> s { stPGF = f}
 
+-- | Replace element in retries
+-- Works because of defininition of equality of GrammarInfo
 replace :: GrammarInfo -> Convert ()
-replace gr = modify $ \s -> s {stRetries = gr : delete gr (stRetries s)} -- hehe, make nice?
+replace gr = modify $ \s -> s {stRetries = replaceInList gr gr (stRetries s)}
+
+-- | Replace element in list. Will append to end if not in original list.
+replaceInList :: Eq a => a -> a -> [a] -> [a]
+replaceInList x y xs = a ++ y : drop 1 b
+  where (a,b) = L.break (x ==) xs
 
 -- add to dead , remove from retries
 isDead :: Text -> Convert ()
-isDead d = modify $ \s -> s {stDead = d:stDead s, stRetries = delete (emptyG d) (stRetries s)}  -- hehe, make nice?
+isDead d = modify $ \s -> s {stDead = d:stDead s, stRetries = L.delete (emptyG d) (stRetries s)}  -- hehe, make nice?
   where emptyG d = G d "" [] "" ("","") []
 
 --add to ok, remove from retries
 accept :: GrammarInfo -> Convert ()
 accept e = do
   report $ printf "accepting %s" (grLemma e)
-  modify $ \s -> s {stRetries = delete e (stRetries s), stOK = e:stOK s}
+  modify $ \s -> s {stRetries = L.delete e (stRetries s), stOK = e:stOK s}
   r <- gets stRetries
   report $ printf "deleted %s from retries. result: %s" (grLemma e) (show (e `elem` r))
 
@@ -802,9 +809,8 @@ accept e = do
 addTemp :: FilePath -> Convert ()
 addTemp f = modify $ \s -> s {stTmps = f:stTmps s}
 
--------------------------------------------------------------------
+-----------------------------------------------------------------------------
 -- Helpers
--------------------------------------------------------------------
 
 io :: IO a -> Convert a
 io = lift . lift
