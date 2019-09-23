@@ -1,0 +1,85 @@
+<LexicalResource dtdVersion="16">
+<GlobalInformation>
+<feat att="languageCoding" val="ISO 639-3"/>
+</GlobalInformation>
+<Lexicon>
+<feat att="language" val="swe"/>
+
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="blod"/>
+   <feat att="lemgram" val="blod..nn.1"/>
+   <feat att="partOfSpeech" val="nn"/>
+   <feat att="paradigm" val="nn_0v_blod"/>
+   <feat att="inherent" val="v"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="blod"/>
+  <feat att="msd" val="sg indef nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blods"/>
+  <feat att="msd" val="sg indef gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="bloden"/>
+  <feat att="msd" val="sg def nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blodet"/>
+  <feat att="msd" val="sg def nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blodens"/>
+  <feat att="msd" val="sg def gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blodets"/>
+  <feat att="msd" val="sg def gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blod-"/>
+  <feat att="msd" val="ci"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blods-"/>
+  <feat att="msd" val="ci"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blod"/>
+  <feat att="msd" val="ci"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blods"/>
+  <feat att="msd" val="ci"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blod-"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blods-"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blod"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blods"/>
+  <feat att="msd" val="cm"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blod-"/>
+  <feat att="msd" val="sms"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="blods-"/>
+  <feat att="msd" val="sms"/>
+  </WordForm>
+</LexicalEntry>
+
+</Lexicon>
+</LexicalResource>

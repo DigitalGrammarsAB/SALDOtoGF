@@ -24,15 +24,18 @@ catMap  =
 
 -- For prepositions, not run automatically
 prepCatMap :: [(Text, Text, [(Text, Text)], (Text, Text), ParadigmList)]
-prepCatMap =  [("pp", "Prep", [("invar","s")],("mkPrep",""),[("mkPrep",["s"],"")])]
+prepCatMap = [("pp", "Prep", [("invar","s")],("mkPrep",""),[("mkPrep",["s"],"")])]
 
 advParamMap :: ParamMap
 advParamMap =
-  [("pos", ["s"]),("invar",["s"])] -- is invar needed?
+  [("pos", ["s"])
+  ,("invar",["s"]) -- is invar needed?
+  ]
 
 advParadigmList :: ParadigmList
 advParadigmList =
-  [("mkAdv", ["s"], "") ]
+  [("mkAdv", ["s"], "")
+  ]
 
 a1 = "s (AF (APosit (Strong (GSg Utr))) Nom)"
 a2 = "s (AF (APosit (Strong (GSg Utr))) Gen)"
@@ -184,4 +187,5 @@ nounParadigmList =
   , ("mkN", [n1], "neutrum")
   , ("mkN", [n1, n5], "")
   , ("mkN", [n1, n3, n5, n7], "")
+  , ("mkN", [n1, n3, n1, n3], "") -- no plural
   ]

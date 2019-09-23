@@ -29,6 +29,7 @@ dependencies:
   - aeson
   - xml
   - gf >= 3.10
+  - unicode-show
 
 executable:
   main: Main.hs

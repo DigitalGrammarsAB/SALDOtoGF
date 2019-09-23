@@ -6,14 +6,16 @@
 
 module Saldoer (doExtract, extract) where
 
+import Prelude hiding (show, print) -- use ushow, uprint instead
+
 import System.IO (hClose, openTempFile, stdout, hSetBuffering, BufferMode(..))
 import System.Process (rawSystem)
 import System.Exit (ExitCode(..))
 import System.Directory (removeFile, copyFile)
-import System.FilePath ((</>),(<.>))
+import System.FilePath ((</>), (<.>))
 
-import Data.Char ({-isDigit,-}isAlpha)
-import Data.Maybe (catMaybes,mapMaybe)
+import Data.Char (isAlpha)
+import Data.Maybe (catMaybes)
 import qualified Data.Map.Strict as M
 import qualified Data.List as L
 import Data.Set (Set)
@@ -21,6 +23,7 @@ import qualified Data.Set as S
 import Data.Text (Text)
 import qualified Data.Text as T
 import Text.Printf
+import Text.Show.Unicode (uprint, ushow)
 
 import Control.Monad (when, unless, zipWithM)
 import Control.Monad.Trans (lift)
@@ -32,6 +35,12 @@ import qualified PGF
 
 import Common
 import Paradigms
+
+show :: Show a => a -> String
+show = ushow
+
+print :: Show a => a -> IO ()
+print = uprint
 
 -----------------------------------------------------------------------------
 -- Directories
@@ -195,6 +204,8 @@ createGF sal = do
   report "lexicon created"
   io nl
 
+-- TODO split entries with variants into multiple GrammarInfo terms
+-- We don't want to use GF variants to encode them
 findGrammar :: (Text,Entry) -> Convert ()
 findGrammar (id,E pos table) =  do
   rest <- gets stSelection
@@ -393,40 +404,52 @@ checkWord pgf t entry@(G _ cat _ _ _ _) = do
 
 -- 3: compare the two tables
 checkForms :: ParamMap -> Table -> Table -> GrammarInfo -> Convert ()
-checkForms paramMap fm_t gf_t entry@(G id cat lemmas _ _  _)
-  | null diffs = accept entry
-  | otherwise  = do
-      report $ "diffs:\n" ++ showListIndent 2 diffs
+checkForms paramMap fm_t gf_t entry@(G id _ _ _ (mk,_) _) = do
+  report $ "fm_t:\n" ++ showListIndent 2 fm_t
+  report $ "gf_t:\n" ++ showListIndent 2 gf_t
+  report $ "comp:\n" ++ showListIndent 2 comp
+  case comp of
+    _ | not anyDiffs -> accept entry
+    _ | anyMissing && mk == "mkN" && and
+        [ sg_fm_vs == d
+        | (a,b,_,d) <- comp
+        , null b -- form missing from SALDO
+        , "pl " `T.isPrefixOf` a  -- "pl indef nom"
+        , let sg = T.replace "pl " "sg " a -- "sg indef nom"
+        , let sg_fm_vs = lookup' sg fm_t :: [Text]
+        ] -> accept entry
+    _ -> do
       c <- gets stChanges
       modify $ \s -> s {stChanges = c+1}
       report $ printf "redo word %s" id
-      report $ showListIndent 2 [[(lookup f fm_t,lookup g' gf_t) | g' <- g ] | (f,g) <- paramMap]
       getNextLemma $! entry
   where
-
-    diffs :: [(Text,Text,[Text],[Text])]
-    diffs =
-      [ (fm_p,fm_v,gf_p,gf_v)
+    -- comparison of SALDO / GF tables
+    comp :: [(Text,[Text],[Text],[Text])]
+    comp =
+      [ (fm_p,fm_vs,gf_p,gf_vs)
       | (fm_p,gf_p) <- paramMap -- fm_p :: Text, gf_p :: [Text]
-      , fm_vs       <- [lookup' fm_p fm_t] -- fm_vs :: [Text]
-      , let gf_v    =  mapMaybe (`lookup` gf_t) gf_p -- :: gf_v :: [Text]
-      , Just fm_v   <- [isDiff gf_v fm_vs]
+      , let fm_vs = lookup' fm_p fm_t -- fm_vs :: [Text]
+      , let gf_vs = concatMap (`lookup'` gf_t) gf_p -- gf_vs :: [Text]
+      , let b = fm_vs /= gf_vs
       ]
 
-    -- if there is no information about the form in saldo, we chose to accept it
-    isDiff :: Eq a => [a] -> [a] -> Maybe a
-    isDiff  _ [] = Nothing
-    isDiff ys xs | any (`elem` xs) ys = Nothing
-                 | otherwise   = Just $ head xs
+    anyDiffs :: Bool
+    anyDiffs = any (\(_,fm_vs,_,gf_vs) -> fm_vs /= gf_vs) comp
+
+    anyMissing :: Bool
+    anyMissing = any (\(_,fm_vs,_,_) -> null fm_vs) comp
 
     getNextLemma :: GrammarInfo -> Convert ()
-    getNextLemma (G id cat lemmas _ _ []) = do
-      tellFailing (printf "no more paradigms to choose from: %s" id)
+    getNextLemma (G id cat _ _ _ []) = do
+      let msg = printf "no more paradigms to choose from: %s" id
+      report msg
+      tellFailing msg
       isDead id
-    getNextLemma (G id cat lemmas b f ((pre,xs,a):ps)) = do
+    getNextLemma (G id cat lemmas b f (p@(pre,xs,a):ps)) = do
       report $ printf "working on %s" id
-      report $ printf "next paradigm: %s" (show xs)
-      report $ "to choose from:\n" ++ showListIndent 2 ps
+      report $ printf "next paradigm:\n  %s" (show p)
+      report $ "remaining paradigms:\n" ++ showListIndent 2 ps
       forms <- mapM getLemma xs
       report $ printf "forms: %s" (show forms)
       if Nothing `elem` forms
@@ -480,11 +503,10 @@ compileGF = do
 -- | Generate GF identifier from GrammarInfo term
 mkGFName :: GrammarInfo -> String
 mkGFName G{grLemma = id', grPOS = cat} =
-  printf "%s_%c_%s" name num (toGFcat cat)
+  printf "%s_%s_%s" name num (toGFcat cat)
   where
-    -- pfxnum x = if isDigit (T.head x) then 'x' `T.cons` x else x -- don't start with a digit
-    name = {-pfxnum $-} dash2us $ T.takeWhile (/= '.') id'
-    num = T.last id'
+    name = dash2us $ T.takeWhile (/= '.') id'
+    num = T.takeWhileEnd (/='.') id'
 
 -- | Generate GF identifier from GrammarInfo term, omitting sense number
 mkGFNameNumberless :: GrammarInfo -> String
@@ -662,6 +684,7 @@ tellFailing :: String -> Convert ()
 tellFailing x = modify $ \s -> s {stErrs = x:stErrs s}
 
 -- | Find all values matching key in non-unique key-value list
+-- lookup' a [(a,1),(b,2),(a,3)] == [1,3]
 lookup' :: Eq a => a -> [(a,b)] -> [b]
 lookup' a  =  map snd . filter ((== a) . fst)
 
