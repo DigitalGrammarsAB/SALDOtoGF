@@ -26,12 +26,12 @@ import Control.Monad (when, unless, zipWithM)
 import Control.Monad.Trans (lift)
 import Control.Monad.State (StateT(..), modify, gets, execStateT)
 import Control.Monad.Except (ExceptT(..), runExceptT)
-import Control.Arrow (first)
 import Control.Exception (onException)
 
 import qualified PGF
 
-import Common (Entry(..), Lex, Table, nl, writeReportFile)
+import Common
+import Paradigms
 
 -----------------------------------------------------------------------------
 -- Directories
@@ -66,13 +66,26 @@ data CState = CS
 }
 
 data GrammarInfo = G
-  { grLemma :: Text
-  , grPOS :: Text
-  , grForms :: [[Text]]
-  , grExtra :: Text
-  , grFunctions :: (Text,Text)
-  , grParadigms :: ParadigmList
+  { grLemma :: Text -- ^ SALDO lemgram, e.g. "blod..nn.1"
+  , grPOS :: Text -- ^ GF category
+  , grForms :: [[Text]] -- ^ string arguments for paradigm
+  , grExtra :: Text -- ^ other arguments, e.g. gender
+  , grFunction :: (Text,Text) -- ^ function name (e.g. "mkV"), particle (e.g. [åka] "hem")
+  , grParadigms :: ParadigmList -- ^ queue of paradigms to try
   } deriving Show
+
+showG :: GrammarInfo -> String
+-- showG = T.unpack . T.replace "{gr" "{\n  gr" . T.replace ", gr" "\n  gr" . T.pack . show
+showG g = L.intercalate "\n"
+  [ "G {"
+  , printf "  grLemma = %s" (show (grLemma g))
+  , printf "  grPOS = %s" (show (grPOS g))
+  , printf "  grForms = %s" (show (grForms g))
+  , printf "  grExtra = %s" (show (grExtra g))
+  , printf "  grFunction = %s" (show (grFunction g))
+  , printf "  grParadigms =\n%s" (showListIndent 4 (grParadigms g))
+  , "}"
+  ]
 
 instance Eq GrammarInfo where
   -- checks equality on the name only, in order to simplify deletion from retries list
@@ -140,6 +153,7 @@ extract select name saldo n  = do
   hSetBuffering stdout NoBuffering
   let
     loop = do
+      report ""
       updateGF
       compileGF
       changes <- gets stChanges
@@ -178,7 +192,7 @@ createGF sal = do
   when (null todo) $ fail "No words from this section. Skipping"
   modify $ \s -> s {stLex = sal}
   printGF
-  report "Lexicon created"
+  report "lexicon created"
   io nl
 
 findGrammar :: (Text,Entry) -> Convert ()
@@ -198,8 +212,12 @@ findGrammar (id,E pos table) =  do
       isDead id
     else do
       let cnc =
-            [ G id gf_cat [[snd $ head' "createGF" table]] "" (f,findA gf_cat (T.append id f')) paradigms
-            | (gf_cat,(f,f'),paradigms) <- xs]
+            [ G id gf_cat forms extra funcs paradigms
+            | (gf_cat,(f,f'),paradigms) <- xs
+            , let forms = [[snd $ head' "createGF" table]]
+            , let extra = ""
+            , let funcs = (f,findA gf_cat (T.append id f'))
+            ]
       modify $ \s -> s {stRetries = stRetries s ++ cnc}
 
 --- particles can be prepositions (hitta på), adverbs (åka hem), nouns (åka hem)...
@@ -338,14 +356,13 @@ findsndWord = T.drop 1 . T.takeWhile (/='.') . T.dropWhile (/='_')
 -- | Check all items in retries list
 updateGF :: Convert ()
 updateGF = do
-  report "will update"
   tmp_saldo <- gets stPGF
   io $ putStrLn "Reading PGF"
   pgf <- io $ PGF.readPGF tmp_saldo
   io $ putStrLn "Updating GF source"
-  gis <- gets stRetries -- gis :: [GrammarInfo]
+  gis <- gets stRetries
   modify $ \s -> s {stChanges = 0, stRetries = []}
-  report $ L.intercalate "\n" (map show gis)
+  report $ "will update:\n" ++ L.intercalate "\n" (map showG gis)
   mapM_ (check pgf) gis
   printGF
   c <- gets stChanges
@@ -379,18 +396,20 @@ checkForms :: ParamMap -> Table -> Table -> GrammarInfo -> Convert ()
 checkForms paramMap fm_t gf_t entry@(G id cat lemmas _ _  _)
   | null diffs = accept entry
   | otherwise  = do
+      report $ "diffs:\n" ++ showListIndent 2 diffs
       c <- gets stChanges
       modify $ \s -> s {stChanges = c+1}
       report $ printf "redo word %s" id
-      report (show [[(lookup f fm_t,lookup g' gf_t) | g' <- g ] | (f,g) <- paramMap])
+      report $ showListIndent 2 [[(lookup f fm_t,lookup g' gf_t) | g' <- g ] | (f,g) <- paramMap]
       getNextLemma $! entry
   where
+
     diffs :: [(Text,Text,[Text],[Text])]
     diffs =
       [ (fm_p,fm_v,gf_p,gf_v)
-      | (fm_p,gf_p) <- paramMap -- [(Text, [Text])]
-      , fm_vs       <- [lookup' fm_p fm_t]
-      , let gf_v    =  mapMaybe (`lookup` gf_t) gf_p
+      | (fm_p,gf_p) <- paramMap -- fm_p :: Text, gf_p :: [Text]
+      , fm_vs       <- [lookup' fm_p fm_t] -- fm_vs :: [Text]
+      , let gf_v    =  mapMaybe (`lookup` gf_t) gf_p -- :: gf_v :: [Text]
       , Just fm_v   <- [isDiff gf_v fm_vs]
       ]
 
@@ -407,10 +426,11 @@ checkForms paramMap fm_t gf_t entry@(G id cat lemmas _ _  _)
     getNextLemma (G id cat lemmas b f ((pre,xs,a):ps)) = do
       report $ printf "working on %s" id
       report $ printf "next paradigm: %s" (show xs)
-      report $ printf "to choose from: %s" (show ps)
+      report $ "to choose from:\n" ++ showListIndent 2 ps
       forms <- mapM getLemma xs
+      report $ printf "forms: %s" (show forms)
       if Nothing `elem` forms
-      -- to do: if the comparative forms for an adjective doesn't exist, add compounda
+      -- TODO if the comparative forms for an adjective doesn't exist, add compounda
       then do
         report (printf "all forms for %s not found" id)
         getNextLemma (G id cat lemmas b f ps)
@@ -420,15 +440,18 @@ checkForms paramMap fm_t gf_t entry@(G id cat lemmas _ _  _)
         getLemma gf_p =
           case lookup fm_p fm_t of
             Just "" -> do
-              report (printf "form %s was empty for %s" gf_p id)
+              report (printf "form '%s' is empty for %s" gf_p id)
               return Nothing
             Just fm_v ->
               return $ Just fm_v
             x -> do
-              report (printf "form %s do not exist %s" gf_p id)
+              report (printf "form '%s' does not exist in %s" gf_p id)
               return Nothing
           where
+            fm_ps :: [Text]
             fm_ps = [fm_p | (fm_p,gf_p') <- paramMap, gf_p `elem` gf_p']
+
+            fm_p :: Text
             fm_p = head' (printf "getLemma %s. Word: %s" gf_p id) fm_ps
 
 -- | Compile with GF
@@ -450,6 +473,9 @@ compileGF = do
   addTemp fpath
   report "compilation done"
   setPGF fpath
+
+-----------------------------------------------------------------------------
+-- Dump GF code
 
 -- | Generate GF identifier from GrammarInfo term
 mkGFName :: GrammarInfo -> String
@@ -474,192 +500,6 @@ toGFcat :: Text ->  Text
 toGFcat "VR" = "V"
 toGFcat "VP" = "V"
 toGFcat  v   = v
-
------------------------------------------------------------------------------
--- Mapping from SALDO categories/params to GF Resource Library
-
-type ParamMap = [(Text, [Text])]
-type ParadigmList = [(Text, [Text], Text)]
-
--- all word classes that should be imported should be listed here.
-catMap :: [(Text, Text, ParamMap, (Text, Text), ParadigmList)]
-catMap  =
-  [ ("ab", "Adv", advParamMap,  ("mkAdv",""), advParadigmList)
-  , ("av",   "A", adjParamMap,  ("mkA",""), adjParadigmList)
-  , ("vb",   "V", verbParamMap, ("mkV",""), verbParadigmList)
-  , ("nn",   "N", nounParamMap, ("mkN",""), nounParadigmList)
-  -- particles were V2. Why? -"dirV2 (partV (mkV",")"
-  -- VR should not be V2 either.
---  , ("vbm", "VR", verbRParamMap, ("reflV (mkV",")"), verbRParadigmList)
---  , ("vbm", "VP", verbPParamMap, ("partV (mkV",""), verbPParadigmList)
-  ]
-
--- For prepositions, not run automatically
-prepCatMap :: [(Text, Text, [(Text, Text)], (Text, Text), ParadigmList)]
-prepCatMap =  [("pp", "Prep", [("invar","s")],("mkPrep",""),[("mkPrep",["s"],"")])]
-
-advParamMap :: ParamMap
-advParamMap =
-  [("pos", ["s"]),("invar",["s"])] -- is invar needed?
-
-advParadigmList :: ParadigmList
-advParadigmList =
-  [("mkAdv", ["s"], "") ]
-
-a1 = "s (AF (APosit (Strong (GSg Utr))) Nom)"
-a2 = "s (AF (APosit (Strong (GSg Utr))) Gen)"
-a3 = "s (AF (APosit (Strong (GSg Neutr))) Nom)"
-a4 = "s (AF (APosit (Strong (GSg Neutr))) Gen)"
-a5 = "s (AF (APosit (Strong GPl)) Nom)"
-a6 = "s (AF (APosit (Strong GPl)) Gen)"
-a7 = "s (AF (APosit (Weak Sg)) Nom)"
-a8 = "s (AF (APosit (Weak Sg)) Gen)"
-a9 = "s (AF (APosit (Weak Pl)) Nom)"
-a10 = "s (AF (APosit (Weak Pl)) Gen)"
-a11 = "s (AF ACompar Nom)"
-a12 = "s (AF ACompar Gen)"
-a13 = "s (AF (ASuperl SupStrong) Nom)"
-a14 = "s (AF (ASuperl SupStrong) Gen)"
-a15 = "s (AF (ASuperl SupWeak) Nom)"
-a16 = "s (AF (ASuperl SupWeak) Gen)"
-
-adjParamMap :: ParamMap
-adjParamMap =
-  [("pos indef sg u nom",      [a1] )
-  ,("pos indef sg u gen",      [a2] )
-  ,("pos indef sg n nom",      [a3] )
-  ,("pos indef sg n gen",      [a4] )
-  ,("pos indef pl nom",        [a5] )
-  ,("pos indef pl gen",        [a6] )
-  ,("pos def sg no_masc nom",  [a7] )
-  ,("pos def sg no_masc gen",  [a8] )
-  ,("pos def pl nom",          [a9] )
-  ,("pos def pl gen",          [a10])
-  ,("komp nom",                [a11])
-  ,("komp gen",                [a12])
-  ,("super indef nom",         [a13])
-  ,("super indef gen",         [a14])
-  ,("super def no_masc nom",   [a15])
-  ,("super def no_masc gen",   [a16])
-  ]
-
-adjParadigmList :: ParadigmList
-adjParadigmList =
-  [ ("mkA", [a1], "") , ("mkA", [a1, a3], "")
-  , ("mkA", [a1, a11, a13], "")
-  , ("mkA", [a1, a3 , a5, a11 , a13], "")
-  , ("mkA", [a1, a3 , a5, a11 , a13], "")
-  , ("mkA", [a1, a3 , a7, a5 , a11, a13, a15], "")
-  , ("mk3A", [a1, a3, a5], "")
-  ]
-
-v1  = "s (VF (VPres Act))"
-v2  = "s (VF (VPres Pass))"
-v3  = "s (VF (VPret Act))"
-v4  = "s (VF (VPret Pass))"
-v5  = "s (VF (VImper Act))"
-v5a  = "s (VF (VImper Pass))"
-v6  = "s (VI (VInfin Act))"
-v7  = "s (VI (VInfin Pass))"
-v8  = "s (VI (VSupin Act))"
-v9  = "s (VI (VSupin Pass))"
-v10 = "s (VI (VPtPret (Strong (GSg Utr)) Nom))"
-v11 = "s (VI (VPtPret (Strong (GSg Utr)) Gen))"
-v12 = "s (VI (VPtPret (Strong (GSg Neutr)) Nom))"
-v13 = "s (VI (VPtPret (Strong (GSg Neutr)) Gen))"
-v14 = "s (VI (VPtPret (Strong GPl) Nom))"
-v15 = "s (VI (VPtPret (Strong GPl) Gen))"
-v16 = "s (VI (VPtPret (Weak Sg) Nom))"
-v17 = "s (VI (VPtPret (Weak Sg) Gen))"
-v18 = "s (VI (VPtPret (Weak Pl) Nom))"
-v19 = "s (VI (VPtPret (Weak Pl) Gen))"
-
-verbParamMap :: ParamMap
---"s (VF (VImper Pass))")   "part")
-verbParamMap =
-  [("pres ind aktiv",               [v1] )
-  ,("pres ind s-form",              [v2] )
-  ,("pret ind aktiv",               [v3] )
-  ,("pret ind s-form",              [v4] )
-  ,("imper",                        [v5,v5a] )
-  ,("inf aktiv",                    [v6] )
-  ,("inf s-form",                   [v7] )
-  ,("sup aktiv",                    [v8] )
-  ,("sup s-form",                   [v9] )
-  ,("pret_part indef sg u nom",     [v10])
-  ,("pret_part indef sg u gen",     [v11])
-  ,("pret_part indef sg n nom",     [v12])
-  ,("pret_part indef sg n gen",     [v13])
-  ,("pret_part indef pl nom",       [v14])
-  ,("pret_part indef pl gen",       [v15])
-  ,("pret_part def sg no_masc nom", [v16])
-  ,("pret_part def sg no_masc gen", [v17])
-  ,("pret_part def pl nom",         [v18])
-  ,("pret_part def pl gen",         [v19])
-  ]
-
-verbParadigmList :: ParadigmList
-verbParadigmList =
-  [ ("mkV", [v1], "")
-  , ("mkV", [v6, v3, v8], "")
-  , ("mkV", [v6, v1, v5, v3, v8, v10], "")
-  ]
-
--- could use normal verbParamMap if we are sure it is a preposition,
--- and will look the same in all paradims
-verbPParamMap :: ParamMap
-verbPParamMap = map (first (T.append " 1:1-2")) verbParamMap
-              ++map (\(a,b) -> (T.append a " 1:2-2",["part"])) verbParamMap
-
-verbPParadigmList :: ParadigmList
-verbPParadigmList =
-  [ ("", [v1], "" )
-  , ("", [v6, v3, v8], "")
-  , ("", [v6, v1, v5, v3, v8, v10], "")
-  ]
-
-verbRParamMap :: ParamMap
-verbRParamMap = map (first (T.append " 1:1-2")) verbParamMap
-
-verbRParadigmList :: ParadigmList
-verbRParadigmList =
-  [ ("", [v1],  "")
-  , ("", [v6, v3, v8], "")
-  , ("", [v6, v1, v5, v3, v8, v10], "")
-  ]
-
-n1 = "s Sg Indef Nom"
-n2 = "s Sg Indef Gen"
-n3 = "s Sg Def Nom"
-n4 = "s Sg Def Gen"
-n5 = "s Pl Indef Nom"
-n6 = "s Pl Indef Gen"
-n7 = "s Pl Def Nom"
-n8 = "s Pl Def Gen"
-
-nounParamMap :: ParamMap
-nounParamMap =
-  [ ("sg indef nom", [n1])
-  , ("sg indef gen", [n2])
-  , ("sg def nom",   [n3])
-  , ("sg def gen",   [n4])
-  , ("pl indef nom", [n5])
-  , ("pl indef gen", [n6])
-  , ("pl def nom",   [n7])
-  , ("pl def gen",   [n8])
-  ]
-
-nounParadigmList :: ParadigmList
-nounParadigmList =
-  [ ("mkN", [n1], "")
-  , ("mkN", [n1], "utrum")
-  , ("mkN", [n1], "neutrum")
-  , ("mkN", [n1, n5], "")
-  , ("mkN", [n1, n3, n5, n7], "")
-  ]
-
------------------------------------------------------------------------------
--- Dump GF code
 
 printGFFinal :: Convert ()
 printGFFinal = do
@@ -829,3 +669,7 @@ lookup' a  =  map snd . filter ((== a) . fst)
 head' :: String -> [a] ->  a
 head' s []     = error $ "Error in head in "++s
 head' _ (x:xs) = x
+
+showListIndent :: Show a => Int -> [a] -> String
+showListIndent n x = tab ++ L.intercalate ("\n" ++ tab) (map show x)
+  where tab = L.replicate n ' '

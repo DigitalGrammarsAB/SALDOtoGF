@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: e9afb7f6f5b53c4d6dbb591e03f81bb2d0b4d6aadcf355a6237e49c65df88469
+-- hash: 3823b4b695fa0ea81964178daaf48e1b7f62e4cff1a6bca2fced976d442861a9
 
 name:           SALDOtoGF
 version:        3.0
@@ -27,6 +27,7 @@ executable SALDOtoGF
   main-is: Main.hs
   other-modules:
       Common
+      Paradigms
       Saldoer
       SaldoHSDump
       SaldoJSON
