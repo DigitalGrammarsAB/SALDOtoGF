@@ -68,7 +68,7 @@ data CState = CS
 data GrammarInfo = G
   { grLemma :: Text -- ^ SALDO lemgram, e.g. "blod..nn.1"
   , grPOS :: Text -- ^ GF category
-  , grForms :: [[Text]] -- ^ string arguments for paradigm
+  , grForms :: [Text] -- ^ string arguments for paradigm
   , grExtra :: Text -- ^ other arguments, e.g. gender
   , grFunction :: (Text,Text) -- ^ function name (e.g. "mkV"), particle (e.g. [åka] "hem")
   , grParadigms :: ParadigmList -- ^ queue of paradigms to try
@@ -214,7 +214,7 @@ findGrammar (id,E pos table) =  do
       let cnc =
             [ G id gf_cat forms extra funcs paradigms
             | (gf_cat,(f,f'),paradigms) <- xs
-            , let forms = [[snd $ head' "createGF" table]]
+            , let forms = [snd $ head' "createGF" table]
             , let extra = ""
             , let funcs = (f,findA gf_cat (T.append id f'))
             ]
@@ -373,7 +373,7 @@ updateGF = do
 -- | Check individual item
 -- 1: get table from SALDO
 check :: PGF.PGF -> GrammarInfo -> Convert ()
-check pgf entry@(G id cat lemmas _ _ _) = do
+check pgf entry@(G id _ _ _ _ _) = do
   saldo <- gets stLex
   case M.lookup id saldo of
     Just (E p t) -> checkWord pgf t entry
@@ -383,7 +383,7 @@ check pgf entry@(G id cat lemmas _ _ _) = do
 
 -- 2: get table from PGF
 checkWord :: PGF.PGF -> Table -> GrammarInfo -> Convert ()
-checkWord pgf t entry@(G id cat lemmas _ _ _) = do
+checkWord pgf t entry@(G _ cat _ _ _ _) = do
   langName <- getLangName
   let
     packTuple (a,b) = (T.pack a, T.pack b)
@@ -434,7 +434,7 @@ checkForms paramMap fm_t gf_t entry@(G id cat lemmas _ _  _)
       then do
         report (printf "all forms for %s not found" id)
         getNextLemma (G id cat lemmas b f ps)
-      else replace (G id cat [catMaybes forms] a f ps)
+      else replace (G id cat (catMaybes forms) a f ps)
       where
         getLemma :: Text -> Convert (Maybe Text)
         getLemma gf_p =
@@ -541,11 +541,11 @@ showAbs entry@(G id cat _ _ _ _) =
     convert x    = x
 
 showCnc :: GrammarInfo -> String
-showCnc entry@(G id _ [[]] _ _ _) = printf "-- %s does not have enough forms\n" (mkGFName entry)
-showCnc entry@(G id _ lemmas a (mk,end) _) =
+showCnc entry@(G id _ [] _ _ _) = printf "-- %s does not have enough forms\n" (mkGFName entry)
+showCnc entry@(G id _ forms a (mk,end) _) =
   printf "  %s = %s %s%s%s ;\n" (mkGFName entry) mk defs extra end
   where
-    defs = T.unwords [ T.unwords (map fnutta lemma_v) | lemma_v <- lemmas]
+    defs = T.unwords $ map fnutta forms
     extra = if T.null a then "" else T.concat [" ", a]
     fnutta :: Text -> Text
     fnutta x = T.concat ["\"", x, "\""]
