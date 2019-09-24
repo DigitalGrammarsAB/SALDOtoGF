@@ -14,7 +14,7 @@ import System.Exit (ExitCode(..))
 import System.Directory (removeFile, copyFile)
 import System.FilePath ((</>), (<.>))
 
-import Data.Char (isAlpha)
+import qualified Data.Char as C
 import Data.Maybe (catMaybes)
 import qualified Data.Map.Strict as M
 import qualified Data.List as L
@@ -84,7 +84,6 @@ data GrammarInfo = G
   } deriving Show
 
 showG :: GrammarInfo -> String
--- showG = T.unpack . T.replace "{gr" "{\n  gr" . T.replace ", gr" "\n  gr" . T.pack . show
 showG g = L.intercalate "\n"
   [ "G {"
   , printf "  grLemma = %s" (show (grLemma g))
@@ -102,6 +101,37 @@ instance Eq GrammarInfo where
 
 -----------------------------------------------------------------------------
 
+-- | Pre-process lexicon in various ways:
+-- Exclude entries of wrong POS
+-- Exclude unused features
+-- Split entries with variants into multiple entries
+processLex :: Lex -> Lex
+processLex = M.foldlWithKey folder M.empty
+  where
+    folder :: M.Map Text Entry -> Text -> Entry -> M.Map Text Entry
+    folder m k e = foldl (\m1 (k1,e1) -> M.insert k1 e1 m1) m toInsert
+      where
+        toInsert :: [(Text,Entry)]
+        toInsert = case getParamMap (ePOS e) of
+          Nothing -> [] -- wrong category, ignore entry
+          Just params ->
+            let
+              featMap = M.fromListWith (++) [ (feat,[form]) | (feat,form) <- eTable e, feat `elem` map fst params] :: M.Map Text [Text]
+              variantCount = foldl (\acc val -> max acc (length val)) 0 featMap :: Int
+            in if variantCount > 1
+            then
+              [ (k', e {eTable = pickFeatures n featMap})
+              | n <- [1..variantCount]
+              , let k' = k `T.snoc` C.chr (96 + n) -- 1 = a, 2 = b...
+              ]
+            else [(k, e {eTable = pickFeatures 1 featMap})]
+
+        pickFeatures :: Int -> M.Map Text [Text] -> Table
+        pickFeatures n m =
+          [ (feat, if length forms >= n then forms !! (n-1) else L.last forms)
+          | (feat,forms) <- M.toList m
+          ]
+
 -- | Main entry point: extract all parts and write final GF modules
 doExtract :: [Lex] -> Int -> IO ()
 doExtract lexs skip = do
@@ -110,7 +140,9 @@ doExtract lexs skip = do
     run lexi n = do
       printf "\nExtracting part %d of %d\n" (n+1) (length lexs)
       extract Nothing name lexi n
-  entriess <- zipWithM run lexs [skip..]
+    lexs' = map processLex lexs
+  -- mapM_ (putStrLn . showLex) lexs'
+  entriess <- zipWithM run lexs' [skip..]
   let entriesSorted = L.sortOn grLemma (concat entriess) :: [GrammarInfo]
   nl
 
@@ -211,24 +243,29 @@ findGrammar (id,E pos table) =  do
   rest <- gets stSelection
   let keep = maybe True (id `elem`) rest
   when keep $ do
-    let xs =
-          [ (gf_cat,f,paradigms)
-          | (fm_cat,gf_cat,_,f,paradigms) <- catMap
-          , fm_cat == pos
-          , okCat gf_cat id
-          ]
+    let
+      xs :: [(Text, (Text, Text), ParadigmList)]
+      xs =
+        [ (gf_cat,f,paradigms)
+        | (fm_cat,gf_cat,_,f,paradigms) <- catMap
+        , fm_cat == pos
+        , okCat gf_cat id
+        ]
     if null xs
     then do
       tellFailing (printf "don't accept pos %s, word '%s' rejected." pos id)
       isDead id
     else do
-      let cnc =
-            [ G id gf_cat forms extra funcs paradigms
-            | (gf_cat,(f,f'),paradigms) <- xs
-            , let forms = [snd $ head' "createGF" table]
-            , let extra = ""
-            , let funcs = (f,findA gf_cat (T.append id f'))
-            ]
+      let
+        cnc :: [GrammarInfo]
+        cnc =
+          [ G id gf_cat forms extra funcs paradigms
+          | (gf_cat,(f,f'),paradigms) <- xs
+          , let forms = [snd $ head' "createGF" table]
+          , let extra = ""
+          , let funcs = (f,findA gf_cat (T.append id f'))
+          ]
+
       modify $ \s -> s {stRetries = stRetries s ++ cnc}
 
 --- particles can be prepositions (hitta på), adverbs (åka hem), nouns (åka hem)...
@@ -246,7 +283,7 @@ findA _  _ = ""
         -- | otherwise         = ""
 
 hasPart :: Text -> Bool
-hasPart = (\x -> T.all isAlpha x && x /= "sig") . findsndWord
+hasPart = (\x -> T.all C.isAlpha x && x /= "sig") . findsndWord
 
 -- hasPrep :: Text -> Bool
 -- hasPrep = (`elem` preps) . findsndWord
@@ -399,7 +436,7 @@ checkWord pgf t entry@(G _ cat _ _ _ _) = do
   let
     packTuple (a,b) = (T.pack a, T.pack b)
     gf_t = map packTuple $ concat $ PGF.tabularLinearizes pgf (read langName) (read (mkGFName entry))
-    paramMap = head' "checkWord" [map | (_,gf_cat,map,_,_) <- catMap, gf_cat == cat] -- find relevant paramMap for cat
+    paramMap = getParamMapGF cat
   checkForms paramMap t gf_t entry
 
 -- 3: compare the two tables
@@ -682,17 +719,3 @@ report x = modify $ \s  -> s {stMsg = x:stMsg s}
 
 tellFailing :: String -> Convert ()
 tellFailing x = modify $ \s -> s {stErrs = x:stErrs s}
-
--- | Find all values matching key in non-unique key-value list
--- lookup' a [(a,1),(b,2),(a,3)] == [1,3]
-lookup' :: Eq a => a -> [(a,b)] -> [b]
-lookup' a  =  map snd . filter ((== a) . fst)
-
--- | Head which reports context on failure
-head' :: String -> [a] ->  a
-head' s []     = error $ "Error in head in "++s
-head' _ (x:xs) = x
-
-showListIndent :: Show a => Int -> [a] -> String
-showListIndent n x = tab ++ L.intercalate ("\n" ++ tab) (map show x)
-  where tab = L.replicate n ' '

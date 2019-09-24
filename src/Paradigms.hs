@@ -22,6 +22,17 @@ catMap  =
 --  , ("vbm", "VP", verbPParamMap, ("partV (mkV",""), verbPParadigmList)
   ]
 
+-- | Find relevant param map for SALDO cat
+getParamMap :: Text -> Maybe ParamMap
+getParamMap cat =
+  case [mp | (sl_cat,_,mp,_,_) <- catMap, sl_cat == cat] of
+    [] -> Nothing
+    mp:_ -> Just mp
+
+-- | Find relevant param map for GF cat (fails on error)
+getParamMapGF :: Text -> ParamMap
+getParamMapGF cat = head' "getParamMap" [mp | (_,gf_cat,mp,_,_) <- catMap, gf_cat == cat]
+
 -- For prepositions, not run automatically
 prepCatMap :: [(Text, Text, [(Text, Text)], (Text, Text), ParadigmList)]
 prepCatMap = [("pp", "Prep", [("invar","s")],("mkPrep",""),[("mkPrep",["s"],"")])]
