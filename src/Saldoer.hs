@@ -116,20 +116,23 @@ processLex = M.foldlWithKey folder M.empty
           Nothing -> [] -- wrong category, ignore entry
           Just params ->
             let
-              featMap = M.fromListWith (++) [ (feat,[form]) | (feat,form) <- eTable e, feat `elem` map fst params] :: M.Map Text [Text]
+              tbl = eTable e
+              featMap = M.fromListWith (flip (++)) [ (feat,[form]) | (feat,form) <- tbl, feat `elem` map fst params] :: M.Map Text [Text]
               variantCount = foldl (\acc val -> max acc (length val)) 0 featMap :: Int
             in if variantCount > 1
             then
-              [ (k', e {eTable = pickFeatures n featMap})
+              [ (k', e {eTable = pickFeatures n featMap tbl})
               | n <- [1..variantCount]
               , let k' = k `T.snoc` C.chr (96 + n) -- 1 = a, 2 = b...
               ]
-            else [(k, e {eTable = pickFeatures 1 featMap})]
+            else [(k, e {eTable = pickFeatures 1 featMap tbl})]
 
-        pickFeatures :: Int -> M.Map Text [Text] -> Table
-        pickFeatures n m =
+        -- require table as argument in order to preserve order of features
+        pickFeatures :: Int -> M.Map Text [Text] -> Table -> Table
+        pickFeatures n m tbl =
           [ (feat, if length forms >= n then forms !! (n-1) else L.last forms)
-          | (feat,forms) <- M.toList m
+          | feat <- L.nub $ map fst tbl
+          , Just forms <- [M.lookup feat m] -- ignore features not in m
           ]
 
 -- | Main entry point: extract all parts and write final GF modules
