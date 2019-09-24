@@ -4,7 +4,7 @@
 
 module SaldoHSDump (parseDict, dumpDict) where
 
-import Common
+import Common hiding (show)
 
 parseDict :: FilePath -> IO (Maybe Lex)
 parseDict path = do

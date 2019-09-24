@@ -3,6 +3,9 @@
 
 module Common where
 
+import Prelude hiding (show, print) -- use ushow, uprint instead
+import Text.Show.Unicode (uprint, ushow)
+
 import qualified Data.Map.Strict as M
 import qualified Data.List as L
 import Data.Text (Text)
@@ -23,8 +26,9 @@ data Entry = E
 showLex :: Lex -> String
 showLex lx = L.intercalate "\n"
   [ printf "%s (%s)\n" id (ePOS entry)
-  ++ showListIndent 2 (eTable entry)
+  ++ if null tbl then "  [no forms]" else showListIndent 2 tbl
   | (id,entry) <- M.toList lx
+  , let tbl = eTable entry
   ]
 
 -- Processing
@@ -34,6 +38,12 @@ type ParamMap = [(Text, [Text])]
 type ParadigmList = [(Text, [Text], Text)]
 
 -- Formatting
+
+show :: Show a => a -> String
+show = ushow
+
+print :: Show a => a -> IO ()
+print = uprint
 
 showListIndent :: Show a => Int -> [a] -> String
 showListIndent n x = tab ++ L.intercalate ("\n" ++ tab) (map show x)

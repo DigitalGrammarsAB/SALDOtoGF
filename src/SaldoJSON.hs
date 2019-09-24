@@ -7,6 +7,7 @@ module SaldoJSON (parseDict) where
 
 import Common
 
+import Prelude hiding (show)
 import qualified Data.Map.Strict as M
 import qualified Data.ByteString.Lazy as BSL
 import qualified Data.ByteString.Lazy.Char8 as C8

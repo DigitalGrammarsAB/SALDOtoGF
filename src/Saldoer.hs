@@ -6,7 +6,7 @@
 
 module Saldoer (doExtract, extract) where
 
-import Prelude hiding (show, print) -- use ushow, uprint instead
+import Prelude hiding (show)
 
 import System.IO (hClose, openTempFile, stdout, hSetBuffering, BufferMode(..))
 import System.Process (rawSystem)
@@ -15,7 +15,7 @@ import System.Directory (removeFile, copyFile)
 import System.FilePath ((</>), (<.>))
 
 import qualified Data.Char as C
-import Data.Maybe (catMaybes)
+import Data.Maybe (catMaybes, fromMaybe)
 import qualified Data.Map.Strict as M
 import qualified Data.List as L
 import Data.Set (Set)
@@ -23,7 +23,6 @@ import qualified Data.Set as S
 import Data.Text (Text)
 import qualified Data.Text as T
 import Text.Printf
-import Text.Show.Unicode (uprint, ushow)
 
 import Control.Monad (when, unless, zipWithM)
 import Control.Monad.Trans (lift)
@@ -35,12 +34,6 @@ import qualified PGF
 
 import Common
 import Paradigms
-
-show :: Show a => a -> String
-show = ushow
-
-print :: Show a => a -> IO ()
-print = uprint
 
 -----------------------------------------------------------------------------
 -- Directories
@@ -103,7 +96,7 @@ instance Eq GrammarInfo where
 
 -- | Pre-process lexicon in various ways:
 -- Exclude entries of wrong POS
--- Exclude unused features
+-- Exclude unused features (see `pickFeatures` below)
 -- Split entries with variants into multiple entries
 processLex :: Lex -> Lex
 processLex = M.foldlWithKey folder M.empty
@@ -132,22 +125,31 @@ processLex = M.foldlWithKey folder M.empty
         pickFeatures n m tbl =
           [ (feat, if length forms >= n then forms !! (n-1) else L.last forms)
           | feat <- L.nub $ map fst tbl
-          , Just forms <- [M.lookup feat m] -- ignore features not in m
+
+          -- Ignore features not in feature map
+          -- , Just forms <- [M.lookup feat m]
+
+          -- If lookup in known feature map fails, fallback on original table
+          , let tblForms = [ form' | (feat',form') <- tbl, feat' == feat ]
+          , let forms = fromMaybe tblForms (M.lookup feat m)
           ]
 
 -- | Main entry point: extract all parts and write final GF modules
 doExtract :: [Lex] -> Int -> IO ()
 doExtract lexs skip = do
+  putStrLn "Pre-processing lexicon"
+  let lexs' = map processLex lexs
+  -- mapM_ (putStrLn . showLex) lexs'
   let
     name = "Tot"
+    run :: Lex -> Int -> IO [GrammarInfo]
     run lexi n = do
       printf "\nExtracting part %d of %d\n" (n+1) (length lexs)
       extract Nothing name lexi n
-    lexs' = map processLex lexs
-  -- mapM_ (putStrLn . showLex) lexs'
   entriess <- zipWithM run lexs' [skip..]
   let entriesSorted = L.sortOn grLemma (concat entriess) :: [GrammarInfo]
   nl
+  putStrLn "Post-processing"
 
   -- Find entries with only one sense and create numberless lins for them
   let
@@ -174,7 +176,7 @@ doExtract lexs skip = do
       , let cnc = printf "  %s = %s ;\n" newId oldId
       ]
 
-  printf "Adding numberless functions for %d of %d lemmas\n\n" (length shadows) (S.size gf_ids)
+  printf "Added numberless functions for %d of %d lemmas\n\n" (length shadows) (S.size gf_ids)
 
   writeReportFile (genDir </> "DictSweAbs.gf") $ concat
     [ absHeader "DictSweAbs"
@@ -242,8 +244,6 @@ createGF sal = do
   report "lexicon created"
   io nl
 
--- TODO split entries with variants into multiple GrammarInfo terms
--- We don't want to use GF variants to encode them
 findGrammar :: (Text,Entry) -> Convert ()
 findGrammar (id,E pos table) =  do
   rest <- gets stSelection
@@ -267,7 +267,7 @@ findGrammar (id,E pos table) =  do
         cnc =
           [ G id gf_cat forms extra funcs paradigms
           | (gf_cat,(f,f'),paradigms) <- xs
-          , let forms = [snd $ head' "createGF" table]
+          , let forms = [snd $ head' (printf "findGrammar: %s" id) table]
           , let extra = ""
           , let funcs = (f,findA gf_cat (T.append id f'))
           ]
@@ -301,109 +301,6 @@ isRefl  = (=="sig") . findsndWord
 findsndWord :: Text -> Text
 findsndWord = T.drop 1 . T.takeWhile (/='.') . T.dropWhile (/='_')
 
--- -- | all Swedish prepostions according to Wikipedia
--- -- http://sv.wiktionary.org/wiki/Kategori:Svenska/Prepositioner
--- preps :: [String]
--- preps =
---   ["à"
---   ,"af"
---   ,"an"
---   ,"angående"
---   ,"apropå"
---   ,"av"
---   ,"bak"
---   ,"bakanför"
---   ,"bakför"
---   ,"bakom"
---   ,"bland"
---   ,"bortanför"
---   ,"bortom"
---   ,"bredvid"
---   ,"efter"
---   ,"emellan"
---   ,"enligt"
---   ,"exklusive"
---   ,"framanför"
---   ,"framför"
---   ,"framom"
---   ,"från"
---   ,"för"
---   ,"före"
---   ,"förutom"
---   ,"genom"
---   ,"gentemot"
---   ,"givet"
---   ,"hinsides"
---   ,"hitom"
---   ,"hos"
---   ,"i"
---   ,"ifrån"
---   ,"igenom"
---   ,"ikring"
---   ,"in" -- in is not in the original list, but needed
---   ,"inifrån"
---   ,"inklusive"
---   ,"innan"
---   ,"innanför"
---   ,"inom"
---   ,"intill"
---   ,"inuti"
---   ,"invid"
---   ,"jämlikt"
---   ,"jämte"
---   ,"kontra"
---   ,"kring"
---   ,"längs"
---   ,"längsefter"
---   ,"med"
---   ,"medelst"
---   ,"mellan"
---   ,"mittemellan"
---   ,"mittimellan"
---   ,"mot"
---   ,"mä"
---   ,"oavsett"
---   ,"om"
---   ,"ovan"
---   ,"ovanför"
---   ,"ovanpå"
---   ,"per"
---   ,"på"
---   ,"runt"
---   ,"runtomkring"
---   ,"sedan"
---   ,"som"
---   ,"te"
---   ,"till"
---   ,"tillika"
---   ,"tills"
---   ,"trots"
---   ,"under"
---   ,"undör"
---   ,"uppför"
---   ,"uppå"
---   ,"ur"
---   ,"ut"-- in is not in the original list, but needed
---   ,"utan"
---   ,"utanför"
---   ,"utanpå"
---   ,"utav"
---   ,"uti"
---   ,"utifrån"
---   ,"utom"
---   ,"utur"
---   ,"utöver"
---   ,"via"
---   ,"vid"
---   ,"visavi"
---   ,"än"
---   ,"å"
---   ,"åt"
---   ,"öfver"
---   ,"öfwer"
---   ,"över"
---   ]
-
 -----------------------------------------------------------------------------
 -- Compare the current GF version with SALDO
 
@@ -416,7 +313,7 @@ updateGF = do
   io $ putStrLn "Updating GF source"
   gis <- gets stRetries
   modify $ \s -> s {stChanges = 0, stRetries = []}
-  report $ "will check:\n" ++ showListIndent 2 (map grLemma gis)
+  report $ "will check:\n  " ++ T.unpack (T.intercalate "\n  " (map grLemma gis))
   mapM_ (check pgf) gis
   printGF
   c <- gets stChanges
@@ -447,21 +344,21 @@ checkWord pgf t entry@(G _ cat _ _ _ _) = do
 
 -- 3: compare the two tables
 checkForms :: ParamMap -> Table -> Table -> GrammarInfo -> Convert ()
-checkForms paramMap fm_t gf_t entry@(G id _ _ _ (mk,_) _) = do
+checkForms paramMap fm_t gf_t entry@(G id cat _ _ _ _) = do
   -- report $ "fm_t:\n" ++ showListIndent 2 fm_t
   -- report $ "gf_t:\n" ++ showListIndent 2 gf_t
   report $ showG entry
   report $ "comp:\n" ++ showListIndent 2 comp
   case comp of
     _ | not anyDiffs -> accept entry
-    _ | anyMissing && mk == "mkN" && and
+        -- Handling nouns with no plural
+    _ | anyMissing && cat == "N" && and
         [ sg_fm_vs == d && sg_gf_vs == d
         | (a,b,c,d) <- comp
         , null b -- form missing from SALDO
         , "pl " `T.isPrefixOf` a  -- "pl indef nom"
         , let sg_fm = T.replace "pl " "sg " a -- "sg indef nom"
-        -- , let sg_fm_vs = lookup' sg fm_t :: [Text]
-        , let lkp = [ (x,z) | (w,x,y,z) <- comp, w == sg_fm]
+        , let lkp = [(x,z) | (w,x,y,z) <- comp, w == sg_fm] -- find sg version in comp
         , not (null lkp)
         , let (sg_fm_vs,sg_gf_vs) = head lkp
         ] -> accept entry
@@ -478,31 +375,35 @@ checkForms paramMap fm_t gf_t entry@(G id _ _ _ (mk,_) _) = do
       | (fm_p,gf_p) <- paramMap -- fm_p :: Text, gf_p :: [Text]
       , let fm_vs = lookup' fm_p fm_t -- fm_vs :: [Text]
       , let gf_vs = concatMap (`lookup'` gf_t) gf_p -- gf_vs :: [Text]
-      , let b = fm_vs /= gf_vs
       ]
 
     anyDiffs :: Bool
-    anyDiffs = any (\(_,fm_vs,_,gf_vs) -> fm_vs /= gf_vs) comp
+    anyDiffs = any (\(_,fm_vs,_,gf_vs) -> not (match fm_vs gf_vs)) comp
+      where
+        match :: [Text] -> [Text] -> Bool
+        match [] _  = False -- form is missing from SALDO
+        match xs ys = any (`elem` xs) ys -- at least 1 wordform from GF appears in SALDO
 
     anyMissing :: Bool
     anyMissing = any (\(_,fm_vs,_,_) -> null fm_vs) comp
 
     getNextLemma :: GrammarInfo -> Convert ()
     getNextLemma (G id cat _ _ _ []) = do
-      let msg = printf "no more paradigms to choose from: %s" id
+      let msg = printf "no more paradigms to choose from for %s" id
       report msg
       tellFailing msg
       reject id
     getNextLemma (G id cat lemmas b f (p@(pre,xs,a):ps)) = do
       report $ printf "working on %s" id
       report $ printf "next paradigm:\n  %s" (show p)
-      report $ "remaining paradigms:\n" ++ showListIndent 2 ps
+      unless (null ps) $
+        report $ "remaining paradigms:\n" ++ showListIndent 2 ps
       forms <- mapM getLemma xs
       report $ printf "forms: %s" (show forms)
       if Nothing `elem` forms
       -- TODO if the comparative forms for an adjective doesn't exist, add compounda
       then do
-        report (printf "all forms for %s not found" id)
+        report (printf "not all forms found for %s" id)
         getNextLemma (G id cat lemmas b f ps)
       else replace (G id cat (catMaybes forms) a f ps)
       where
