@@ -196,16 +196,19 @@ extract :: Maybe [Text] -> String -> Lex -> Int -> IO [GrammarInfo]
 extract select name saldo n  = do
   hSetBuffering stdout NoBuffering
   let
-    loop = do
-      report ""
+    loop :: Int -> Convert ()
+    loop n = do
+      report $ printf "\n[%d]" n
+      io $ printf "\n[%d]\n" n
       updateGF
       compileGF
       changes <- gets stChanges
-      unless (changes == 0) loop
+      unless (changes == 0) (loop (n+1))
+    run :: Convert ()
     run = do
       createGF saldo
       compileGF
-      loop
+      loop 1
       printGFFinal
       cleanUp
   mst <- runExceptT $ execStateT run (initState n select name)
@@ -257,7 +260,7 @@ findGrammar (id,E pos table) =  do
     if null xs
     then do
       tellFailing (printf "don't accept pos %s, word '%s' rejected." pos id)
-      isDead id
+      reject id
     else do
       let
         cnc :: [GrammarInfo]
@@ -413,7 +416,7 @@ updateGF = do
   io $ putStrLn "Updating GF source"
   gis <- gets stRetries
   modify $ \s -> s {stChanges = 0, stRetries = []}
-  report $ "will update:\n" ++ L.intercalate "\n" (map showG gis)
+  report $ "will check:\n" ++ showListIndent 2 (map grLemma gis)
   mapM_ (check pgf) gis
   printGF
   c <- gets stChanges
@@ -430,7 +433,7 @@ check pgf entry@(G id _ _ _ _ _) = do
     Just (E p t) -> checkWord pgf t entry
     Nothing -> do
       tellFailing (printf "unknown id in SALDO: %s" id)
-      isDead id
+      reject id
 
 -- 2: get table from PGF
 checkWord :: PGF.PGF -> Table -> GrammarInfo -> Convert ()
@@ -445,18 +448,22 @@ checkWord pgf t entry@(G _ cat _ _ _ _) = do
 -- 3: compare the two tables
 checkForms :: ParamMap -> Table -> Table -> GrammarInfo -> Convert ()
 checkForms paramMap fm_t gf_t entry@(G id _ _ _ (mk,_) _) = do
-  report $ "fm_t:\n" ++ showListIndent 2 fm_t
-  report $ "gf_t:\n" ++ showListIndent 2 gf_t
+  -- report $ "fm_t:\n" ++ showListIndent 2 fm_t
+  -- report $ "gf_t:\n" ++ showListIndent 2 gf_t
+  report $ showG entry
   report $ "comp:\n" ++ showListIndent 2 comp
   case comp of
     _ | not anyDiffs -> accept entry
     _ | anyMissing && mk == "mkN" && and
-        [ sg_fm_vs == d
-        | (a,b,_,d) <- comp
+        [ sg_fm_vs == d && sg_gf_vs == d
+        | (a,b,c,d) <- comp
         , null b -- form missing from SALDO
         , "pl " `T.isPrefixOf` a  -- "pl indef nom"
-        , let sg = T.replace "pl " "sg " a -- "sg indef nom"
-        , let sg_fm_vs = lookup' sg fm_t :: [Text]
+        , let sg_fm = T.replace "pl " "sg " a -- "sg indef nom"
+        -- , let sg_fm_vs = lookup' sg fm_t :: [Text]
+        , let lkp = [ (x,z) | (w,x,y,z) <- comp, w == sg_fm]
+        , not (null lkp)
+        , let (sg_fm_vs,sg_gf_vs) = head lkp
         ] -> accept entry
     _ -> do
       c <- gets stChanges
@@ -485,7 +492,7 @@ checkForms paramMap fm_t gf_t entry@(G id _ _ _ (mk,_) _) = do
       let msg = printf "no more paradigms to choose from: %s" id
       report msg
       tellFailing msg
-      isDead id
+      reject id
     getNextLemma (G id cat lemmas b f (p@(pre,xs,a):ps)) = do
       report $ printf "working on %s" id
       report $ printf "next paradigm:\n  %s" (show p)
@@ -683,7 +690,7 @@ setPGF :: FilePath -> Convert ()
 setPGF f = modify $ \s -> s { stPGF = f}
 
 -- | Replace element in retries
--- Works because of defininition of equality of GrammarInfo
+-- Note: equality of GrammarInfo only considers id
 replace :: GrammarInfo -> Convert ()
 replace gr = modify $ \s -> s {stRetries = replaceInList gr gr (stRetries s)}
 
@@ -692,21 +699,19 @@ replaceInList :: Eq a => a -> a -> [a] -> [a]
 replaceInList x y xs = a ++ y : drop 1 b
   where (a,b) = L.break (x ==) xs
 
--- add to dead , remove from retries
-isDead :: Text -> Convert ()
-isDead d = modify $ \s -> s {stDead = d:stDead s, stRetries = L.delete (emptyG d) (stRetries s)}  -- hehe, make nice?
+-- | Add to dead, remove from retries
+-- Note: equality of GrammarInfo only considers id
+reject :: Text -> Convert ()
+reject d = modify $ \s -> s {stDead = d:stDead s, stRetries = L.delete (emptyG d) (stRetries s)}  -- hehe, make nice?
   where emptyG d = G d "" [] "" ("","") []
 
---add to ok, remove from retries
+-- | Add to ok, remove from retries
+-- Note: equality of GrammarInfo only considers id
 accept :: GrammarInfo -> Convert ()
 accept e = do
   report $ printf "accepting %s" (grLemma e)
   modify $ \s -> s {stRetries = L.delete e (stRetries s), stOK = e:stOK s}
-  r <- gets stRetries
-  report $ printf "deleted %s from retries. result: %s" (grLemma e) (show (e `elem` r))
-
--- setPartNo :: Int -> Convert ()
--- setPartNo n = modify $ \s -> s {stPartNo = n}
+  -- report $ printf "deleted %s from retries" (grLemma e)
 
 addTemp :: FilePath -> Convert ()
 addTemp f = modify $ \s -> s {stTmps = f:stTmps s}
