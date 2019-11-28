@@ -1,0 +1,48 @@
+<LexicalResource dtdVersion="16">
+<GlobalInformation>
+<feat att="languageCoding" val="ISO 639-3"/>
+</GlobalInformation>
+<Lexicon>
+<feat att="language" val="swe"/>
+
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="finnas"/>
+   <feat att="lemgram" val="finnas..vb.1"/>
+   <feat att="partOfSpeech" val="vb"/>
+   <feat att="paradigm" val="vb_4s_finnas"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="finns"/>
+  <feat att="msd" val="pres ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="finnes"/>
+  <feat att="msd" val="pres ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="fanns"/>
+  <feat att="msd" val="pret ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="finns"/>
+  <feat att="msd" val="imper"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="finnes"/>
+  <feat att="msd" val="imper"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="finnas"/>
+  <feat att="msd" val="inf s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="funnits"/>
+  <feat att="msd" val="sup s-form"/>
+  </WordForm>
+</LexicalEntry>
+
+</Lexicon>
+</LexicalResource>

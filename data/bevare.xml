@@ -1,0 +1,24 @@
+<LexicalResource dtdVersion="16">
+<GlobalInformation>
+<feat att="languageCoding" val="ISO 639-3"/>
+</GlobalInformation>
+<Lexicon>
+<feat att="language" val="swe"/>
+
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="bevare"/>
+   <feat att="lemgram" val="bevare..vb.1"/>
+   <feat att="partOfSpeech" val="vb"/>
+   <feat att="paradigm" val="vb_ik_bevare"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="bevare"/>
+  <feat att="msd" val="pres konj aktiv"/>
+  </WordForm>
+</LexicalEntry>
+
+</Lexicon>
+</LexicalResource>

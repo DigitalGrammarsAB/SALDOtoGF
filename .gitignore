@@ -8,6 +8,7 @@ generate/*
 logs/*
 
 data/saldom.xml
+data/saldom-1000000.xml
 data/*.hsdump
 
 # for keeping empty folders
