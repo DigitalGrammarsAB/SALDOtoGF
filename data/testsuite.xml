@@ -5,6 +5,9 @@
 <Lexicon>
 <feat att="language" val="swe"/>
 
+<!-- NOUNS -->
+
+<!-- val, neutrum -->
 <LexicalEntry>
  <Lemma>
   <FormRepresentation>
@@ -76,6 +79,7 @@
   <feat att="msd" val="sms"/>
   </WordForm>
 </LexicalEntry>
+<!-- val, utrum -->
 <LexicalEntry>
  <Lemma>
   <FormRepresentation>
@@ -147,6 +151,8 @@
   <feat att="msd" val="sms"/>
   </WordForm>
 </LexicalEntry>
+
+<!-- should get a numberless ident -->
 <LexicalEntry>
  <Lemma>
   <FormRepresentation>
@@ -211,6 +217,7 @@
   </WordForm>
 </LexicalEntry>
 
+<!-- "normal" noun -->
 <LexicalEntry>
  <Lemma>
   <FormRepresentation>
@@ -290,6 +297,8 @@
   <feat att="msd" val="sms"/>
   </WordForm>
 </LexicalEntry>
+
+<!-- has missing forms -->
 <LexicalEntry>
  <Lemma>
   <FormRepresentation>
@@ -338,6 +347,7 @@
   </WordForm>
 </LexicalEntry>
 
+<!-- variant spellings (blodet/bloden) -->
 <LexicalEntry>
  <Lemma>
   <FormRepresentation>
@@ -413,6 +423,231 @@
   <feat att="msd" val="sms"/>
   </WordForm>
 </LexicalEntry>
+
+<!-- VERBS -->
+
+<!-- "normal" verb -->
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="leva"/>
+   <feat att="lemgram" val="leva..vb.1"/>
+   <feat att="partOfSpeech" val="vb"/>
+   <feat att="paradigm" val="vb_2a_leva"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="lever"/>
+  <feat att="msd" val="pres ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="leves"/>
+  <feat att="msd" val="pres ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="levs"/>
+  <feat att="msd" val="pres ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="levde"/>
+  <feat att="msd" val="pret ind aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="levdes"/>
+  <feat att="msd" val="pret ind s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="lev"/>
+  <feat att="msd" val="imper"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="leva"/>
+  <feat att="msd" val="inf aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="levas"/>
+  <feat att="msd" val="inf s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="levt"/>
+  <feat att="msd" val="sup aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="levat"/>
+  <feat att="msd" val="sup aktiv"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="levts"/>
+  <feat att="msd" val="sup s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="levats"/>
+  <feat att="msd" val="sup s-form"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="levande"/>
+  <feat att="msd" val="pres_part nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="levandes"/>
+  <feat att="msd" val="pres_part gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="levd"/>
+  <feat att="msd" val="pret_part indef sg u nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="levds"/>
+  <feat att="msd" val="pret_part indef sg u gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="levt"/>
+  <feat att="msd" val="pret_part indef sg n nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="levts"/>
+  <feat att="msd" val="pret_part indef sg n gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="levda"/>
+  <feat att="msd" val="pret_part indef pl nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="levdas"/>
+  <feat att="msd" val="pret_part indef pl gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="levda"/>
+  <feat att="msd" val="pret_part def sg no_masc nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="levdas"/>
+  <feat att="msd" val="pret_part def sg no_masc gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="levde"/>
+  <feat att="msd" val="pret_part def sg masc nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="levdes"/>
+  <feat att="msd" val="pret_part def sg masc gen"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="levda"/>
+  <feat att="msd" val="pret_part def pl nom"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="levdas"/>
+  <feat att="msd" val="pret_part def pl gen"/>
+  </WordForm>
+</LexicalEntry>
+
+<!-- partical verb -->
+<LexicalEntry>
+ <Lemma>
+  <FormRepresentation>
+   <feat att="writtenForm" val="passa på"/>
+   <feat att="lemgram" val="passa_på..vbm.1"/>
+   <feat att="partOfSpeech" val="vbm"/>
+   <feat att="paradigm" val="vbm_1mp1_laga"/>
+  </FormRepresentation>
+ </Lemma>
+ <WordForm>
+  <feat att="writtenForm" val="passar"/>
+  <feat att="msd" val="pres ind aktiv 1:1-2"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="på"/>
+  <feat att="msd" val="pres ind aktiv 1:2-2"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="passas"/>
+  <feat att="msd" val="pres ind s-form 1:1-2"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="på"/>
+  <feat att="msd" val="pres ind s-form 1:2-2"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="passade"/>
+  <feat att="msd" val="pret ind aktiv 1:1-2"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="på"/>
+  <feat att="msd" val="pret ind aktiv 1:2-2"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="passades"/>
+  <feat att="msd" val="pret ind s-form 1:1-2"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="på"/>
+  <feat att="msd" val="pret ind s-form 1:2-2"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="passa"/>
+  <feat att="msd" val="imper 1:1-2"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="på"/>
+  <feat att="msd" val="imper 1:2-2"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="passa"/>
+  <feat att="msd" val="inf aktiv 1:1-2"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="på"/>
+  <feat att="msd" val="inf aktiv 1:2-2"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="passas"/>
+  <feat att="msd" val="inf s-form 1:1-2"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="på"/>
+  <feat att="msd" val="inf s-form 1:2-2"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="passat"/>
+  <feat att="msd" val="sup aktiv 1:1-2"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="på"/>
+  <feat att="msd" val="sup aktiv 1:2-2"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="passats"/>
+  <feat att="msd" val="sup s-form 1:1-2"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="på"/>
+  <feat att="msd" val="sup s-form 1:2-2"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="passande"/>
+  <feat att="msd" val="pres_part nom 1:1-2"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="på"/>
+  <feat att="msd" val="pres_part nom 1:2-2"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="passandes"/>
+  <feat att="msd" val="pres_part gen 1:1-2"/>
+  </WordForm>
+ <WordForm>
+  <feat att="writtenForm" val="på"/>
+  <feat att="msd" val="pres_part gen 1:2-2"/>
+  </WordForm>
+</LexicalEntry>
+
+<!-- ADJECTIVES -->
+
+<!-- ADVERBS -->
+
+<!-- OTHER EDGE CASES -->
+
 <LexicalEntry>
  <Lemma>
   <FormRepresentation>

@@ -100,7 +100,7 @@ v2  = "s (VF (VPres Pass))"
 v3  = "s (VF (VPret Act))"
 v4  = "s (VF (VPret Pass))"
 v5  = "s (VF (VImper Act))"
-v5a  = "s (VF (VImper Pass))"
+v5a = "s (VF (VImper Pass))"
 v6  = "s (VI (VInfin Act))"
 v7  = "s (VI (VInfin Pass))"
 v8  = "s (VI (VSupin Act))"
@@ -115,6 +115,14 @@ v16 = "s (VI (VPtPret (Weak Sg) Nom))"
 v17 = "s (VI (VPtPret (Weak Sg) Gen))"
 v18 = "s (VI (VPtPret (Weak Pl) Nom))"
 v19 = "s (VI (VPtPret (Weak Pl) Gen))"
+-- s (VI (VPtPres Sg Indef Nom))
+-- s (VI (VPtPres Sg Indef Gen))
+-- s (VI (VPtPres Sg Def Nom))
+-- s (VI (VPtPres Sg Def Gen))
+-- s (VI (VPtPres Pl Indef Nom))
+-- s (VI (VPtPres Pl Indef Gen))
+-- s (VI (VPtPres Pl Def Nom))
+-- s (VI (VPtPres Pl Def Gen))
 
 verbParamMap :: ParamMap
 --"s (VF (VImper Pass))")   "part")
@@ -149,26 +157,26 @@ verbParadigmList =
 
 -- could use normal verbParamMap if we are sure it is a preposition,
 -- and will look the same in all paradims
-verbPParamMap :: ParamMap
-verbPParamMap = map (first (T.append " 1:1-2")) verbParamMap
-              ++map (\(a,b) -> (T.append a " 1:2-2",["part"])) verbParamMap
-
-verbPParadigmList :: ParadigmList
-verbPParadigmList =
-  [ ("", [v1], "" )
-  , ("", [v6, v3, v8], "")
-  , ("", [v6, v1, v5, v3, v8, v10], "")
-  ]
-
-verbRParamMap :: ParamMap
-verbRParamMap = map (first (T.append " 1:1-2")) verbParamMap
-
-verbRParadigmList :: ParadigmList
-verbRParadigmList =
-  [ ("", [v1],  "")
-  , ("", [v6, v3, v8], "")
-  , ("", [v6, v1, v5, v3, v8, v10], "")
-  ]
+-- verbPParamMap :: ParamMap
+-- verbPParamMap = map (first (T.append " 1:1-2")) verbParamMap
+--               ++map (\(a,b) -> (T.append a " 1:2-2",["part"])) verbParamMap
+--
+-- verbPParadigmList :: ParadigmList
+-- verbPParadigmList =
+--   [ ("", [v1], "" )
+--   , ("", [v6, v3, v8], "")
+--   , ("", [v6, v1, v5, v3, v8, v10], "")
+--   ]
+--
+-- verbRParamMap :: ParamMap
+-- verbRParamMap = map (first (T.append " 1:1-2")) verbParamMap
+--
+-- verbRParadigmList :: ParadigmList
+-- verbRParadigmList =
+--   [ ("", [v1],  "")
+--   , ("", [v6, v3, v8], "")
+--   , ("", [v6, v1, v5, v3, v8, v10], "")
+--   ]
 
 n1 = "s Sg Indef Nom"
 n2 = "s Sg Indef Gen"

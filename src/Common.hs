@@ -13,6 +13,7 @@ import Text.Printf
 import System.IO (hPutStrLn, stderr)
 
 -- Extraction
+-- If these types change, any *.hsdump files should be deleted
 
 type Lex = M.Map Text Entry -- key is lemgram ID
 

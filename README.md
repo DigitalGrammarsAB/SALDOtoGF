@@ -7,8 +7,8 @@
 This repository contains a script for converting SALDO into a large-scale, monolingual, morphological GF dictionary.
 The dictionary itself, which is produced from the script, is part of GF's open-source [Resource Grammar Library](https://github.com/GrammaticalFramework/gf-rgl) (RGL) and can be found under `src/swedish/NewDictSwe.gf`.
 
-This work is primarily based on that of Malin Ahlberg: <https://github.com/MalinAhlberg/SwedishProject/tree/master/saldo>
-and has undergone improvement by [Digital Grammars AB](https://www.digitalgrammars.com/).
+This work is originally based on that of Malin Ahlberg: <https://github.com/MalinAhlberg/SwedishProject/tree/master/saldo>.  
+It has been improved, and is currently maintained, by [Digital Grammars AB](https://www.digitalgrammars.com/).
 
 ## Usage
 
@@ -18,7 +18,7 @@ This is obtained from: <https://svn.spraakdata.gu.se/sb-arkiv/pub/lmf/saldom/sal
 The main executable is then run with this file as input argument, e.g.:
 
 ```
-stack run -- data/saldo.xml
+stack run -- data/saldom.xml
 ```
 
 ### JSON format
