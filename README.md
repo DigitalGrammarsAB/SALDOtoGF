@@ -8,7 +8,9 @@ This repository contains a script for converting SALDO into a large-scale, monol
 The dictionary itself, which is produced from the script, is part of GF's open-source [Resource Grammar Library](https://github.com/GrammaticalFramework/gf-rgl) (RGL) and can be found under `src/swedish/NewDictSwe.gf`.
 
 This work is originally based on that of Malin Ahlberg: <https://github.com/MalinAhlberg/SwedishProject/tree/master/saldo>.  
-It has been improved, and is currently maintained, by [Digital Grammars AB](https://www.digitalgrammars.com/).
+It has been updated and improved by [Digital Grammars AB](https://www.digitalgrammars.com/).
+
+**We currently see this project as dormant, in favour of new effort for building morphological dictionaries as part of the RGL, which can be found [here](https://github.com/GrammaticalFramework/gf-rgl/tree/master/src/morphodict).**
 
 ## Usage
 
